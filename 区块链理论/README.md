@@ -86,25 +86,34 @@
 侧链是试图连接两种不同链的技术。
 
 ## 共识协议
+
 ![](./img/共识协议.jpg)
 
 
 ## 共识算法 (重点理解)
 https://www.bilibili.com/video/av21667358/
+
 ### Paxos  算法  
 
-https://www.bilibili.com/video/av21667358/
 - 角色
+
 ![](./img/Paxos角色.jpg)
+
 - 步骤
+
 ![](./img/步骤.jpg)
+
 - BasicPaxos基本流程
+
 ![](./img/BasicPaxos基本流程.jpg)
+
 - Basic Paxos
 活锁问题解决: 用随机等待时间解决即可.
 - Multi Paxos
 将两轮RPC优化成一轮RPC(省去了一轮竞选leader的过程)
+
 ![](./img/MultiPaxos.jpg)
+
 ### Raft算法
 #### 3个子问题
 - Leader Election
