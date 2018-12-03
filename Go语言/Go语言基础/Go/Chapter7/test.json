@@ -1,0 +1,9 @@
+{
+  "servers": [{
+    "serverName": "Shanghai_VPN",
+    "serverIP": "127.0.0.1"
+  }, {
+    "serverName": "Beijing_VPN",
+    "serverIP": "127.0.0.2"
+  }]
+}
