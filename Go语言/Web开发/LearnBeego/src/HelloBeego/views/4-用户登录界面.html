@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+
+    <script>
+
+        function onchk() {
+
+            // alert(document.getElementsByName("username")[0].value) //ok , 注意是 Elements , 所以要取[0]
+            if(document.getElementById('username').value == ''){
+                alert("请填上用户名")
+                return false
+            }
+            if(document.getElementById('password').value == ''){
+                alert("请填上密码")
+                return false
+            }
+
+            // var tempform = document.getElementsByName("userinfo")
+            //tempform.onsubmit()
+            //  alert("ok")
+            return true
+        }
+
+    </script>
+
+
+</head>
+<body>
+
+<form  method="post" action="/login" name="userinfo"  >
+
+    <p>
+        用户名:<input type="text" name="username"  id="username"  >
+    </p>
+    <p>
+        密 码: <input type="password" name="password" id="password">
+    </p>
+
+    <p>
+        <input type="submit" value="登录" onclick="return onchk()">
+    </p>
+
+</form>
+
+</body>
+</html>
