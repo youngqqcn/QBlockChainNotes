@@ -101,6 +101,32 @@ func (c *UpdateController)UpdateArticle()  {
 
 
 	//调到文章内容页面
-	c.Redirect("/content?id=" + strconv.Itoa(article.Id), 302)
+	c.Redirect("/MyBlog/content?id=" + strconv.Itoa(article.Id), 302)
 	//c.Ctx.WriteString("文章id是: " + strconv.Itoa(id))
+}
+
+//删除文章
+func (c *UpdateController)DeleteArticle()  {
+
+	//获取文章id
+	id, err := c.GetInt("id")
+	if err != nil{
+		beego.Info("获取文字id错误")
+		return
+	}
+
+	//删除数据库中的文章数据
+	o := orm.NewOrm()
+
+	article := models.Article{Id:id}
+	//err = o.Read(&article)
+	rows, err := o.Delete(&article, "Id")
+	if err != nil{
+		beego.Info(err)
+		return
+	}
+	beego.Info("删除了 ", rows, " 行数据")
+
+
+	c.Redirect("/MyBlog/index", 302)
 }

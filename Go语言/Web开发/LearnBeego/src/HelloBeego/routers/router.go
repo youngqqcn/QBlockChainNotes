@@ -13,6 +13,8 @@ func init() {
 	beego.Router("/login", &controllers.LoginController{}, "get:Get;post:Login") //用户登录
 
 
-
+	//数据表 多对多关系的相关操作
+	beego.Router("/m2mInsert", &controllers.M2MTableController{}, "get:M2MInsert" )
+	beego.Router("/m2mQuery", &controllers.M2MTableController{}, "get:M2MQuery" )
 
 }

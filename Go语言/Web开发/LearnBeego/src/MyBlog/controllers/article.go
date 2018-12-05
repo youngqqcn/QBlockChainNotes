@@ -24,6 +24,7 @@ import (
 	"github.com/astaxie/beego/orm"
 	"path"
 	"time"
+	"strings"
 )
 
 
@@ -35,6 +36,18 @@ type AddArticleController struct {
 }
 
 func (c *AddArticleController) Get() {
+
+	o := orm.NewOrm()
+	var articleTypes  []models.ArticleType
+	rows, err := o.QueryTable(&models.ArticleType{}).All(&articleTypes)
+	if err != nil{
+		beego.Info("查询文章类型失败")
+		return
+	}
+	beego.Info("文章类型个数:", rows)
+
+	c.Data["articleTypes"] = articleTypes
+
 	c.TplName = "add.html"
 }
 
@@ -81,12 +94,29 @@ func (c *AddArticleController) AddArticle() {
 		return
 	}
 
+	articleType := c.GetString("selectType")
+	articleType = strings.Trim(articleType, " ")
+	if len(articleType) == 0{
+		beego.Info("文章类型为空")
+		return
+	}
+	beego.Info("获取到文章类型是:", articleType)
 
 	//写入数据库
-
 	o := orm.NewOrm()
 
+	articleTypeStruct := models.ArticleType{}
+	articleTypeStruct.Type = articleType
+	err = o.Read(&articleTypeStruct, "Type")
+	if err != nil{
+		beego.Info("查询文章类型表, 发生错误")
+		return
+	}
+
+
 	article :=  models.Article{}
+	article.ArticleType = &articleTypeStruct
+	article.Type = articleType
 	article.Content = articleCont
 	article.Title = articleName
 	article.ImgURL  = "static/upload/"  + fileName
@@ -96,6 +126,6 @@ func (c *AddArticleController) AddArticle() {
 	 	beego.Info(err)
 		 return
 	 }
-	c.Redirect("/index", 302)
+	c.Redirect("/MyBlog/index", 302)
 }
 

@@ -19,7 +19,7 @@ func init()  {
 	if err != nil{
 		panic(err)
 	}
-	orm.RegisterModel(&User{})
+	orm.RegisterModel(&User{}, &Subject{}, &Stu{})
 	orm.RunSyncdb("default", false, true)
 
 	
