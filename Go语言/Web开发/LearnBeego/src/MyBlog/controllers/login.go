@@ -5,6 +5,7 @@ import (
 	"strings"
 	"github.com/astaxie/beego/orm"
 	"MyBlog/models"
+	"time"
 )
 
 
@@ -16,6 +17,16 @@ type LoginController struct {
 }
 
 func (c *LoginController)Get()  {
+
+	username := c.Ctx.GetCookie("username")
+	if username != "" {
+		c.Data["username"] = username
+		c.Data["checked"] = "checked"
+	}else{
+		c.Data["username"] = ""
+		c.Data["checked"] = ""
+	}
+
 
 	c.TplName = "login.html"
 
@@ -56,8 +67,23 @@ func (c *LoginController)Login()  {
 
 	beego.Info("密码是:", user.Pwd)
 
+
+
+	isChecked := c.GetString("rememberName")
+	beego.Info("rememberName = ", isChecked)
+	if isChecked == "on"{
+		c.Ctx.SetCookie("username", username, time.Second * 60 * 60)
+	}else{
+		c.Ctx.SetCookie("username", username, -1 )
+
+	}
+
+
+	c.SetSession("username", username)
+
+
 	//c.Ctx.WriteString("登录成功")
-	c.Redirect("/index", 302)
+	c.Redirect("/MyBlog/index", 302)
 
 }
 

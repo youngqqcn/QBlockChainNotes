@@ -7,12 +7,40 @@
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
     <script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
 
+
+    <script type="text/javascript">
+        window.onload = function () {
+            $(".dels").click(function () {
+                if (!confirm("是否删除文章?") )
+                {
+                    return false;
+                }
+            });
+
+            //不行
+            // document.getElementById("typeSelect").onchange = function () {
+            //     document.getElementById("typeForm").onsubmit()
+            // }
+
+            //ok
+            document.getElementById("typeSelect").onchange = function () {
+                document.getElementById("typeForm").submit()
+            }
+        };
+
+        //ok
+        // function selectChange(){
+        //     document.getElementById("typeForm").submit()
+        // }
+
+    </script>
+
 </head>
 <body>
 
     <div class="header">
         <a href="#" class="logo fl"><img src="/static/img/logo.png" alt="logo"></a>
-        <a href="#" class="logout fr">退 出</a>
+        <a href="/MyBlog/logout" class="logout fr">退 出</a>
     </div>
     
     <div class="side_bar">
@@ -24,9 +52,9 @@
         <div class="menu_con">
             <div class="first_menu active"><a href="javascript:;" class="icon02">文章管理</a></div>
             <ul class="sub_menu show">
-                <li><a href="#" class="icon031">文章列表</a></li>
-                <li><a href="/addArticle" class="icon032">添加文章</a></li>
-                <li><a href="#" class="icon034">添加分类</a></li>
+                <li><a href="/MyBlog/index" class="icon031">文章列表</a></li>
+                <li><a href="/MyBlog/addArticle" class="icon032">添加文章</a></li>
+                <li><a href="/MyBlog/addArticleType" class="icon034">添加分类</a></li>
             </ul>
         </div>
     </div>
@@ -37,11 +65,16 @@
         </div>
         <div class="pannel">
             <span class="sel_label">请选择文章分类：</span>
-            <select name="select" id="select" class="sel_opt">
-                        <option selected="true">财经新闻</option>
-                <option>体育新闻</option>
-                <option>科技新闻</option>
+
+            <form id="typeForm" method="get" action="/index" >
+            <select name="select" id="typeSelect" class="sel_opt"  >
+                {{range .articleTypes}}
+                 <option name="{{.Type}}" selected="selected">{{.Type}}</option>
+                {{end}}
             </select>
+                <input type="submit" hidden="hidden" >
+            </form>
+
 
             <table class="common_table">
                 <tr>
@@ -58,21 +91,31 @@
                 {{range .articles}}
                 <tr>
                     <td>{{.Title}}</td>
-                    <td><a href="/content?id={{.Id}}">查看详情</a></td>
+                    <td><a href="/MyBlog/content?id={{.Id}}">查看详情</a></td>
                     <td> {{.CreateTime.Format "2006-01-02 15:04:05"}}</td>
                     <td>{{.ReadCount}}</td>
-                    <td><a href="#" class="dels">删除</a></td>
-                    <td><a href="/update?id={{.Id}}">编辑</a></td>
-                    <td>财经新闻</td>
+                    <td><a href="/MyBlog/delete?id={{.Id}}" class="dels">删除</a></td>
+                    <td><a href="/MyBlog/update?id={{.Id}}">编辑</a></td>
+                    <td>{{.ArticleType.Type}}</td>
                 </tr>
                 {{end}}
             </table>
 
             <ul class="pagenation">
-                <li><a href="javascript:;">上一页 </a> </li>
-                <li> <a href="javascript:;">下一页</a></li>
-        <li><a href="#">末页</a></li>
-        <li>共5条记录/共5页/当前1页</li>
+                <li><a href="/MyBlog/index?pageIndex=1&selectType={{.selectType}}">首页</a></li>
+                {{if compare .isFirstPage true}}
+                    <li>上一页</li>
+                {{else}}
+                    <li><a href="/MyBlog/index?pageIndex={{.curPageIndex | GetPrePageIndex}}&selectType={{.selectType}}">上一页 </a> </li>
+                {{end}}
+
+                {{if compare .isLastestPage true}}
+                    <li>下一页</li>
+                 {{else}}
+                    <li> <a href="/MyBlog/index?pageIndex={{.curPageIndex | GetNextPageIndex}}&selectType={{.selectType}}">下一页</a></li>
+                {{end}}
+        <li><a href="/MyBlog/index?pageIndex={{.pageCount}}&&selectType={{.selectType}}">末页</a></li>
+        <li>共{{.articleCount}}条记录/共{{.pageCount}}页/当前{{.curPageIndex}}页</li>
             </ul>
         </div>
     </div>
