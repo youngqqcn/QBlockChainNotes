@@ -1,0 +1,8 @@
+{
+  "name": "Day3",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.16.3",
+    "jade": "^1.11.0"
+  }
+}

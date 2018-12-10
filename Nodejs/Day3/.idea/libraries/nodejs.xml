@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="nodejs" type="javaScript">
+    <properties>
+      <option name="frameworkName" value="Node.js Core Modules" />
+    </properties>
+    <CLASSES />
+    <SOURCES />
+  </library>
+</component>
