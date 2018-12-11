@@ -593,3 +593,10 @@ c23711a84ad4: Layer already exists
 ```
 
 > 从上面可以清晰地看出Docker的镜像分层结构, 上层的镜像层建立在底层的镜像层之上.
+
+上传成功:
+
+![](./img/上传成功.jpg)
+
+![](./img/上传成功_dockerhub.jpg)
+
