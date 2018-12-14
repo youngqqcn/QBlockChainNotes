@@ -7,8 +7,6 @@ package main
 
 func main() {
 
-	block := NewBlockChain()  //创建区块链
-	defer block.db.Close()
-	cli := CLI{block} //创建命令行
-	cli.Run()
+	cli := CLI{} //创建命令行
+	cli.run()
 }

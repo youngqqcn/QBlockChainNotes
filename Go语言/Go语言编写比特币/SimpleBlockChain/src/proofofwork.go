@@ -39,7 +39,7 @@ func (pow *ProofOfWork)prepareData(nonce int)[]byte  {
 	data  := bytes.Join(
 		[][]byte{
 			pow.block.PrevBlockHash,  //上一个区块hash
-			pow.block.Data,   //当前数据
+			pow.block.HashTransactions(),   //当前数据
 			IntToHex(pow.block.TimeStamp), //时间十六进制
 			IntToHex(int64(targetBits)), //位数, 十六进制
 
@@ -58,7 +58,7 @@ func (pow *ProofOfWork)Run() (int, []byte ){
 	var hash [32]byte
 	nonce := 0
 
-	fmt.Printf("当前挖矿计算的区块数据%s", pow.block.Data)
+	//fmt.Printf("当前挖矿计算的区块数据%s", pow.block.Data)
 
 	for nonce < maxNonce{
 		data := pow.prepareData(nonce)

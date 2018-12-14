@@ -5,12 +5,16 @@ import (
 	"bytes"
 	"encoding/gob"
 	"log"
+	"crypto/sha256"
 )
 
 //区块类
 type Block struct {
 	TimeStamp 	int64 //时间戳
-	Data 		[]byte
+	//Data 		[]byte
+	Transactions []*Transaction //交易的集合
+
+
 	PrevBlockHash []byte
 	Hash 		[]byte //当前区块Hash
 
@@ -30,9 +34,12 @@ func (this *Block)SetHash()  {
 
 
 //创建新的区块
-func NewBlock(data string, prevBlockhash []byte)  *Block {
-	block := &Block{time.Now().Unix(), []byte(data), prevBlockhash, []byte{}, 0}
-	//block.SetHash()
+func NewBlock(transactions []*Transaction, prevBlockhash []byte)  *Block {
+	block := &Block{time.Now().Unix(),
+	transactions,
+	prevBlockhash,
+	[]byte{},
+	0}
 
 	//工作量证明
 	pow := NewProofOfWork(block)
@@ -47,9 +54,9 @@ func NewBlock(data string, prevBlockhash []byte)  *Block {
 
 //创建创世区块
 
-func NewGenesisBlock() *Block {
+func NewGenesisBlock(coinbase *Transaction) *Block {
 
-	return NewBlock("yqq", []byte{})
+	return NewBlock([]*Transaction{coinbase}, []byte{})
 
 }
 
@@ -78,9 +85,21 @@ func DeserializeBlock (data []byte) *Block {
 }
 
 
+//叠加交易数据, 计算hash
+func (block *Block)HashTransactions() []byte  {
+
+	var txHashes [][]byte
+	var txHash[32]byte  //256bit
 
 
+	for _, tx := range block.Transactions {
+		txHashes = append(txHashes, tx.ID)
+	}
+	txHash = sha256.Sum256(bytes.Join(txHashes, []byte{}))
 
+
+	return txHash[:]
+}
 
 
 
