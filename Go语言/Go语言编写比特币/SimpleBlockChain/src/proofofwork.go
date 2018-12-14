@@ -13,7 +13,7 @@ var (
 )
 
 
-const targetBits = 24     //对比的位数
+const targetBits = 8*2     //对比的位数
 
 
 type ProofOfWork struct {

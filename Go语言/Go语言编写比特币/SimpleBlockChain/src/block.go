@@ -1,6 +1,11 @@
 package main
 
-import "time"
+import (
+	"time"
+	"bytes"
+	"encoding/gob"
+	"log"
+)
 
 //区块类
 type Block struct {
@@ -47,3 +52,44 @@ func NewGenesisBlock() *Block {
 	return NewBlock("yqq", []byte{})
 
 }
+
+func (block *Block)Serialize() []byte  {
+
+	var result bytes.Buffer
+	encoder := gob.NewEncoder(&result)
+	err := encoder.Encode(block)  //序列化
+	if err != nil{
+		log.Panic(err)
+	}
+
+	return result.Bytes()
+}
+
+func DeserializeBlock (data []byte) *Block {
+
+	var block Block
+	decoder := gob.NewDecoder(bytes.NewReader(data)) //反序列化
+	err := decoder.Decode(&block)
+	if err != nil{
+		log.Panic(err)
+	}
+
+	return &block
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
