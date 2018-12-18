@@ -330,3 +330,106 @@ node1 eth.accounts[0] 向node2 eth.accounts[0]转账,  node2 eth.accounts[1] 负
 - 1.miner.start()之后返回null, 以为挖矿失败了, 其实服务端正在挖矿, 第一次挖矿需要等一下 , 直到 `Generating DAG in progress   epoch=1 percentage=XXX`中的percentage为100时, 才真正挖到了矿. miner.stop() 返回null, 其实也需要等待一下才真正停止挖矿.
 - 2.启动服务端时两个节点的`--networkid` 设置的不一样, 导致  admin.addPeer()时总是不成功!!
 - 3.window指定ipc文件和 linux指定ipc的方式不同,  window是  `\\.\\pipe\\你指定目录`请参考上面的例子;  linux实在 --datadir目录下`geth.ipc`
+
+
+
+
+
+## geth+Mist搭建私链
+
+- 1.关闭Mist, 在一个新目录(这里以`C:\Windows\System32\cmd.exe`为例)初始化一个新的节点 
+
+  ```
+  C:\Users\yqq\eth\gethmist>geth --datadir nodeA init genesis.json
+  ```
+
+
+- 2.启动节点服务端, 启动的时候指定创建ipc的路径, Mist会使用这个ipc(即`\\.\pipe\geth.ipc`)与当前节点相连
+
+  ```
+  C:\Users\yqq\eth\gethmist>geth --datadir nodeA --networkid 55 --port 10999 --nodiscover --ipcpath \\.\pipe\geth.ipc   
+  ```
+
+
+- 3.启动客户端console , 连接nodeA
+
+  ```
+  C:\Users\yqq\eth\gethmist>geth attach ipc:\\.\pipe\geth.ipc      //指定ipc, 连接服务端
+  Welcome to the Geth JavaScript console!
+  
+  instance: Geth/v1.8.20-stable-24d727b6/windows-amd64/go1.11.2
+   modules: admin:1.0 debug:1.0 eth:1.0 ethash:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
+  
+  >
+  > eth.accounts
+  []
+  > personal.newAccount("111")                //创建一个用户
+  "0xc1b58d997c122208103a74aa3b12a4a9c73cf4e7"
+  >
+  ```
+
+
+- 4.启动Mist, 设置网络是 Rinkeby, 如果本来是Rinkeby就不需要设置(Mist默认是Rinbkey,可以根据自己需要设置其他网络). 当Mist启动后, 可以看到刚创建的用户了, 如下图:
+
+  ![](./img/gethmist1.jpg)
+
+
+
+- 5.启动`C:\Users\yqq\eth\persondata`中的node1节点
+
+  ```
+  geth --datadir node1 --networkid 55 --nodiscover --port 10333 --ipcpath node1\geth.ipc
+  
+  geth attach ipc:\\.\pipe\node1\geth.ipc     //启动console
+  ```
+
+- 在nodeA中添加node1为对端节点, 然后, 从nodeA的账户想node1节点账户转账, 并开始挖矿, 转账结果如下: 
+
+  ![](./img/转账.jpg)
+
+
+
+## 注意点
+
+- 1.Mist启动时会通过会打开`\\.\pipe\geth.ipc` , 所以, 在启动nodeA节点时需要指定 `--ipcpath \\.\pipe\geth.ipc`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
