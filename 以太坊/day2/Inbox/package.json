@@ -1,0 +1,13 @@
+{
+  "name": "Inbox",
+  "version": "1.0.0",
+  "dependencies": {
+    "ganache-cli": "^6.1.6",
+    "mocha": "^5.2.0",
+    "solc": "^0.4.25",
+    "web3": "^1.0.0-beta.37"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}
