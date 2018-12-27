@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02928e93-1703-4153-9e3b-c178aca0b7b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helloworld.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helloworld_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vote/vote.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vote/vote_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Go语言/Go语言编写比特币/SimpleBlockChain/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Go语言/Go语言编写比特币/SimpleBlockChain/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Go语言/Go语言编写比特币/SimpleBlockChain/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Go语言/Go语言编写比特币/SimpleBlockChain/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Go语言/Go语言编写比特币/SimpleBlockChain/src/base58.go" beforeDir="false" afterPath="$PROJECT_DIR$/../../Go语言/Go语言编写比特币/SimpleBlockChain/src/base58.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Go语言/Go语言编写比特币/SimpleBlockChain/src/github.com/boltdb/bolt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Go语言/Go语言编写比特币/SimpleBlockChain/src/github.com/boltdb/bolt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Go语言/Web开发/LearnBeego/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Go语言/Web开发/LearnBeego/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Go语言/Web开发/LearnBeego/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Go语言/Web开发/LearnBeego/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helloworld.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/helloworld/helloworld.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helloworld_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/helloworld/helloworld_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Nodejs/Day1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Nodejs/Day1/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../以太坊/img/gethmist1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../以太坊/img/转账.jpg" beforeDir="false" />
@@ -31,27 +32,28 @@
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.21" value="1" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="go" value="5" />
+          <entry key="go" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Go" value="5" />
+          <entry key="Go" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="1399" />
+          <entry key="go" value="4171" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Go" value="1399" />
+          <entry key="Go" value="4171" />
         </counts>
       </usages-collector>
     </session>
@@ -59,10 +61,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/helloworld.go">
+        <entry file="file://$PROJECT_DIR$/src/helloworld/helloworld.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="22" column="4" selection-end-line="66" selection-end-column="1" />
+            <state>
+              <caret column="11" selection-start-column="11" selection-end-column="11" />
               <folding>
                 <element signature="e#14#129#0" expanded="true" />
               </folding>
@@ -73,7 +75,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://D:/gopkg/src/github.com/hyperledger/fabric/core/chaincode/shim/chaincode.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
+            <state relative-caret-position="1680">
               <caret line="129" column="22" selection-start-line="129" selection-start-column="22" selection-end-line="129" selection-end-column="22" />
             </state>
           </provider>
@@ -82,7 +84,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://D:/gopkg/src/github.com/hyperledger/fabric/core/chaincode/shim/interfaces.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10">
+            <state relative-caret-position="256">
               <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
               <folding>
                 <element signature="e#99#263#0" expanded="true" />
@@ -94,20 +96,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://D:/gopkg/src/github.com/hyperledger/fabric/core/chaincode/shim/shim_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="224">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/helloworld/helloworld_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="9" selection-start-column="9" selection-end-column="9" />
+              <folding>
+                <element signature="e#14#96#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/helloworld_test.go">
+        <entry file="file://$PROJECT_DIR$/src/vote/vote.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-45">
-              <caret line="20" column="35" lean-forward="true" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+            <state relative-caret-position="448">
+              <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
               <folding>
-                <element signature="e#14#96#0" expanded="true" />
+                <element signature="e#14#122#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vote/vote_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+              <folding>
+                <element signature="e#14#88#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://D:/gopkg/src/github.com/hyperledger/fabric/core/chaincode/shim/mockstub.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="428" selection-start-line="428" selection-end-line="428" />
             </state>
           </provider>
         </entry>
@@ -130,6 +165,10 @@
       <list>
         <option value="$PROJECT_DIR$/src/helloworld.go" />
         <option value="$PROJECT_DIR$/src/helloworld_test.go" />
+        <option value="$PROJECT_DIR$/src/helloworld/helloworld.go" />
+        <option value="$PROJECT_DIR$/src/helloworld/helloworld_test.go" />
+        <option value="$PROJECT_DIR$/src/vote/vote_test.go" />
+        <option value="$PROJECT_DIR$/src/vote/vote.go" />
       </list>
     </option>
   </component>
@@ -140,10 +179,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="89" />
-    <option name="y" value="55" />
+    <option name="x" value="88" />
+    <option name="y" value="54" />
     <option name="width" value="1961" />
-    <option name="height" value="973" />
+    <option name="height" value="974" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -166,6 +205,12 @@
               <item name="Chaincode" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Chaincode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Chaincode" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="vote" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -179,6 +224,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\yqq\Desktop\QBlockChainNotes\Hyperledger\Chaincode\src\helloworld" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -191,7 +241,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.go test src">
+  <component name="RunManager" selected="Go Test.go test vote">
     <configuration name="go build helloworld.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="Chaincode" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -219,6 +269,15 @@
       <filePath value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
+    <configuration name="go test vote" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Chaincode" />
+      <working_directory value="$PROJECT_DIR$/src/vote" />
+      <framework value="gotest" />
+      <kind value="DIRECTORY" />
+      <directory value="$PROJECT_DIR$/src/vote" />
+      <filePath value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
     <configuration name="helloworld_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="Chaincode" />
       <working_directory value="$PROJECT_DIR$/src" />
@@ -234,9 +293,11 @@
       <item itemvalue="Go Build.go build helloworld.go" />
       <item itemvalue="Go Build.go build src/" />
       <item itemvalue="Go Test.go test src" />
+      <item itemvalue="Go Test.go test vote" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.go test vote" />
         <item itemvalue="Go Test.go test src" />
         <item itemvalue="Go Build.go build src/" />
         <item itemvalue="Go Test.helloworld_test.go" />
@@ -251,11 +312,23 @@
     <history-entry file="go_test_src - 2018.12.25 at 16h 48m 24s.xml">
       <configuration name="go test src" configurationId="GoTestRunConfiguration" />
     </history-entry>
+    <history-entry file="go_test_vote - 2018.12.27 at 12h 44m 03s.xml">
+      <configuration name="go test vote" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="go_test_vote - 2018.12.27 at 12h 47m 24s.xml">
+      <configuration name="go test vote" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="go_test_vote - 2018.12.27 at 12h 47m 51s.xml">
+      <configuration name="go test vote" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="go_test_vote - 2018.12.27 at 12h 48m 28s.xml">
+      <configuration name="go test vote" configurationId="GoTestRunConfiguration" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1753" height="962" extended-state="6" />
+    <frame x="-7" y="-7" width="1753" height="962" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1378904" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13906895" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -269,7 +342,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Run" order="11" visible="true" weight="0.46218488" />
+      <window_info active="true" anchor="bottom" id="Run" order="11" visible="true" weight="0.28811523" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -283,23 +356,16 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/gopkg/src/github.com/hyperledger/fabric/core/chaincode/shim/shim_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/gopkg/src/github.com/hyperledger/fabric/core/chaincode/shim/chaincode.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
+        <state relative-caret-position="1680">
           <caret line="129" column="22" selection-start-line="129" selection-start-column="22" selection-end-line="129" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://D:/gopkg/src/github.com/hyperledger/fabric/core/chaincode/shim/interfaces.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10">
+        <state relative-caret-position="256">
           <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
           <folding>
             <element signature="e#99#263#0" expanded="true" />
@@ -307,22 +373,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/helloworld.go">
+    <entry file="file://D:/gopkg/src/github.com/hyperledger/fabric/core/chaincode/shim/shim_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="22" column="4" selection-end-line="66" selection-end-column="1" />
+        <state relative-caret-position="224">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helloworld/helloworld.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="11" selection-start-column="11" selection-end-column="11" />
           <folding>
             <element signature="e#14#129#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/helloworld_test.go">
+    <entry file="file://$PROJECT_DIR$/src/helloworld/helloworld_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-45">
-          <caret line="20" column="35" lean-forward="true" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+        <state>
+          <caret column="9" selection-start-column="9" selection-end-column="9" />
           <folding>
             <element signature="e#14#96#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/gopkg/src/github.com/hyperledger/fabric/core/chaincode/shim/mockstub.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="428" selection-start-line="428" selection-end-line="428" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vote/vote_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="e#14#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vote/vote.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
+          <folding>
+            <element signature="e#14#122#0" expanded="true" />
           </folding>
         </state>
       </provider>
