@@ -6,3 +6,6 @@
 - [day3-彩票项目](./day3/README.md)
 
 - [day4-彩票项目(使用React作为前端)](./day4/README.md)
+
+- [1229-Truffle笔记+IPFS安装](./1229/README.md)
+
