@@ -76,3 +76,18 @@
 
 ![](./img/修改合约中变量的值运行效果.gif)
 
+### IPFS搭建
+
+>  参考: https://blog.csdn.net/u013022210/article/details/80363107
+
+
+
+直接展示ipns部署博客效果
+
+![](./img/ipns效果.gif)
+
+
+
+另外 可以通过nodejs和ipfs交互
+
+`npm install ipfs-http-client`
