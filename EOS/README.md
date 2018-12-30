@@ -23,7 +23,7 @@
 - `sudo dpkg -i deb包名`安装deb包
 - 使用  `eosio-cpp --version`检查是否安装成功
 
-
+> 注意: 如果是用虚拟机的, 至少需要CPU核数为2(大于1即可), 否则使用eosio-cpp进行编译, 会一直卡死, 智能Ctrl+C中断, 而且不会生成ABI文件.
 
 ### EOS工具功能介绍
 
