@@ -13,5 +13,5 @@
 | 第四阶段|NodeJs, Docker|JS基础+ES6特性+常用模块+Express; 使用Docker部署go web项目 | 3天|
 | 第五阶段|Solitidy和以太坊| 以太坊搭建私链; Solitidy语法; 使用以太坊开发DAPP;使用Truffle+Mocha+Ganache+Web3构建DAPP项目. |5~6天 |
 |第六阶段| 超级账本和Hyperledger Fabric框架 |使用Fabric构建项目; 使用IPFS构建项目 |5~6天 |
-|第七阶段|知识点复习+ 面试准备+写简历 || 3天(2019年元旦后) |
+|第七阶段|知识点复习+ 面试准备+ 写简历 || 3天(2019年元旦后) |
 |第八阶段| 投简历+面试+面试总结| | |
