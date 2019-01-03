@@ -1,6 +1,5 @@
 # 区块链理论相关
 
- # 货币
 ## 货币的本质
 - 价值交换的载体
 - 一个交易的媒体
@@ -127,3 +126,11 @@ https://www.bilibili.com/video/av21667358/
 
 > 原理动画解释:   http://thesecretlivesofdata.com/raft
 > 场景测试: https://raft.github.io/
+
+
+
+## 其他参考
+
+- 区块链面试的理论:https://blog.csdn.net/qq_41618084/article/details/81570842
+
+- 比特币的UTXO理解 : https://www.jianshu.com/p/02fd289e8853
