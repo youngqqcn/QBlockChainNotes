@@ -614,7 +614,7 @@ c23711a84ad4: Layer already exists
 
     优化效果
 
-    ![](C:/Users/yqq/Desktop/QBlockChainNotes/Docker/img/docker优化效果2.gif)
+    ![](./img/docker优化效果2.gif)
 
     > 注意: 如果进入build目录, 执行ls命令可能会发生"段错误", 是因为ls使用了build目录中的动态库.
     >
