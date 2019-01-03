@@ -529,13 +529,9 @@ cleos get table addressbook addressbook people --lower alice --limit 1
 
 
 
+## 3.总结
 
-
-
-
-
-
-
+> 参考: https://www.jianshu.com/p/9dddca4009a9
 
 
 
