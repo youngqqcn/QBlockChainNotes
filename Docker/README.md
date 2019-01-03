@@ -600,3 +600,23 @@ c23711a84ad4: Layer already exists
 
 ![](./img/上传成功_dockerhub.jpg)
 
+
+
+# Docker镜像优化
+
+- 减小镜像大小有两种方法,:
+
+  - 使用链式指令: 在Docker中,每条指令都会创建一个镜像层, 如果将多条命令合成一条那么就会减少中间层. 即将多条指令通过"&&"或"\"合成一条 , 并在当前层清理上一层环境, 可以参考: http://www.dockerinfo.net/3328.html
+
+  - 分离编译镜像和部署镜像
+
+    docker镜像的另一类无用文件就是编译过程中的依赖文件，例如在编译过程中应用到的依赖的源代码库，如编译文件和头文件。一旦应用程序编译完毕，这些文件就不再用到了。例如: 将程序编译成可执行文件之后复制到镜像中并添加运行依赖即可.(二进制镜像)  , 参考:(https://www.jianshu.com/p/3e2127616e28)
+
+    优化效果
+
+    ![](C:/Users/yqq/Desktop/QBlockChainNotes/Docker/img/docker%E4%BC%98%E5%8C%96%E6%95%88%E6%9E%9C2.gif)
+
+    > 注意: 如果进入build目录, 执行ls命令可能会发生"段错误", 是因为ls使用了build目录中的动态库.
+    >
+    >  scratch 使用: http://cloud.51cto.com/art/201412/462603.htm
+
