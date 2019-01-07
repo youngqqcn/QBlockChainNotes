@@ -20,7 +20,7 @@
    C. str = ""
    D. var str = ""
 
-3. **[primary]** 通过指针变量 p 访问其成员变量 name，下面语法正确的是（）
+3. **[primary]** 通过指针变量 a 访问其成员变量 b，下面语法正确的是（）
    A. a.b
    B. (*a).b
    C. &a.b
@@ -459,6 +459,8 @@
     B. var fragment Fragment = GetPodAction
     C. var fragment Fragment = &GetPodAction{}
     D. var fragment Fragment = GetPodAction{}
+
+
 
 29. **[intermediate]** 关于GoMock，下面说法正确的是（）
     A. GoMock可以对interface打桩
