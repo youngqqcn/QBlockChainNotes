@@ -1,6 +1,7 @@
 # 比特币学习笔记
 
-## Ubuntu18.04编译比特币
+- [Ubuntu18.04编译比特币](https://blog.csdn.net/The_Reader/article/details/84842094)
 
-- https://blog.csdn.net/The_Reader/article/details/84842094
+- [搭建比特币测试网络并用C++进行RPC调用实现转账](./1-搭建比特币测试网络testnet.md)
+- [2-比特币全节点搭建](2-比特币全节点搭建.md)
 
