@@ -1,8 +1,6 @@
 > [TOC]
 >
 > 
->
-> 
 
 ## 1.USDT简单的裸交易
 
@@ -181,8 +179,6 @@ omnicore-cli -conf=/root/.bitcoin/bitcoin-test.conf sendrawtransaction  01000000
 
 db0669c3c3c7e9d817387cbb31d5a51d7e31b7174a5f944d0eccd5d366e9e6c8
 
-
-
 ```
 
 ### 1.10.查看交易详情
@@ -211,9 +207,7 @@ omnicore-cli  -conf=/root/.bitcoin/bitcoin-test.conf omni_gettransaction db0669c
 }
 
 
-```
 
-```
 
 
 ```
@@ -374,10 +368,9 @@ omnicore-cli  -conf=/root/.bitcoin/bitcoin-test.conf listunspent  0 99999 [\"mrY
 
 ### 2.4.创建负载交易(注意区别!!)
 
-> **必须把支付USDT的地址的UTXO要放在第0个**
+ **必须把支付USDT的地址的UTXO要放在第0个**
 
 ```
-
 
 omnicore-cli -conf=/root/.bitcoin/bitcoin-test.conf createrawtransaction "[{\"txid\":\"2170db7b2c9fc4ac4ce33de6e0fb734b6d6fba3e27367fbc62f944a9868c943d\",\"vout\":2},{\"txid\":\"d86c6917f42b3faeee01af87563a2fe8512d4bb085c8be220cb4871f31cdce25\",\"vout\":1}]" "{}"
 
@@ -390,7 +383,6 @@ omnicore-cli -conf=/root/.bitcoin/bitcoin-test.conf createrawtransaction "[{\"tx
 ### 2.5.查询支付USDT的地址的USDT测试币的余额
 
 ```
-
 omnicore-cli -conf=/root/.bitcoin/bitcoin-test.conf  omni_getbalance mzkUX6sZ3bSqK7wk8sZmrR7wUwY3QJQVaE 2
 ```
 
@@ -402,22 +394,15 @@ omnicore-cli -conf=/root/.bitcoin/bitcoin-test.conf  omni_getbalance mzkUX6sZ3bS
 omnicore-cli -conf=/root/.bitcoin/bitcoin-test.conf omni_createpayload_simplesend 2 0.06252047
 
 000000000000000200000000005f660f
-
-
-
-
 ```
 
+
 ### 2.7.将USDT交易绑定到BTC交易上(插入OP_RETURN)
-
-
 
 ```
 omnicore-cli -conf=/root/.bitcoin/bitcoin-test.conf omni_createrawtx_opreturn 01000000023d948c86a944f962bc7f36273eba6f6d4b73fbe0e63de34cacc49f2c7bdb70210200000000ffffffff25cecd311f87b40c22bec885b04b2d51e82f3a5687af01eeae3f2bf417696cd80100000000ffffffff0000000000 000000000000000200000000005f660f
 
 01000000023d948c86a944f962bc7f36273eba6f6d4b73fbe0e63de34cacc49f2c7bdb70210200000000ffffffff25cecd311f87b40c22bec885b04b2d51e82f3a5687af01eeae3f2bf417696cd80100000000ffffffff010000000000000000166a146f6d6e69000000000000000200000000005f660f00000000
-
-
 ```
 
 ### 2.8.添加USDT接收地址
@@ -448,8 +433,6 @@ omnicore-cli -conf=/root/.bitcoin/bitcoin-test.conf omni_createrawtx_change 0100
 ### 2.10.签名交易
 
 ```
-
-
 omnicore-cli -conf=/root/.bitcoin/bitcoin-test.conf signrawtransaction 01000000023d948c86a944f962bc7f36273eba6f6d4b73fbe0e63de34cacc49f2c7bdb70210200000000ffffffff25cecd311f87b40c22bec885b04b2d51e82f3a5687af01eeae3f2bf417696cd80100000000ffffffff03fc210000000000001976a914d2f9072629e2b14d5a246dfe583347ba140f45ea88ac0000000000000000166a146f6d6e69000000000000000200000000005f660f22020000000000001976a914983c8b990aef5747bdef1f2bf3a49d29b19ae15788ac00000000 "[{\"txid\":\"2170db7b2c9fc4ac4ce33de6e0fb734b6d6fba3e27367fbc62f944a9868c943d\",\"vout\":2,\"scriptPubKey\":\"76a914d2f9072629e2b14d5a246dfe583347ba140f45ea88ac\",\"value\":0.00000546},{\"txid\":\"d86c6917f42b3faeee01af87563a2fe8512d4bb085c8be220cb4871f31cdce25\",\"vout\":1,\"scriptPubKey\":\"76a91478f8da3e8fc8864711c915bcd5a577fb0f735cfa88ac\",\"value\":0.00010700}]" [\"cQhGwrYFfPBrd5gRVkim9EsqKooTBWC8rSKjRuXemoayjXcSi52N\",\"cPtP7cYUvvmEF9KaSe52SuE5E8L2Sd6zbz3gJXHWWoBjCEEo2G9G\"]
 
 {
@@ -458,17 +441,14 @@ omnicore-cli -conf=/root/.bitcoin/bitcoin-test.conf signrawtransaction 010000000
 }
 ```
 
-> >  注意: 私钥数组中的 ','两边不能有空格, 否则会报错: error: Error parsing JSON:["cQhGwrYFfPBrd5gRVkim9EsqKooTBWC8rSKjRuXemoayjXcSi52N",
-> >
-> > 
+> 注意: 私钥数组中的 ','两边不能有空格, 否则会报错: error: Error parsing JSON:["cQhGwrYFfPBrd5gRVkim9EsqKooTBWC8rSKjRuXemoayjXcSi52N",
+
 
 ### 2.11.解码交易
 
 
-
 ```
 omnicore-cli -conf=/root/.bitcoin/bitcoin-test.conf decoderawtransaction 01000000023d948c86a944f962bc7f36273eba6f6d4b73fbe0e63de34cacc49f2c7bdb7021020000006a47304402202354f943053ff744672afe738951ed22e7ce0b2313127464eb96a3f8bff757000220678efd51f10adc5de23cc94bae4662d4a1afe519285062da704a09bd5c2c4c4a012102aec8e91921c8296ff5e8ff6c6666cd3090b78f3552939ad396079beb478b64ddffffffff25cecd311f87b40c22bec885b04b2d51e82f3a5687af01eeae3f2bf417696cd8010000006b483045022100a769e75987326bc8e9bfdc7d4e8ec17cea9338ed73909593eeb0d3bb07aaf0a402205c3c02d5c1f98f92adf0e7e76ba6591438f9d865c3c1fff4f9bd7c8f7a47423a012103457e7713c9fa5eb7a6ce22371ff7be92bc51edf610a8eaa275c19b1a77821da0ffffffff03fc210000000000001976a914d2f9072629e2b14d5a246dfe583347ba140f45ea88ac0000000000000000166a146f6d6e69000000000000000200000000005f660f22020000000000001976a914983c8b990aef5747bdef1f2bf3a49d29b19ae15788ac00000000
-
 
 
 {
@@ -665,13 +645,13 @@ omnicore-cli  -conf=/root/.bitcoin/bitcoin-test.conf  getrawtransaction f30937d9
 ## 3.总结
 
 - 使用其他BTC地址支付手续费, 需要注意的是, 在创建负载交易的时候输入的UTXO顺序, 支付USDT的地址的UTXO必须放在第0个, 其他步骤和简单裸交易创建无异
-- 
+
 
 
 
 ## 4.参考
 
-- > <https://github.com/OmniLayer/omnicore/wiki/Use-the-raw-transaction-API-to-create-a-Simple-Send-transaction>
+- <https://github.com/OmniLayer/omnicore/wiki/Use-the-raw-transaction-API-to-create-a-Simple-Send-transaction>
 
 - 获取USDT测试币:  moneyqMan7uh8FqdCA2BV5yZ8qVrc9ikLP
 - 获取BTC测试币:   https://coinfaucet.eu/en/btc-testnet/

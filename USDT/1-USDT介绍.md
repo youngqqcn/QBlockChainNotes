@@ -39,12 +39,12 @@ https://link.juejin.im/?target=https%3A%2F%2Fbtc1.trezor.io%2Ftx%2F0347ab8f6291a
   - BTC测试网: 2 and 2,147,483,651 to 4,294,967,295
 - 0000000b0f387b00 : Amount to transfer. 8Bytes. 数量的十六进制0000000b0f387b00 = 47500000000聪 = 475 USDT
 
-| Field               | Type                | Bytes | Example          |      |      |
-| ------------------- | ------------------- | ----- | ---------------- | ---- | ---- |
-| Transaction version | Transaction version | 2     | 0                |      |      |
-| Transaction type    | Transaction type    | 2     | 0                |      |      |
-| Currency identifier | Currency identifier | 4     | 1f               |      |      |
-| Amount to transfer  | Number of Coins     | 8     | 0000000b0f387b00 |      |      |
+| Field               | Type                | Bytes | Example          |
+| ------------------- | ------------------- | ----- | ---------------- |
+| Transaction version | Transaction version | 2     | 0                |
+| Transaction type    | Transaction type    | 2     | 0                |
+| Currency identifier | Currency identifier | 4     | 1f               |
+| Amount to transfer  | Number of Coins     | 8     | 0000000b0f387b00 |
 
 
 
