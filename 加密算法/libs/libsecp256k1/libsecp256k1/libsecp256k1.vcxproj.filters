@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\libsecp256k1">
+      <UniqueIdentifier>{af9896cf-2b4f-4054-a76f-a10b4be3b2d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\libsecp256k1\include">
+      <UniqueIdentifier>{cf956b25-fe52-436a-8fb5-b467a704047f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\libsecp256k1\modules">
+      <UniqueIdentifier>{f12b276e-02fe-4d71-8514-cdd07f2e49d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\libsecp256k1\modules\recovery">
+      <UniqueIdentifier>{d3ccf0ab-098a-4ca2-b234-9b74eea0a7b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\libsecp256k1\modules\ecdh">
+      <UniqueIdentifier>{0b64253a-598e-46b0-ab9c-72eb246c35d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\libsecp256k1\modules\schnorr">
+      <UniqueIdentifier>{fbdb9a60-2837-4dd0-b5b3-5358d1998a64}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\secp256k1_new\src\basic-config.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\bench.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\ecdsa.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\ecdsa_impl.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\eckey.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\eckey_impl.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\ecmult.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\ecmult_const.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\ecmult_const_impl.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\ecmult_gen.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\ecmult_gen_impl.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\ecmult_impl.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\field.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\field_5x52.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\field_5x52_asm_impl.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\field_5x52_impl.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\field_5x52_int128_impl.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\field_10x26.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\field_10x26_impl.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\field_impl.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\group.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\group_impl.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\hash.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\hash_impl.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\num.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\num_gmp.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\num_gmp_impl.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\num_impl.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\num_openssl.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\scalar.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\scalar_4x64.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\scalar_4x64_impl.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\scalar_8x32.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\scalar_8x32_impl.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\scalar_impl.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\testrand.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\testrand_impl.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\util.h">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\include\secp256k1.h">
+      <Filter>源文件\libsecp256k1\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\include\secp256k1_ecdh.h">
+      <Filter>源文件\libsecp256k1\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\include\secp256k1_recovery.h">
+      <Filter>源文件\libsecp256k1\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\include\secp256k1_schnorr.h">
+      <Filter>源文件\libsecp256k1\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\modules\recovery\main_impl.h">
+      <Filter>源文件\libsecp256k1\modules\recovery</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\modules\ecdh\main_impl.h">
+      <Filter>源文件\libsecp256k1\modules\ecdh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\modules\schnorr\main_impl.h">
+      <Filter>源文件\libsecp256k1\modules\schnorr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\modules\schnorr\schnorr.h">
+      <Filter>源文件\libsecp256k1\modules\schnorr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\secp256k1_new\src\modules\schnorr\schnorr_impl.h">
+      <Filter>源文件\libsecp256k1\modules\schnorr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libsecp256k1-config.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\secp256k1_new\src\secp256k1.c">
+      <Filter>源文件\libsecp256k1</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
