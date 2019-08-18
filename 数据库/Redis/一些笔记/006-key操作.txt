@@ -1,0 +1,158 @@
+﻿一、概述：针对key的通用操作
+
+二、相关命令列表：
+
+命令原型	时间复杂度	命令描述	返回值
+KEYS pattern	 获取所有匹配pattern参数的Keys。需要说明的是，在我们的正常操作中应该尽量避免对该命令的调用，因为对于大型数据库而言，该命令是非常耗时的，对Redis服务器的性能打击也是比较大的。pattern支持glob-style的通配符格式，如*表示任意一个或多个字符，?表示任意字符，[abc]表示方括号中任意一个字母。	匹配模式的键列表。
+DEL key [key ...]	 从数据库删除中参数中指定的keys，如果指定键不存在，则直接忽略。还需要另行指出的是，如果指定的Key关联的数据类型不是String类型，而是List、Set、Hashes和Sorted Set等容器类型，该命令删除每个键的时间复杂度为O(M)，其中M表示容器中元素的数量。而对于String类型的Key，其时间复杂度为O(1)。	实际被删除的Key数量。
+EXISTS key 	 判断指定键是否存在。	1表示存在，0表示不存在。
+MOVE key db 	 将当前数据库中指定的键Key移动到参数中指定的数据库中。如果该Key在目标数据库中已经存在，或者在当前数据库中并不存在，该命令将不做任何操作并返回0。  	移动成功返回1，否则0。
+（切换到另一个库  select 1  ）
+
+RENAME key newkey 	 为指定指定的键重新命名，如果参数中的两个Keys的名字相同，或者是源Key不存在，该命令都会返回相关的错误信息。如果newKey已经存在，则直接覆盖。 	 
+RENAMENX key newkey	 如果新值不存在，则将参数中的原值修改为新值。其它条件和RENAME一致。	1表示修改成功，否则0。
+PERSIST key	 如果Key存在过期时间，该命令会将其过期时间消除，使该Key不再有超时，而是可以持久化存储。	1表示Key的过期时间被移出，0表示该Key不存在或没有过期时间。
+EXPIRE key seconds 	 该命令为参数中指定的Key设定超时的秒数，在超过该时间后，Key被自动的删除。如果该Key在超时之前被修改，与该键关联的超时将被移除。 	1表示超时被设置，0则表示Key不存在，或不能被设置。
+EXPIREAT key timestamp  该命令的逻辑功能和EXPIRE完全相同，唯一的差别是该命令指定的超时时间是绝对时间，而不是相对时间。该时间参数是Unix timestamp格式的，即从1970年1月1日开始所流经的秒数。	1表示超时被设置，0则表示Key不存在，或不能被设置。 
+TTL key 	 获取该键所剩的超时描述。 	返回所剩描述，如果该键不存在或没有超时设置，则返回-1。
+RANDOMKEY	 从当前打开的数据库中随机的返回一个Key。	返回的随机键，如果该数据库是空的则返回nil。
+TYPE key 	 获取与参数中指定键关联值的类型，该命令将以字符串的格式返回。	返回的字符串为string、list、set、hash和zset，如果key不存在返回none。
+
+
+三、命令示例：
+
+   1. KEYS/RENAME/DEL/EXISTS/MOVE/RENAMENX:
+    #在Shell命令行下启动Redis客户端工具。
+    /> redis-cli
+    #清空当前选择的数据库，以便于对后面示例的理解。
+    redis 127.0.0.1:6379> flushdb
+    OK
+    #添加String类型的模拟数据。
+    redis 127.0.0.1:6379> set mykey 2
+    OK
+    redis 127.0.0.1:6379> set mykey2 "hello"
+    OK
+    #添加Set类型的模拟数据。
+    redis 127.0.0.1:6379> sadd mysetkey 1 2 3
+    (integer) 3
+    #添加Hash类型的模拟数据。
+    redis 127.0.0.1:6379> hset mmtest username "stephen"
+    (integer) 1
+    #根据参数中的模式，获取当前数据库中符合该模式的所有key，从输出可以看出，该命令在执行时并不区分与Key关联的Value类型。
+    redis 127.0.0.1:6379> keys my*
+    1) "mysetkey"
+    2) "mykey"
+    3) "mykey2"
+    #删除了两个Keys。
+    redis 127.0.0.1:6379> del mykey mykey2
+    (integer) 2
+    #查看一下刚刚删除的Key是否还存在，从返回结果看，mykey确实已经删除了。
+    redis 127.0.0.1:6379> exists mykey
+    (integer) 0
+    #查看一下没有删除的Key，以和上面的命令结果进行比较。
+    redis 127.0.0.1:6379> exists mysetkey
+    (integer) 1
+    #将当前数据库中的mysetkey键移入到ID为1的数据库中，从结果可以看出已经移动成功。
+    redis 127.0.0.1:6379> move mysetkey 1
+    (integer) 1
+    #打开ID为1的数据库。
+    redis 127.0.0.1:6379> select 1
+    OK
+    #查看一下刚刚移动过来的Key是否存在，从返回结果看已经存在了。
+    redis 127.0.0.1:6379[1]> exists mysetkey
+    (integer) 1
+    #在重新打开ID为0的缺省数据库。
+    redis 127.0.0.1:6379[1]> select 0
+    OK
+    #查看一下刚刚移走的Key是否已经不存在，从返回结果看已经移走。
+    redis 127.0.0.1:6379> exists mysetkey
+    (integer) 0
+    #准备新的测试数据。    
+    redis 127.0.0.1:6379> set mykey "hello"
+    OK
+    #将mykey改名为mykey1
+    redis 127.0.0.1:6379> rename mykey mykey1
+    OK
+    #由于mykey已经被重新命名，再次获取将返回nil。
+    redis 127.0.0.1:6379> get mykey
+    (nil)
+    #通过新的键名获取。
+    redis 127.0.0.1:6379> get mykey1
+    "hello"
+    #由于mykey已经不存在了，所以返回错误信息。
+    redis 127.0.0.1:6379> rename mykey mykey1
+    (error) ERR no such key
+    #为renamenx准备测试key
+    redis 127.0.0.1:6379> set oldkey "hello"
+    OK
+    redis 127.0.0.1:6379> set newkey "world"
+    OK
+    #由于newkey已经存在，因此该命令未能成功执行。
+    redis 127.0.0.1:6379> renamenx oldkey newkey
+    (integer) 0
+    #查看newkey的值，发现它也没有被renamenx覆盖。
+    redis 127.0.0.1:6379> get newkey
+    "world"
+        
+   2. PERSIST/EXPIRE/EXPIREAT/TTL:    
+    #为后面的示例准备的测试数据。
+    redis 127.0.0.1:6379> set mykey "hello"
+    OK
+    #将该键的超时设置为100秒。
+    redis 127.0.0.1:6379> expire mykey 100
+    (integer) 1
+    #通过ttl命令查看一下还剩下多少秒。
+    redis 127.0.0.1:6379> ttl mykey
+    (integer) 97
+    #立刻执行persist命令，该存在超时的键变成持久化的键，即将该Key的超时去掉。
+    redis 127.0.0.1:6379> persist mykey
+    (integer) 1
+    #ttl的返回值告诉我们，该键已经没有超时了。
+    redis 127.0.0.1:6379> ttl mykey
+    (integer) -1
+    #为后面的expire命令准备数据。
+    redis 127.0.0.1:6379> del mykey
+    (integer) 1
+    redis 127.0.0.1:6379> set mykey "hello"
+    OK
+    #设置该键的超时被100秒。
+    redis 127.0.0.1:6379> expire mykey 100
+    (integer) 1
+    #用ttl命令看一下当前还剩下多少秒，从结果中可以看出还剩下96秒。
+    redis 127.0.0.1:6379> ttl mykey
+    (integer) 96
+    #重新更新该键的超时时间为20秒，从返回值可以看出该命令执行成功。
+    redis 127.0.0.1:6379> expire mykey 20
+    (integer) 1
+    #再用ttl确认一下，从结果中可以看出果然被更新了。
+    redis 127.0.0.1:6379> ttl mykey
+    (integer) 17
+    #立刻更新该键的值，以使其超时无效。
+    redis 127.0.0.1:6379> set mykey "world"
+    OK
+    #从ttl的结果可以看出，在上一条修改该键的命令执行后，该键的超时也无效了。
+    redis 127.0.0.1:6379> ttl mykey
+    (integer) -1
+
+   3. TYPE/RANDOMKEY/SORT:
+    #由于mm键在数据库中不存在，因此该命令返回none。
+    redis 127.0.0.1:6379> type mm
+    none
+    #mykey的值是字符串类型，因此返回string。
+    redis 127.0.0.1:6379> type mykey
+    string
+    #准备一个值是set类型的键。
+    redis 127.0.0.1:6379> sadd mysetkey 1 2
+    (integer) 2
+    #mysetkey的键是set，因此返回字符串set。
+    redis 127.0.0.1:6379> type mysetkey
+    set
+    #返回数据库中的任意键。
+    redis 127.0.0.1:6379> randomkey
+    "oldkey"
+    #清空当前打开的数据库。
+    redis 127.0.0.1:6379> flushdb
+    OK
+    #由于没有数据了，因此返回nil。
+    redis 127.0.0.1:6379> randomkey
+    (nil)

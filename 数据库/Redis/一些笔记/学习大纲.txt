@@ -1,0 +1,43 @@
+﻿NoSql之redis
+
+redis 主要应用于互联网项目(高并发，快速响应需求，高频次，大数据量)----新浪微博
+		内存数据库
+		nosql数据库（K-V存储）
+				----非关系型数据库，主要应用于一些数据量特别大且数据内容变化大的场合
+				----目前还非常年轻，一些RDBMS中支持的高级特性都没有（事务特性）
+				----常见的nosql数据库：
+				               ----mongodb  （文档型数据库）
+				               ----redis  (内存)
+				               ----hbase   (海量的分布式nosql数据库--hadoop生态体系)
+				               ----Cassandra  (kv数据库)
+	   memcache (缓存工具包 ehcache，如果独立运行，就是缓存服务器 hazelcast)
+	       ----缓存工具跟数据库之间的一个显著区别是持久化机制
+
+
+redis是符合BSD开源许可的高级key-value存储系统(NoSQL)
+redis支持的数据结构类型非常丰富
+可以用来存储字符串，哈希结构，链表，集合，因此，常用来提供数据结构服务
+
+
+redis和memcached相比的独特之处：
+1、redis可以用来做存储(storage),而memcached只用来做缓存(cache)
+这个特点主要因为redis有数据持久化功能
+
+2、redis中存储的数据有多种结构，而memcached存储的数据只有一种类型“字符串”
+
+	   
+
+学习目标：
+1、redis特点及安装
+2、redis键值操作
+3、redis数据类型[string,list,set,order set,hash]
+4、redis的客户端程序开发
+5、redis服务器常用配置
+6、redis集群
+
+
+
+
+
+
+

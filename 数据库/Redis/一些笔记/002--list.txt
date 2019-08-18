@@ -1,0 +1,189 @@
+﻿一、概述：
+
+      在Redis中，List类型是按照插入顺序排序的字符串链表。和数据结构中的普通链表一样，我们可以在其头部(left)和尾部(right)添加新的元素。在插入时，如果该键并不存在，Redis将为该键创建一个新的链表。与此相反，如果链表中所有的元素均被移除，那么该键也将会被从数据库中删除。List中可以包含的最大元素数量是4294967295。
+      从元素插入和删除的效率视角来看，如果我们是在链表的两头插入或删除元素，这将会是非常高效的操作，即使链表中已经存储了百万条记录，该操作也可以在常量时间内完成。然而需要说明的是，如果元素插入或删除操作是作用于链表中间，那将会是非常低效的。相信对于有良好数据结构基础的开发者而言，这一点并不难理解。
+
+二、相关命令列表：
+
+命令原型	时间复杂度	命令描述	返回值
+LPUSH key value [value ...] 	 在指定Key所关联的List Value的头部插入参数中给出的所有Values。如果该Key不存在，该命令将在插入之前创建一个与该Key关联的空链表，之后再将数据从链表的头部插入。如果该键的Value不是链表类型，该命令将返回相关的错误信息。 	插入后链表中元素的数量。
+LPUSHX key value 	 仅有当参数中指定的Key存在时，该命令才会在其所关联的List Value的头部插入参数中给出的Value，否则将不会有任何操作发生。	插入后链表中元素的数量。 
+LRANGE key start stop 	 该命令的参数start和end都是0-based。即0表示链表头部(leftmost)的第一个元素。其中start的值也可以为负值，-1将表示链表中的最后一个元素，即尾部元素，-2表示倒数第二个并以此类推。该命令在获取元素时，start和end位置上的元素也会被取出。如果start的值大于链表中元素的数量，空链表将会被返回。如果end的值大于元素的数量，该命令则获取从start(包括start)开始，链表中剩余的所有元素。	返回指定范围内元素的列表。
+LPOP key 	 返回并弹出指定Key关联的链表中的第一个元素，即头部元素，。如果该Key不存，返回nil。	链表头部的元素。
+LLEN key	 返回指定Key关联的链表中元素的数量，如果该Key不存在，则返回0。如果与该Key关联的Value的类型不是链表，则返回相关的错误信息。	链表中元素的数量。
+
+LREM key count value  在指定Key关联的链表中，删除前count个值等于value的元素。如果count大于0，从头向尾遍历并删除，如果count小于0，则从尾向头遍历并删除。如果count等于0，则删除链表中所有等于value的元素。如果指定的Key不存在，则直接返回0。	返回被删除的元素数量。
+LSET key index value 	  设定链表中指定位置的值为新值，其中0表示第一个元素，即头部元素，-1表示尾部元素。如果索引值Index超出了链表中元素的数量范围，该命令将返回相关的错误信息。	 
+(对指定脚标的值进行设置)
+LINDEX key index 	  该命令将返回链表中指定位置(index)的元素，index是0-based，表示头部元素，如果index为-1，表示尾部元素。如果与该Key关联的不是链表，该命令将返回相关的错误信息。	返回请求的元素，如果index超出范围，则返回nil。
+(读出指定脚标的值)
+LTRIM key start stop 	 该命令将仅保留指定范围内的元素，从而保证链接中的元素数量相对恒定。start和stop参数都是0-based，0表示头部元素。和其他命令一样，start和stop也可以为负值，-1表示尾部元素。如果start大于链表的尾部，或start大于stop，该命令不错报错，而是返回一个空的链表，与此同时该Key也将被删除。如果stop大于元素的数量，则保留从start开始剩余的所有元素。	 
+LINSERT key BEFORE|AFTER pivot value   该命令的功能是在pivot元素的前面或后面插入参数中的元素value。如果Key不存在，该命令将不执行任何操作。如果与Key关联的Value类型不是链表，相关的错误信息将被返回。	成功插入后链表中元素的数量，如果没有找到pivot，返回-1，如果key不存在，返回0。
+(在指定的某个value前或后插入一个新的value)
+
+RPUSH key value [value ...] 	 在指定Key所关联的List Value的尾部插入参数中给出的所有Values。如果该Key不存在，该命令将在插入之前创建一个与该Key关联的空链表，之后再将数据从链表的尾部插入。如果该键的Value不是链表类型，该命令将返回相关的错误信息。 	插入后链表中元素的数量。 
+RPUSHX key value 	 仅有当参数中指定的Key存在时，该命令才会在其所关联的List Value的尾部插入参数中给出的Value，否则将不会有任何操作发生。 	插入后链表中元素的数量。 
+RPOP key 	 返回并弹出指定Key关联的链表中的最后一个元素，即尾部元素，。如果该Key不存，返回nil。 	链表尾部的元素。 
+RPOPLPUSH source destination 	 原子性的从与source键关联的链表尾部弹出一个元素，同时再将弹出的元素插入到与destination键关联的链表的头部。如果source键不存在，该命令将返回nil，同时不再做任何其它的操作了。如果source和destination是同一个键，则相当于原子性的将其关联链表中的尾部元素移到该链表的头部。	返回弹出和插入的元素。
+三、命令示例：
+
+    1. LPUSH/LPUSHX/LRANGE:
+    /> redis-cli    #在Shell提示符下启动redis客户端工具。
+    redis 127.0.0.1:6379> del mykey
+    (integer) 1
+    #mykey键并不存在，该命令会创建该键及与其关联的List，之后在将参数中的values从左到右依次插入。
+    redis 127.0.0.1:6379> lpush mykey a b c d
+    (integer) 4
+    #取从位置0开始到位置2结束的3个元素。
+    redis 127.0.0.1:6379> lrange mykey 0 2
+    1) "d"
+    2) "c"
+    3) "b"
+    #取链表中的全部元素，其中0表示第一个元素，-1表示最后一个元素。
+    redis 127.0.0.1:6379> lrange mykey 0 -1
+    1) "d"
+    2) "c"
+    3) "b"
+    4) "a"
+    #mykey2键此时并不存在，因此该命令将不会进行任何操作，其返回值为0。
+    redis 127.0.0.1:6379> lpushx mykey2 e
+    (integer) 0
+    #可以看到mykey2没有关联任何List Value。
+    redis 127.0.0.1:6379> lrange mykey2 0 -1
+    (empty list or set)
+    #mykey键此时已经存在，所以该命令插入成功，并返回链表中当前元素的数量。
+    redis 127.0.0.1:6379> lpushx mykey e
+    (integer) 5
+    #获取该键的List Value的头部元素。
+    redis 127.0.0.1:6379> lrange mykey 0 0
+    1) "e"
+
+    2. LPOP/LLEN:
+    redis 127.0.0.1:6379> lpush mykey a b c d
+    (integer) 4
+    redis 127.0.0.1:6379> lpop mykey
+    "d"
+    redis 127.0.0.1:6379> lpop mykey
+    "c"
+    #在执行lpop命令两次后，链表头部的两个元素已经被弹出，此时链表中元素的数量是2
+    redis 127.0.0.1:6379> llen mykey
+    (integer) 2
+
+   3. LREM/LSET/LINDEX/LTRIM:
+    #为后面的示例准备测试数据。
+    redis 127.0.0.1:6379> lpush mykey a b c d a c
+    (integer) 6
+    #从头部(left)向尾部(right)变量链表，删除2个值等于a的元素，返回值为实际删除的数量。
+    redis 127.0.0.1:6379> lrem mykey 2 a
+    (integer) 2
+    #看出删除后链表中的全部元素。
+    redis 127.0.0.1:6379> lrange mykey 0 -1
+    1) "c"
+    2) "d"
+    3) "c"
+    4) "b"
+    #获取索引值为1(头部的第二个元素)的元素值。
+    redis 127.0.0.1:6379> lindex mykey 1
+    "d"
+    #将索引值为1(头部的第二个元素)的元素值设置为新值e。
+    redis 127.0.0.1:6379> lset mykey 1 e
+    OK
+    #查看是否设置成功。
+    redis 127.0.0.1:6379> lindex mykey 1
+    "e"
+    #索引值6超过了链表中元素的数量，该命令返回nil。
+    redis 127.0.0.1:6379> lindex mykey 6
+    (nil)
+    #设置的索引值6超过了链表中元素的数量，设置失败，该命令返回错误信息。
+    redis 127.0.0.1:6379> lset mykey 6 hh
+    (error) ERR index out of range
+    #仅保留索引值0到2之间的3个元素，注意第0个和第2个元素均被保留。
+    redis 127.0.0.1:6379> ltrim mykey 0 2
+    OK
+    #查看trim后的结果。
+    redis 127.0.0.1:6379> lrange mykey 0 -1
+    1) "c"
+    2) "e"
+    3) "c"
+
+    4. LINSERT:
+    #删除该键便于后面的测试。
+    redis 127.0.0.1:6379> del mykey
+    (integer) 1
+    #为后面的示例准备测试数据。
+    redis 127.0.0.1:6379> lpush mykey a b c d e
+    (integer) 5
+    #在a的前面插入新元素a1。
+    redis 127.0.0.1:6379> linsert mykey before a a1
+    (integer) 6
+    #查看是否插入成功，从结果看已经插入。注意lindex的index值是0-based。
+    redis 127.0.0.1:6379> lindex mykey 0
+    "e"
+    #在e的后面插入新元素e2，从返回结果看已经插入成功。
+    redis 127.0.0.1:6379> linsert mykey after e e2
+    (integer) 7
+    #再次查看是否插入成功。
+    redis 127.0.0.1:6379> lindex mykey 1
+    "e2"
+    #在不存在的元素之前或之后插入新元素，该命令操作失败，并返回-1。
+    redis 127.0.0.1:6379> linsert mykey after k a
+    (integer) -1
+    #为不存在的Key插入新元素，该命令操作失败，返回0。
+    redis 127.0.0.1:6379> linsert mykey1 after a a2
+    (integer) 0
+
+    5. RPUSH/RPUSHX/RPOP/RPOPLPUSH:
+    #删除该键，以便于后面的测试。
+    redis 127.0.0.1:6379> del mykey
+    (integer) 1
+    #从链表的尾部插入参数中给出的values，插入顺序是从左到右依次插入。
+    redis 127.0.0.1:6379> rpush mykey a b c d
+    (integer) 4
+    #通过lrange的可以获悉rpush在插入多值时的插入顺序。
+    redis 127.0.0.1:6379> lrange mykey 0 -1
+    1) "a"
+    2) "b"
+    3) "c"
+    4) "d"
+    #该键已经存在并且包含4个元素，rpushx命令将执行成功，并将元素e插入到链表的尾部。
+    redis 127.0.0.1:6379> rpushx mykey e
+    (integer) 5
+    #通过lindex命令可以看出之前的rpushx命令确实执行成功，因为索引值为4的元素已经是新元素了。
+    redis 127.0.0.1:6379> lindex mykey 4
+    "e"
+    #由于mykey2键并不存在，因此该命令不会插入数据，其返回值为0。
+    redis 127.0.0.1:6379> rpushx mykey2 e
+    (integer) 0
+    #在执行rpoplpush命令前，先看一下mykey中链表的元素有哪些，注意他们的位置关系。
+    redis 127.0.0.1:6379> lrange mykey 0 -1
+    1) "a"
+    2) "b"
+    3) "c"
+    4) "d"
+    5) "e"
+    #将mykey的尾部元素e弹出，同时再插入到mykey2的头部(原子性的完成这两步操作)。
+    redis 127.0.0.1:6379> rpoplpush mykey mykey2
+    "e"
+    #通过lrange命令查看mykey在弹出尾部元素后的结果。
+    redis 127.0.0.1:6379> lrange mykey 0 -1
+    1) "a"
+    2) "b"
+    3) "c"
+    4) "d"
+    #通过lrange命令查看mykey2在插入元素后的结果。
+    redis 127.0.0.1:6379> lrange mykey2 0 -1
+    1) "e"
+    #将source和destination设为同一键，将mykey中的尾部元素移到其头部。
+    redis 127.0.0.1:6379> rpoplpush mykey mykey
+    "d"
+    #查看移动结果。
+    redis 127.0.0.1:6379> lrange mykey 0 -1
+    1) "d"
+    2) "a"
+    3) "b"
+    4) "c"
+
+四、链表结构的小技巧：
+
+      针对链表结构的Value，Redis在其官方文档中给出了一些实用技巧，如RPOPLPUSH命令，下面给出具体的解释。
+      Redis链表经常会被用于消息队列的服务，以完成多程序之间的消息交换。假设一个应用程序正在执行LPUSH操作向链表中添加新的元素，我们通常将这样的程序称之为"生产者(Producer)"，而另外一个应用程序正在执行RPOP操作从链表中取出元素，我们称这样的程序为"消费者(Consumer)"。如果此时，消费者程序在取出消息元素后立刻崩溃，由于该消息已经被取出且没有被正常处理，那么我们就可以认为该消息已经丢失，由此可能会导致业务数据丢失，或业务状态的不一致等现象的发生。然而通过使用RPOPLPUSH命令，消费者程序在从主消息队列中取出消息之后再将其插入到备份队列中，直到消费者程序完成正常的处理逻辑后再将该消息从备份队列中删除。同时我们还可以提供一个守护进程，当发现备份队列中的消息过期时，可以重新将其再放回到主消息队列中，以便其它的消费者程序继续处理。
