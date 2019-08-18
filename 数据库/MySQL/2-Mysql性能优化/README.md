@@ -1,4 +1,78 @@
+## MySQL索引
+
+参考: <https://www.cnblogs.com/bypp/p/7755307.html>
+
+
+
+### 存储过程
+
+```
+
+
+DROP PROCEDURE auto_insert1
+
+create procedure auto_insert1()
+BEGIN
+    declare i int default 1;
+    while(i<3000000)do
+        insert into s1 values(i,concat('egon',i),'male',concat('egon',i,'@oldboy'));
+        set i=i+1;
+    end while;
+END
+
+show create procedure auto_insert1  
+
+call auto_insert1();
+```
+
+
+
+### 创建索引的语法
+
+```sql
+添加普通索引
+create index cat_id on goods(`cat_id`);
+
+添加唯一索引
+
+ create unique index `idx_goods_sn` on goods(`goods_sn`);
+ 
+添加单列索引, 指定索引长度优化查询速度
+create index `idx_goods_name` on goods(`goods_name`(10));
+```
+
+
+
+
+
+### 使用索引注意点
+
+<https://www.cnblogs.com/yushangzuiyue/p/8352796.html>
+
+- 更新频繁的列不应设置索引
+- 数据量小的表不要使用索引（毕竟总共2页的文档，还要目录吗？）
+- 重复数据多的字段不应设为索引（比如性别，只有男和女，一般来说：重复的数据超过百分之15就不该建索引）
+- 首先应该考虑对where 和 order by 涉及的列上建立索引
+
+
+
+```
+
+SELECT SQL_NO_CACHE  
+
+1.对当前query不使用数据库已有缓存来查询，则当前query花费时间会多点
+
+2.对当前query的产生的结果集不缓存至系统query cache里，则下次相同query花费时间会多点
+```
+
+
+
+
+
+
 ## Mysql性能优化
+
+
 
 ### 1.优化查询
 
