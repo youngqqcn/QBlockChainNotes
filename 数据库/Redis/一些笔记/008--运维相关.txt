@@ -1,0 +1,103 @@
+﻿redis持久化，两种方式
+1、rdb快照方式
+2、aof日志方式
+
+----------rdb快照------------
+save 900 1
+save 300 10
+save 60 10000
+
+stop-writes-on-bgsave-error yes
+rdbcompression yes
+rdbchecksum yes
+dbfilename dump.rdb
+dir /var/rdb/
+
+-----------Aof的配置-----------
+appendonly no # 是否打开 aof日志功能
+
+appendfsync always #每一个命令都立即同步到aof，安全速度慢
+appendfsync everysec
+appendfsync no 写入工作交给操作系统，由操作系统判断缓冲区大小，统一写入到aof  同步频率低，速度快
+
+
+no-appendfsync-on-rewrite yes 正在导出rdb快照的时候不要写aof
+auto-aof-rewrite-percentage 100
+auto-aof-rewrite-min-size 64mb 
+
+
+./bin/redis-benchmark -n 20000
+
+
+
+---------主从复制----------------
+
+Master配置
+1：关闭rdb快照（备份工作交给slave）
+2：可以开启aof
+
+slave配置：
+1、声明slave-of
+2、某一个slave打开rdb快照功能
+3、配置是否只读 slave-read-only
+##4、可选配置密码（内网可不必）
+##在主服务器配置中修改  requirepass 123456
+##客户端连上后需要  auth 123456才能访问
+##但是从服务器已经连不成功master,需要在从服务器配置上  masterauth 123456
+
+cp redis.conf redis6380.conf
+cp redis.conf redis6381.conf
+
+pidfile /var/run/redis6380.pid
+port 6380
+dbfilename dump6380.rdb
+dir /var/rdb/
+
+注：每次slave断开后，再次连接master时，都要master全部dump出来rdb再aof，即同步的过程需要重新来一遍
+所以要记住，多台slave最好不要一下都启动起来
+
+
+-------------redis运维命令--------------
+TIME 查看时间戳与微秒数
+127.0.0.1:6379> time
+1) "1423329581"
+2) "398972"
+
+dbsize 查看当前库中的key数量
+bgrewriteaof 后台进程重写aof
+bgsave  后台保存rdb快照
+save  保存rdb快照
+lastsave  上次保存时间
+slaveof  设为slave服务器
+flushall  清空所有db
+flushdb 清空当前db
+shutdown save|nosave  断开连接关闭服务器
+
+
+slowlog显示慢查询
+(多慢才算慢？ slowlog-log-slower-than 10000)
+存多少条？ slowlog-max-len 128 
+查看慢日志  slowlog get
+config get slowlog-log-slower-than 
+config set slowlog-log-slower-than 10
+
+
+info  显示服务器信息
+config get 获取配置信息
+config set 设置配置信息
+monitor 打开控制台
+sync  主从同步
+client list 客户端列表
+client kill 关闭某个客户端
+client setname 为客户端设置名字
+client getname 获取客户端名字
+
+
+-----
+
+-------重要注意事项----------
+如果不小心flushall了
+应该首先关闭redis服务进程     shutdown nosave
+然后编辑aof
+重启
+

@@ -1,0 +1,104 @@
+﻿一、概述：
+
+      Redis中的Hashes类型可以看成具有String Key和String Value的map容器。所以该类型非常适合于存储值对象的信息。如Username、Password和Age等。如果Hash中包含很少的字段，那么该类型的数据也将仅占用很少的磁盘空间。每一个Hash可以存储4294967295个键值对。
+
+二、相关命令列表：
+
+命令原型	时间复杂度	命令描述	返回值
+HSET key field value	 为指定的Key设定Field/Value对，如果Key不存在，该命令将创建新Key以参数中的Field/Value对，如果参数中的Field在该Key中已经存在，则用新值覆盖其原有值。 	1表示新的Field被设置了新值，0表示Field已经存在，用新值覆盖原有值。 
+HGET key field 	 返回指定Key中指定Field的关联值。	返回参数中Field的关联值，如果参数中的Key或Field不存，返回nil。
+
+HEXISTS key field 	 判断指定Key中的指定Field是否存在。	1表示存在，0表示参数中的Field或Key不存在。
+HLEN key 	 获取该Key所包含的Field的数量。	返回Key包含的Field数量，如果Key不存在，返回0。
+
+HDEL key field [field ...] 	 从指定Key的Hashes Value中删除参数中指定的多个字段，如果不存在的字段将被忽略。如果Key不存在，则将其视为空Hashes，并返回0.	实际删除的Field数量。
+HSETNX key field value	 只有当参数中的Key或Field不存在的情况下，为指定的Key设定Field/Value对，否则该命令不会进行任何操作。 	1表示新的Field被设置了新值，0表示Key或Field已经存在，该命令没有进行任何操作。
+HINCRBY key field increment 	 增加指定Key中指定Field关联的Value的值。如果Key或Field不存在，该命令将会创建一个新Key或新Field，并将其关联的Value初始化为0，之后再指定数字增加的操作。该命令支持的数字是64位有符号整型，即increment可以负数。 	返回运算后的值。
+
+HGETALL key	 获取该键包含的所有Field/Value。其返回格式为一个Field、一个Value，并以此类推。	Field/Value的列表。
+HKEYS key 	 返回指定Key的所有Fields名。	Field的列表。
+HVALS key 	 返回指定Key的所有Values名。 	Value的列表。 
+HMGET key field [field ...] 	 获取和参数中指定Fields关联的一组Values。如果请求的Field不存在，其值返回nil。如果Key不存在，该命令将其视为空Hash，因此返回一组nil。	返回和请求Fields关联的一组Values，其返回顺序等同于Fields的请求顺序。
+HMSET key field value [field value ...]	 逐对依次设置参数中给出的Field/Value对。如果其中某个Field已经存在，则用新值覆盖原有值。如果Key不存在，则创建新Key，同时设定参数中的Field/Value。  	 
+三、命令示例：
+
+    1. HSET/HGET/HDEL/HEXISTS/HLEN/HSETNX:
+    #在Shell命令行启动Redis客户端程序
+    /> redis-cli
+    #给键值为myhash的键设置字段为field1，值为stephen。
+    redis 127.0.0.1:6379> hset myhash field1 "stephen"
+    (integer) 1
+    #获取键值为myhash，字段为field1的值。
+    redis 127.0.0.1:6379> hget myhash field1
+    "stephen"
+    #myhash键中不存在field2字段，因此返回nil。
+    redis 127.0.0.1:6379> hget myhash field2
+    (nil)
+    #给myhash关联的Hashes值添加一个新的字段field2，其值为liu。
+    redis 127.0.0.1:6379> hset myhash field2 "liu"
+    (integer) 1
+    #获取myhash键的字段数量。
+    redis 127.0.0.1:6379> hlen myhash
+    (integer) 2
+    #判断myhash键中是否存在字段名为field1的字段，由于存在，返回值为1。
+    redis 127.0.0.1:6379> hexists myhash field1
+    (integer) 1
+    #删除myhash键中字段名为field1的字段，删除成功返回1。
+    redis 127.0.0.1:6379> hdel myhash field1
+    (integer) 1
+    #再次删除myhash键中字段名为field1的字段，由于上一条命令已经将其删除，因为没有删除，返回0。
+    redis 127.0.0.1:6379> hdel myhash field1
+    (integer) 0
+    #判断myhash键中是否存在field1字段，由于上一条命令已经将其删除，因为返回0。
+    redis 127.0.0.1:6379> hexists myhash field1
+    (integer) 0
+    #通过hsetnx命令给myhash添加新字段field1，其值为stephen，因为该字段已经被删除，所以该命令添加成功并返回1。
+    redis 127.0.0.1:6379> hsetnx myhash field1 stephen
+    (integer) 1
+    #由于myhash的field1字段已经通过上一条命令添加成功，因为本条命令不做任何操作后返回0。
+    redis 127.0.0.1:6379> hsetnx myhash field1 stephen
+    (integer) 0
+
+   2. HINCRBY：
+    #删除该键，便于后面示例的测试。
+    redis 127.0.0.1:6379> del myhash
+    (integer) 1
+    #准备测试数据，该myhash的field字段设定值1。
+    redis 127.0.0.1:6379> hset myhash field 5
+    (integer) 1
+    #给myhash的field字段的值加1，返回加后的结果。
+    redis 127.0.0.1:6379> hincrby myhash field 1
+    (integer) 6
+    #给myhash的field字段的值加-1，返回加后的结果。
+    redis 127.0.0.1:6379> hincrby myhash field -1
+    (integer) 5
+    #给myhash的field字段的值加-10，返回加后的结果。
+    redis 127.0.0.1:6379> hincrby myhash field -10
+    (integer) -5   
+
+    3. HGETALL/HKEYS/HVALS/HMGET/HMSET:
+    #删除该键，便于后面示例测试。
+    redis 127.0.0.1:6379> del myhash
+    (integer) 1
+    #为该键myhash，一次性设置多个字段，分别是field1 = "hello", field2 = "world"。
+    redis 127.0.0.1:6379> hmset myhash field1 "hello" field2 "world"
+    OK
+    #获取myhash键的多个字段，其中field3并不存在，因为在返回结果中与该字段对应的值为nil。
+    redis 127.0.0.1:6379> hmget myhash field1 field2 field3
+    1) "hello"
+    2) "world"
+    3) (nil)
+    #返回myhash键的所有字段及其值，从结果中可以看出，他们是逐对列出的。
+    redis 127.0.0.1:6379> hgetall myhash
+    1) "field1"
+    2) "hello"
+    3) "field2"
+    4) "world"
+    #仅获取myhash键中所有字段的名字。
+    redis 127.0.0.1:6379> hkeys myhash
+    1) "field1"
+    2) "field2"
+    #仅获取myhash键中所有字段的值。
+    redis 127.0.0.1:6379> hvals myhash
+    1) "hello"
+    2) "world" 
