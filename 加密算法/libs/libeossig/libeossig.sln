@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libeossig", "libeossig\libeossig.vcxproj", "{8A1EF69D-665B-41CF-B9C3-6C9EA0465807}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A1EF69D-665B-41CF-B9C3-6C9EA0465807}.Debug|x64.ActiveCfg = Debug|x64
+		{8A1EF69D-665B-41CF-B9C3-6C9EA0465807}.Debug|x64.Build.0 = Debug|x64
+		{8A1EF69D-665B-41CF-B9C3-6C9EA0465807}.Debug|x86.ActiveCfg = Debug|Win32
+		{8A1EF69D-665B-41CF-B9C3-6C9EA0465807}.Debug|x86.Build.0 = Debug|Win32
+		{8A1EF69D-665B-41CF-B9C3-6C9EA0465807}.Release|x64.ActiveCfg = Release|x64
+		{8A1EF69D-665B-41CF-B9C3-6C9EA0465807}.Release|x64.Build.0 = Release|x64
+		{8A1EF69D-665B-41CF-B9C3-6C9EA0465807}.Release|x86.ActiveCfg = Release|Win32
+		{8A1EF69D-665B-41CF-B9C3-6C9EA0465807}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {402D0B6F-914A-4BD0-85E5-92D4E4E6008A}
+	EndGlobalSection
+EndGlobal
