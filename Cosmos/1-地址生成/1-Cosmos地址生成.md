@@ -147,8 +147,14 @@ def encode(hrp, witver, witprog):
 #--------------------------以下是USDP地址生成代码-------------------------------------
 
 
-g_nMaxPrivKey = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364140 - 0x423423843  #私钥最大值 (差值是自定义的)
-g_nMinPrivKey = 0x0000000000000000000000000000000000000000000000000000000000000001 + 0x324389329  #私钥最小值 (增值是自定义的)
+
+#2019-11-12 根据官方定义修改  有限域
+# http://www.secg.org/sec2-v2.pdf#page=9&zoom=100,0,249
+# 关于 有限域的定义 请参考
+# 0xEFFFFFC2F = 2**32 - 2**9 - 2**8 - 2**7 - 2**6 - 2**4 - 1
+g_nFactor = 0xEFFFFFC2F + 0x23492397 #增值自定义
+g_nMaxPrivKey = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364140 - g_nFactor #私钥最大值 (差值是自定义的)
+g_nMinPrivKey = 0x0000000000000000000000000000000000000000000000000000000000000001 + g_nFactor #私钥最小值 (增值是自定义的)
 
 def PrivKeyToPubKeyCompress(privKey):
     '''
