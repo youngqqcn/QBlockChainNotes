@@ -5,10 +5,10 @@
 - [红黑树 (Red Black Tree)](./RBTree.md)
 - [前缀树(Trie Tree)](./Trie.md)
 
-- KMP
-- Prim
-- Dijkstra
-- BM
-- Kruskal
-- RK
-- DFS
+- KMP算法
+- Prim算法
+- Dijkstra算法
+- BM算法
+- Kruskal算法
+- RK算法
+- DFS算法
