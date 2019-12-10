@@ -263,7 +263,6 @@ https://data.ripple.com/v2/accounts/r3Vh1bZbktiWRyJBe6BB9H3okW577u37BE/transacti
       ]
   }
 
-
   //返回
   {
       "result": {
@@ -287,10 +286,6 @@ https://data.ripple.com/v2/accounts/r3Vh1bZbktiWRyJBe6BB9H3okW577u37BE/transacti
           "validated": false
       }
   }
-  
-  
-
-
 
   ```
 
@@ -299,7 +294,6 @@ https://data.ripple.com/v2/accounts/r3Vh1bZbktiWRyJBe6BB9H3okW577u37BE/transacti
 - 交易广播
 
 ```
-
 POST    https://s.altnet.rippletest.net:51234
 
   
@@ -339,8 +333,6 @@ POST    https://s.altnet.rippletest.net:51234
           }
       }
   }
-  
-
 
 ```
 
@@ -398,7 +390,7 @@ true
 rippled.exe  --net --silent --conf ./rippled.cfg
 ```
 
-
+请求例子
 
 ```
 POST  https://192.168.10.114:5005
@@ -561,10 +553,11 @@ ip_limit = 0
 
 
 
-- validators.txt
+- validators.txt 默认的即可
 
 ```
 #
+
 # Default validators.txt
 #
 # A list of domains to bootstrap a nodes UNLs or for clients to indirectly
@@ -641,8 +634,4 @@ ED2677ABFFD1B33AC6FBC3062B71F1E8397C1505E1C42C64D11AD1B28FF73F4734
 # ED264807102805220DA0F312E71FC2C69E1552C9C5790F6C25E3729DEB573D5860
 
 ```
-
-
-
-
 
