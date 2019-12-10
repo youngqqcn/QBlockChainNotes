@@ -62,32 +62,32 @@
 
 - 获取测试币
 
-  ```
-  Address
-  rpxSrARAeTE2Y699CsY5PwVEJ5v21TDrLi
-  Secret
-  ssYt3QxVJtAqtw88REsc7S7X3mHrZ
-  Balance
-  1,000 XRP
-  
-  ---------------
-  
-  
-  Address
-  rBQUkC3iBBAXV7XT4DJeCPiMHQM6PVE555
-  Secret
-  snTru9VEkoQNwRoKTJzNDVg2TDgQk
-  Balance
-  1,000 XRP
-  ```
+```
+Address
+rpxSrARAeTE2Y699CsY5PwVEJ5v21TDrLi
+Secret
+ssYt3QxVJtAqtw88REsc7S7X3mHrZ
+Balance
+1,000 XRP
+
+---------------
+
+
+Address
+rBQUkC3iBBAXV7XT4DJeCPiMHQM6PVE555
+Secret
+snTru9VEkoQNwRoKTJzNDVg2TDgQk
+Balance
+1,000 XRP
+```
 
   
 
 - 查询账户交易历史:  https://github.com/ripple/rippled-historical-database#get-account-transaction-history
 
-  ```
-  - GET /v2/accounts/{address}/transactions
-  ```
+
+> GET /v2/accounts/{address}/transactions
+
 
   | Field          | Value                                                        | Description                                                  |
   | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -106,7 +106,7 @@
 
   例如:
 
-  ```
+```
 https://data.ripple.com/v2/accounts/r3Vh1bZbktiWRyJBe6BB9H3okW577u37BE/transactions?limit=2&start=1564642511&end=1565101720
   
   
@@ -232,7 +232,7 @@ https://data.ripple.com/v2/accounts/r3Vh1bZbktiWRyJBe6BB9H3okW577u37BE/transacti
         ]
     }
   
-  ```
+```
 
 
 
@@ -247,8 +247,7 @@ https://data.ripple.com/v2/accounts/r3Vh1bZbktiWRyJBe6BB9H3okW577u37BE/transacti
 
 
 - 获取账户信息(Sequence)
-
-  ```
+```
   
    //请求
   {
@@ -287,7 +286,7 @@ https://data.ripple.com/v2/accounts/r3Vh1bZbktiWRyJBe6BB9H3okW577u37BE/transacti
       }
   }
 
-  ```
+```
 
  
 
