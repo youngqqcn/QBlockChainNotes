@@ -48,9 +48,24 @@
 
 ![](./img/xrp充币.jpg)
 
+如果用户不填写标签, 不能区分是哪个用户的充币, 只能人工干预.
+
+ripple提供了一个接口, 来设置账户的接收交易, 必须填写 `DestinationTag`, 如果不填写则直接拒绝.
+
+https://xrpl.org/require-destination-tags.html
+
+
+
+这样的确防止了用户充币不填写标签的情况, 但是是否存在其他问题?
+
+
+
+
+
 #### 2.交易所的全节点如何搭建?
 
-直接使用ripple官方的接口即可
+- 字节搭建一个节点, 用于交易的广播, 和其他操作
+- 也可以直接使用ripple官方的接口查询交易, 和广播交易
 
 
 
@@ -89,18 +104,18 @@ Balance
 > GET /v2/accounts/{address}/transactions
 
 
-  | Field          | Value                                                        | Description                                                  |
-  | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-  | `start`        | String - [Timestamp](https://github.com/ripple/rippled-historical-database#timestamps) | Start time of query range. The default is the earliest date available. 开始时间戳 |
-  | `end`          | String - [Timestamp](https://github.com/ripple/rippled-historical-database#timestamps) | End time of query range. The default is the current date. 结束时间戳 |
-  | `min_sequence` | String                                                       | Minimum sequence number to query.                            |
-  | `max_sequence` | String                                                       | Max sequence number to query.                                |
-  | `type`         | String                                                       | Restrict results to a specified [transaction type](https://developers.ripple.com/transaction-types.html). 交易类型, 普通的XRP转账类型是 `Payment` |
-  | `result`       | String                                                       | Restrict results to a specified [transaction result](https://developers.ripple.com/transaction-results.html).  交易结果(成功还是失败), 成功: `tesSUCCESS`  , 其他情况有不同的字符串状态 |
-  | `binary`       | Boolean                                                      | Return results in binary format. 是否返回十六进制字符串, 默认是false |
-  | `descending`   | Boolean                                                      | If `true`, return results in reverse chronological order. The default is `false`.  按照时间降序排列, 默认是 `false` |
-  | `limit`        | Integer                                                      | Maximum results per page. The default is 20. Cannot be more than 1,000.   每页的交易数量 |
-  | `marker`       | String                                                       | [Pagination](https://github.com/ripple/rippled-historical-database#pagination) key from previously returned response.  分页标志, 请求第二页以后的页需要带上此字段 |
+| Field          | Value                                                        | Description                                                  |
+| -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `start`        | String - [Timestamp](https://github.com/ripple/rippled-historical-database#timestamps) | Start time of query range. The default is the earliest date available. 开始时间戳 |
+| `end`          | String - [Timestamp](https://github.com/ripple/rippled-historical-database#timestamps) | End time of query range. The default is the current date. 结束时间戳 |
+| `min_sequence` | String                                                       | Minimum sequence number to query.                            |
+| `max_sequence` | String                                                       | Max sequence number to query.                                |
+| `type`         | String                                                       | Restrict results to a specified [transaction type](https://developers.ripple.com/transaction-types.html). 交易类型, 普通的XRP转账类型是 `Payment` |
+| `result`       | String                                                       | Restrict results to a specified [transaction result](https://developers.ripple.com/transaction-results.html).  交易结果(成功还是失败), 成功: `tesSUCCESS`  , 其他情况有不同的字符串状态 |
+| `binary`       | Boolean                                                      | Return results in binary format. 是否返回十六进制字符串, 默认是false |
+| `descending`   | Boolean                                                      | If `true`, return results in reverse chronological order. The default is `false`.  按照时间降序排列, 默认是 `false` |
+| `limit`        | Integer                                                      | Maximum results per page. The default is 20. Cannot be more than 1,000.   每页的交易数量 |
+| `marker`       | String                                                       | [Pagination](https://github.com/ripple/rippled-historical-database#pagination) key from previously returned response.  分页标志, 请求第二页以后的页需要带上此字段 |
 
   
 
@@ -334,6 +349,20 @@ POST    https://s.altnet.rippletest.net:51234
   }
 
 ```
+
+
+
+
+
+- XRP的Sequence机制
+
+  XRP的sequence机制和ETH的sequence不同,  XRP的sequence不支持大于当前sequence的交易, 如果使用大于当前的sequence的值构造交易, 那么就会出现 `terPRE_SEQ`的错误, 如下:
+
+  ![](./img/Sequence过大.png)
+
+  
+
+
 
 
 
