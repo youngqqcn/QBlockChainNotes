@@ -115,7 +115,43 @@
 
 
 
+#### 5. 关于EOS资源模型
+
+参考文档
+
+- https://www.jianshu.com/p/6b507c9dac66
+
+- https://www.jianshu.com/p/9c9cb374fa00
+- http://www.shixiaohou.com/9146.html
+- https://baijiahao.baidu.com/s?id=1621644525841099171&wfr=spider&for=pc
+
+- http://baijiahao.baidu.com/s?id=1605043373377670832&wfr=spider&for=pc
+- CPU的消耗情况:  https://www.jianshu.com/p/140d17861313
 
 
 
+各种资源说明
 
+- CPU 和 NET: 
+  - 代表每个用户一段时间内能消耗的资源量. 
+  - 用户通过抵押EOS来换取CPU或NET资源, 获取的CPU或NET资源数量是跟随市场实时价格上下波动的. 如果涨价,那么现在你的可用资源就会减少; 如果降价, 那么现在你的可用资源就会增多. 
+  - 每笔交易都会占用CPU的时间(以ms为单位),  越复杂的交易类型占用的CPU时间就越长.
+  - 消耗的资源24小时后会自动恢复(每小时恢复1/24).
+  - 可以通过增加抵押的EOS数量, 来换取更多的资源
+- RAM: 
+  - 将数据存储在区块链上, 需要消耗RAM, DAPP需要用到RAM. (类似ETH合约中的状态)
+  - 普通转账
+  - 创建新账户会消耗 4KB
+  - 和 CPU/NET 不同,  RAM是可以自由买(抵押)卖(赎回)的, 价格由市场决定.  可以低买高卖.
+  - 买卖RAM会收取 0.5% 的手续费
+
+
+
+普通EOS转账(带短memo)消耗的资源
+
+- 实际交易: https://eosflare.io/tx/E1718F71300DBE3D9BCAD26DDF6B5C7627E28CA8EB2B99E54F4AC8A84E928D61
+- CPU消耗约  250us ~ 600us
+- NET消耗约  15 bytes ~  50 bytes
+- 不消耗RAM
+
+![](./img/普通EOS转账资源消耗.jpg)
