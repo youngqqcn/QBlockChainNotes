@@ -236,46 +236,46 @@ namespace eos
 
 	
 	//************************************
-	// Method:    SigCheckEncode        ±àÂë½á¹ûµÄÌî¼ÓĞ£ÑéºÍ²¢±àÂë
+	// Method:    SigCheckEncode        ç¼–ç ç»“æœçš„å¡«åŠ æ ¡éªŒå’Œå¹¶ç¼–ç 
 	// FullName:  EOS::SigCheckEncode
 	// Access:    public 
 	// Returns:   std::string
 	// Qualifier:
-	// Parameter: const unsigned char * pszIRS     ECDSAµÄÇ©Ãû½á¹û  [i][r][s]
-	// Parameter: const unsigned int uDataLen      Ç©Ãû½á¹ûµÄ³¤¶È 65×Ö½Ú
+	// Parameter: const unsigned char * pszIRS     ECDSAçš„ç­¾åç»“æœ  [i][r][s]
+	// Parameter: const unsigned int uDataLen      ç­¾åç»“æœçš„é•¿åº¦ 65å­—èŠ‚
 	//************************************
 	inline int SigCheckEncode(const unsigned char *pszIRS,  const unsigned int uDataLen, std::string &strRet)
 	{
-		//²ÎÊıÅĞ¶Ï
+		//å‚æ•°åˆ¤æ–­
 		if (65 != uDataLen)
 		{
 			printf("args error: uDataLen != 65");
 			return -1;
 		}
 
-		//²½Öè1:  ×·¼Ó "K1"
+		//æ­¥éª¤1:  è¿½åŠ  "K1"
 		std::string strCheck = Bin2HexStr(pszIRS, uDataLen);
 		std:string strForRIP160= HexToBin(strCheck);
 		strForRIP160.append(1, 0x4b); //'K'
 		strForRIP160.append(1, 0x31); //'1'
 
-		//²½Öè2: ½øĞĞRipemd160¹şÏ£
+		//æ­¥éª¤2: è¿›è¡ŒRipemd160å“ˆå¸Œ
 		unsigned char uszRIP160[256] = { 0 };
 		unsigned int uRIP160Len = 0;
 		GetDigest(EVP_ripemd160(), strForRIP160.data(), strForRIP160.size(), uszRIP160, &uRIP160Len);
 
-		//²½Öè3: È¡Ç°4×Ö½Ú
+		//æ­¥éª¤3: å–å‰4å­—èŠ‚
 		std::string strChkSum;
 		strChkSum.append((const char *)uszRIP160, 4); 
 		std::string strForBase58 = std::string((char *)pszIRS, uDataLen) + strChkSum;
 
-		//²½Öè4: ½øĞĞ Base58±àÂë
+		//æ­¥éª¤4: è¿›è¡Œ Base58ç¼–ç 
 		unsigned char szBase58Sig[256] = { 0 };
 		memset(szBase58Sig, 0, sizeof(szBase58Sig));
 		Base58Encode(strForBase58,  strForBase58.size(), szBase58Sig);
 		printf("%s\n", szBase58Sig); // "StV1DL6CwTryKyV"
 
-		//²½Öè5: ¼ÓÉÏ"SIG_K1" ×Ö·û´®Ç°×º
+		//æ­¥éª¤5: åŠ ä¸Š"SIG_K1" å­—ç¬¦ä¸²å‰ç¼€
 		strRet = std::string("SIG_K1_") + std::string((char *)szBase58Sig);
 		return 0;
 	}
@@ -285,12 +285,12 @@ namespace eos
 
 	def Base58CheckEncode(version, payload):
 	'''
-	:param version: °æ±¾Ç°×º  , ÓÃÓÚÇø·ÖÖ÷Íø ºÍ ²âÊÔÍøÂç
+	:param version: ç‰ˆæœ¬å‰ç¼€  , ç”¨äºåŒºåˆ†ä¸»ç½‘ å’Œ æµ‹è¯•ç½‘ç»œ
 	:param payload:
 	:return:
 	'''
 	s = chr(version) + payload
-	checksum = hashlib.sha256(hashlib.sha256(s).digest()).digest()[0:4]  #Á½´Îsha256, ÇøÇ°4×Ö½Ú×÷ÎªĞ£ÑéºÍ
+	checksum = hashlib.sha256(hashlib.sha256(s).digest()).digest()[0:4]  #ä¸¤æ¬¡sha256, åŒºå‰4å­—èŠ‚ä½œä¸ºæ ¡éªŒå’Œ
 	result = s + checksum
 	leadingZeros = CountLeadingChars(result, '\0')
 	return '1' * leadingZeros + Base58encode(Base256decode(result))
@@ -298,10 +298,10 @@ namespace eos
 	*/
 
 	//************************************
-	// Returns:   int          0:³É¹¦     ·Ç0: Ê§°Ü
-	// Parameter: const char * pszWIFKey           WIF¸ñÊ½µÄË½Ô¿
-	// Parameter: unsigned char * pDecodedKey      ½âÂëºóµÄË½Ô¿
-	// Parameter: unsigned int * puDecodedKeyLen   ½âÂëºóµÄË½Ô¿³¤¶È(32×Ö½Ú)
+	// Returns:   int          0:æˆåŠŸ     é0: å¤±è´¥
+	// Parameter: const char * pszWIFKey           WIFæ ¼å¼çš„ç§é’¥
+	// Parameter: unsigned char * pDecodedKey      è§£ç åçš„ç§é’¥
+	// Parameter: unsigned int * puDecodedKeyLen   è§£ç åçš„ç§é’¥é•¿åº¦(32å­—èŠ‚)
 	//************************************
 	int DecodeWIFPrivKey(
 		const char *pszWIFKey,
@@ -310,7 +310,7 @@ namespace eos
 	)
 	{
 
-		//²ÎÊıÅĞ¶Ï
+		//å‚æ•°åˆ¤æ–­
 		std::string strWifKey(pszWIFKey);
 		unsigned char uszDecodePrivKey[1024] = { 0 };
 		memset(uszDecodePrivKey, 0, sizeof(uszDecodePrivKey));
@@ -334,17 +334,17 @@ namespace eos
 
 
 	//************************************
-	// Method:    EosTxSign           EOS½»Ò×Ç©Ãû
+	// Method:    EosTxSign           EOSäº¤æ˜“ç­¾å
 	// FullName:  EosTxSign
 	// Access:    public 
-	// Returns:    0:³É¹¦   ·Ç0: Ê§°Ü
+	// Returns:    0:æˆåŠŸ   é0: å¤±è´¥
 	// Qualifier:
-	// Parameter: const unsigned char * pszPrivKey     Ë½Ô¿(WIF¾­¹ı×ª»»ºóµÄ×Ö½ÚĞÎÊ½)
-	// Parameter: const unsigned int uPrivKeyLen     Ë½Ô¿³¤¶È (±ØĞëÊÇ32×Ö½Ú)
-	// Parameter: const unsigned char * pInData      ÒªÇ©ÃûµÄÊı¾İ
-	// Parameter: const unsigned int uInDataLen      ÒªÇ©ÃûµÄÊı¾İµÄ³¤¶È(±ØĞëÊÇ64×Ö½Ú)
-	// Parameter: unsigned char * pOutData			 Ç©Ãû½á¹û(¾­¹ıbase58±àÂëµÄ×Ö·û´®, Èç SIG_K1_xxxxx
-	// Parameter: unsigned int * puOutDataLen        Ç©Ãû½á¹ûµÄ³¤¶È(65×Ö½Ú)
+	// Parameter: const unsigned char * pszPrivKey     ç§é’¥(WIFç»è¿‡è½¬æ¢åçš„å­—èŠ‚å½¢å¼)
+	// Parameter: const unsigned int uPrivKeyLen     ç§é’¥é•¿åº¦ (å¿…é¡»æ˜¯32å­—èŠ‚)
+	// Parameter: const unsigned char * pInData      è¦ç­¾åçš„æ•°æ®
+	// Parameter: const unsigned int uInDataLen      è¦ç­¾åçš„æ•°æ®çš„é•¿åº¦(å¿…é¡»æ˜¯64å­—èŠ‚)
+	// Parameter: unsigned char * pOutData			 ç­¾åç»“æœ(ç»è¿‡base58ç¼–ç çš„å­—ç¬¦ä¸², å¦‚ SIG_K1_xxxxx
+	// Parameter: unsigned int * puOutDataLen        ç­¾åç»“æœçš„é•¿åº¦(65å­—èŠ‚)
 	//************************************
 	int  EosTxSign(
 		const unsigned char *pszPrivKey,
@@ -355,7 +355,7 @@ namespace eos
 		unsigned int *puOutDataLen
 	)
 	{
-		//0.²ÎÊı¼ì²é
+		//0.å‚æ•°æ£€æŸ¥
 		if (NULL == pszPrivKey || UINT_PRIV_KEY_LEN != uPrivKeyLen )
 		{
 			printf("args error: pszPrivKey is null or uPrivKeyLen != 32\n");
@@ -378,19 +378,19 @@ namespace eos
 		memcpy(szSignData, pInData, uInDataLen) ;
 		unsigned char * const pSignData = szSignData;
 
-		unsigned char uszCustomNonceData[32] = { 0 }; //×Ô¶¨ÒåËæ»úÊıÊı¾İÀ´Ô´(RFC6979)
+		unsigned char uszCustomNonceData[32] = { 0 }; //è‡ªå®šä¹‰éšæœºæ•°æ•°æ®æ¥æº(RFC6979)
 		memset(uszCustomNonceData, 0, sizeof(uszCustomNonceData));
 
 		for (unsigned int uRightZeroPadCount = 0; ; uRightZeroPadCount++)
 		{
-			//1.½øĞĞsha256¹şÏ£
+			//1.è¿›è¡Œsha256å“ˆå¸Œ
 			memset(uszCustomNonceData, 0, sizeof(uszCustomNonceData));
 			std::string  strTmpBinForSha256((const char *)pSignData, uInDataLen);;
-			strTmpBinForSha256.append(uRightZeroPadCount, 0); //ÓÒ²¹Áã
+			strTmpBinForSha256.append(uRightZeroPadCount, 0); //å³è¡¥é›¶
 			SHA256((unsigned char *)strTmpBinForSha256.c_str(), strTmpBinForSha256.size(), uszCustomNonceData);
 
 
-			//2.½øĞĞÇ©Ãû
+			//2.è¿›è¡Œç­¾å
 			auto ctx = getCtx();
 			secp256k1_ecdsa_recoverable_signature rawSig;
 			memset(&rawSig.data, 0, 65);
@@ -400,11 +400,30 @@ namespace eos
 				return -2;
 			}
 
-			//3.´¦ÀíECDSAÇ©Ãû·µ»Ø½á¹û
+			//3.å¤„ç†ECDSAç­¾åè¿”å›ç»“æœ
 			int iRecoverId = 0;
 			unsigned char uszSigData[65] = { 0 }; 
 			memset(uszSigData, 0, sizeof(uszSigData));
 			secp256k1_ecdsa_recoverable_signature_serialize_compact(ctx, uszSigData, &iRecoverId, &rawSig);
+			
+			//è½¬ä¸ºDERæ ¼å¼å¯¹ç­¾åç»“æœè¿›è¡Œä¸¥æ ¼æ£€æŸ¥,ä»¥è§£å†³é”™è¯¯: 'is_canonical( c ): signature is not canonical'
+			if (true)
+			{
+
+				secp256k1_ecdsa_signature rsSig;
+				memcpy(rsSig.data, rawSig.data, 64);
+				unsigned char uszDER_R_S[100];
+				memset(uszDER_R_S, 0, sizeof(uszDER_R_S));
+				size_t uOutLen = 100;
+				secp256k1_ecdsa_signature_serialize_der(ctx, uszDER_R_S, &uOutLen, &rsSig);
+				size_t nLenR = uszDER_R_S[3];
+				size_t nLenS = uszDER_R_S[5 + nLenR];
+
+				if (!(32 == nLenR && 32 == nLenS))
+				{
+					continue;
+				}
+			}
 
 			string strR = Bin2HexStr(uszSigData, 32);
 			string strS = Bin2HexStr(uszSigData + 32, 32);
@@ -412,10 +431,10 @@ namespace eos
 			std::cout << "s:" << Bin2HexStr(uszSigData + 32, 32) << std::endl;
 			std::cout << "------------------------------------" << std::endl;
 
-			//4.Ğ£Ñé  r, s  ÊÇ·ñ·ûºÏ±ê×¼µÄ, Èç¹û²»·ûºÏ, Ôòµ÷Õû uRightZeroPadCount
-			//ÒªÇó  int(r[:2]) <= 0x7F7F
-			//ÒªÇó  int(s[:2]) <= 0x7F7F
-			if ( ! (true
+			//4.æ ¡éªŒ  r, s  æ˜¯å¦ç¬¦åˆæ ‡å‡†çš„, å¦‚æœä¸ç¬¦åˆ, åˆ™è°ƒæ•´ uRightZeroPadCount
+			//è¦æ±‚  int(r[:2]) <= 0x7F7F
+			//è¦æ±‚  int(s[:2]) <= 0x7F7F
+			/*if ( ! (true
 				    && 0 == (uszSigData[0] & 0x80) 
 				    && 0 == (uszSigData[1] & 0x80)  
 				    && 0 == (uszSigData[32] & 0x80) 
@@ -424,22 +443,22 @@ namespace eos
 			   )
 			{
 				continue;
-			}
+			}*/
 
 
-			//5.¶ÔÇ©Ãû½á¹û  i, r, s,½øĞĞÆ´×°
+			//5.å¯¹ç­¾åç»“æœ  i, r, s,è¿›è¡Œæ‹¼è£…
 			unsigned char usz_I_R_S[65] = { 0 };
 			memset(usz_I_R_S, 0, sizeof(usz_I_R_S));
 			memset(usz_I_R_S, iRecoverId + 4 + 27, 1 ); // i 
 			memcpy(usz_I_R_S + 1, uszSigData, 64); // r, s
 			std::cout <<"irs: " << Bin2HexStr(usz_I_R_S, sizeof(usz_I_R_S)) << std::endl;
 
-			//6.¶Ô i,r,s ¼ÆËãĞ£ÑéºÍ²¢½øĞĞ½øĞĞbase58±àÂë, µÃµ½×îÖÕµÄÇ©Ãû½á¹û ÀàËÆ SIG_K1_xxxxxx
+			//6.å¯¹ i,r,s è®¡ç®—æ ¡éªŒå’Œå¹¶è¿›è¡Œè¿›è¡Œbase58ç¼–ç , å¾—åˆ°æœ€ç»ˆçš„ç­¾åç»“æœ ç±»ä¼¼ SIG_K1_xxxxxx
 			std::string strCheckEncodeSig;
 			SigCheckEncode(usz_I_R_S, sizeof(usz_I_R_S), strCheckEncodeSig);
 			std::cout << strCheckEncodeSig << std::endl;
 
-			//7.·µ»ØÇ©Ãû×Ö·û´®,ºÍ×Ö·û´®³¤¶È
+			//7.è¿”å›ç­¾åå­—ç¬¦ä¸²,å’Œå­—ç¬¦ä¸²é•¿åº¦
 			strcpy(pOutData, strCheckEncodeSig.c_str());
 			*puOutDataLen = strlen(strCheckEncodeSig.c_str()) ;
 			break;
@@ -460,7 +479,7 @@ namespace eos
 		unsigned int *puOutDataLen
 	)
 	{
-		//1.²ÎÊıÅĞ¶Ï
+		//1.å‚æ•°åˆ¤æ–­
 		if (NULL == pszWIFPrivKey ||  51 != strlen(pszWIFPrivKey))
 		{
 			printf("args error: pszPrivKey is null or uPrivKeyLen != 32\n");
@@ -478,7 +497,7 @@ namespace eos
 		}
 
 
-		//2.½âÂëWIF¸ñÊ½Ë½Ô¿
+		//2.è§£ç WIFæ ¼å¼ç§é’¥
 		unsigned char uszDecodedPrivKey[UINT_PRIV_KEY_LEN + 1024] = { 0 };
 		memset(uszDecodedPrivKey, 0, sizeof(uszDecodedPrivKey));
 
