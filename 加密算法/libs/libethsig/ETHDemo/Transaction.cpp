@@ -26,7 +26,7 @@ github: github.com/youngqqcn
 date:2019-04-18
 descriptions: 
 	implement ehtereum transaction offline signature
-	ÊµÏÖethereum½»Ò×ÀëÏßÇ©Ãû
+	å®ç°ethereumäº¤æ˜“ç¦»çº¿ç­¾å
 */
 
 
@@ -100,16 +100,16 @@ inline secp256k1_context const* getCtx()
 
 int eth::Transaction::Sign(const EthTxData &ethTxData, const char * pszPrivKey,  unsigned char *pOutBuf, unsigned int uBufLen, unsigned int *puOutLen)
 {
-	//1.×¼±¸Êı¾İ
+	//1.å‡†å¤‡æ•°æ®
 	uint	m_uChainId  = ethTxData.uChainId;							//chainid
-	u256	m_u256Nonce(std::string(ethTxData.pszNonce));				//nonce, ´ËÖµÓ¦ÊÇ·¢ËÍµØÖ·µÄ½»Ò×¼¯ÖĞµÄ×î´ónonceÖµ¼Ó1,
-	u256	m_u256Value(std::string(ethTxData.pszValue));				//½ğ¶î(wei),  1(eth)=10^18(wei), µ¥Î»:wei
-	u256	m_u256GasPrice(std::string(ethTxData.pszGasPrice));			//gasprice, Ò»´Î²Ù×÷ËùĞègas, µ¥Î»:wei
-	u256	m_u256GasStart(std::string(ethTxData.pszGasStart));			//gasstart,Ò²³É gaslimit, µ¥Î»:wei
-	Address	m_addrTo(fromUserHex(std::string(ethTxData.pszAddrTo)));	//to,  Ä¿µÄµØÖ·
-	VRS_SIG m_vrsSig = VRS_SIG{ (byte)m_uChainId, 0, 0 };				//v,r,s  Ç©ÃûĞÅÏ¢;  TODO: Èç¹ûË½Á´µÄchainId¹ı´ó, ´æÔÚÎÊÌâ
+	u256	m_u256Nonce(std::string(ethTxData.pszNonce));				//nonce, æ­¤å€¼åº”æ˜¯å‘é€åœ°å€çš„äº¤æ˜“é›†ä¸­çš„æœ€å¤§nonceå€¼åŠ 1,
+	u256	m_u256Value(std::string(ethTxData.pszValue));				//é‡‘é¢(wei),  1(eth)=10^18(wei), å•ä½:wei
+	u256	m_u256GasPrice(std::string(ethTxData.pszGasPrice));			//gasprice, ä¸€æ¬¡æ“ä½œæ‰€éœ€gas, å•ä½:wei
+	u256	m_u256GasStart(std::string(ethTxData.pszGasStart));			//gasstart,ä¹Ÿæˆ gaslimit, å•ä½:wei
+	Address	m_addrTo(fromUserHex(std::string(ethTxData.pszAddrTo)));	//to,  ç›®çš„åœ°å€
+	VRS_SIG m_vrsSig = VRS_SIG{ (byte)m_uChainId, 0, 0 };				//v,r,s  ç­¾åä¿¡æ¯;  TODO: å¦‚æœç§é“¾çš„chainIdè¿‡å¤§, å­˜åœ¨é—®é¢˜
 
-	bytes	m_bytesData;	//data,  ¸½¼ÓÊı¾İ,Ä¬ÈÏÎª¿Õ
+	bytes	m_bytesData;	//data,  é™„åŠ æ•°æ®,é»˜è®¤ä¸ºç©º
 	for (unsigned int i = 0; i < ethTxData.uDataLen; i++)
 	{
 		m_bytesData.push_back(ethTxData.pData[i]);
@@ -132,14 +132,16 @@ int eth::Transaction::Sign(const EthTxData &ethTxData, const char * pszPrivKey, 
 				|| ETHChainID::Rinkeby == m_uChainId
 				|| ETHChainID::Goerli == m_uChainId
 				|| ETHChainID::Ropsten == m_uChainId
-				|| ETHChainID::Kovan == m_uChainId)
+				|| ETHChainID::Kovan == m_uChainId
+				|| ETHChainID::EthereumClassic == m_uChainId
+				)
 			{
 				s << m_vrsSig.v << m_vrsSig.r << m_vrsSig.s;
 				rawHash = sha3(s.out());
 			}
 			else
 			{
-				std::cout << "´íÎóµÄchainId" << std::endl;
+				std::cout << "é”™è¯¯çš„chainId" << std::endl;
 				return ETH_ERRCODE::ETH_ERR_ErrChainID;
 			}
 		}
@@ -152,7 +154,7 @@ int eth::Transaction::Sign(const EthTxData &ethTxData, const char * pszPrivKey, 
 	}
 
 
-	//2.½øĞĞÇ©Ãû
+	//2.è¿›è¡Œç­¾å
 	Secret privKey(fromUserHex(std::string(pszPrivKey)));
 	if (true)
 	{
@@ -170,7 +172,7 @@ int eth::Transaction::Sign(const EthTxData &ethTxData, const char * pszPrivKey, 
 		memset(&rawSig.data, 0, INT_SIG_INFO_SIZE);
 		if (!secp256k1_ecdsa_sign_recoverable(ctx, &rawSig, _hash.data(), _k.data(), nullptr, nullptr))
 		{
-			std::cout << "secp256k1_ecdsa_sign_recoverable Ê§°Ü" << std::endl;
+			std::cout << "secp256k1_ecdsa_sign_recoverable å¤±è´¥" << std::endl;
 			return ETH_ERRCODE::ETH_ERR_SECP256K1_ECDSA_SIGN_RECOVERABLE_faild;
 		}
 
@@ -210,10 +212,10 @@ int eth::Transaction::Sign(const EthTxData &ethTxData, const char * pszPrivKey, 
 
 
 #if ETH_ADDRESS_DEBUG
-		std::cout << "-------------------------- Ç©ÃûĞÅÏ¢ -------------------------------" << endl;
+		std::cout << "-------------------------- ç­¾åä¿¡æ¯ -------------------------------" << endl;
 		cout << "RawHash: " << rawHash << endl;
 		std::cout << "nonce: " << m_u256Nonce << endl;
-		std::cout << "Ë½Ô¿: " << _priv << endl;
+		std::cout << "ç§é’¥: " << _priv << endl;
 		std::cout << "r: " << m_vrsSig.r << std::endl;
 		std::cout << "s: " << m_vrsSig.s << std::endl;
 		std::cout << "v: " << (int)m_vrsSig.v << std::endl;
@@ -223,14 +225,14 @@ int eth::Transaction::Sign(const EthTxData &ethTxData, const char * pszPrivKey, 
 
 		if (false == ss.isValid())
 		{
-			std::cout << "Ç©ÃûÎŞĞ§" << std::endl;
+			std::cout << "ç­¾åæ— æ•ˆ" << std::endl;
 			return ETH_ERRCODE::ETH_ERR_INVALID_SIG;
 		}
-		std::cout << "Ç©ÃûÓĞĞ§" << std::endl;
+		std::cout << "ç­¾åæœ‰æ•ˆ" << std::endl;
 	}
 
 
-	//3.»ñÈ¡Ç©ÃûºóµÄrlp±àÂë¸ñÊ½µÄÊı¾İ
+	//3.è·å–ç­¾ååçš„rlpç¼–ç æ ¼å¼çš„æ•°æ®
 	try
 	{
 		RLPStream s;
@@ -244,7 +246,7 @@ int eth::Transaction::Sign(const EthTxData &ethTxData, const char * pszPrivKey, 
 			std::cout << "getData error" << std::endl;
 			return ETH_ERR_BadRLP;
 		}
-		std::cout << "getData³É¹¦" << std::endl;
+		std::cout << "getDataæˆåŠŸ" << std::endl;
 
 
 		std::string strHex;
@@ -255,7 +257,7 @@ int eth::Transaction::Sign(const EthTxData &ethTxData, const char * pszPrivKey, 
 			sprintf(buf, "%02x", pOutBuf[i]);
 			strHex += buf;
 		}
-		std::cout << "Ç©ÃûºóµÄÊı¾İ:" << strHex << std::endl;
+		std::cout << "ç­¾ååçš„æ•°æ®:" << strHex << std::endl;
 
 	}
 	catch (std::exception &e)
