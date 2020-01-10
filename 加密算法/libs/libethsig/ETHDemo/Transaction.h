@@ -1,7 +1,7 @@
 //author: yqq
 //date:2019-04-18
 //desc: 
-//     ÒÔÌ«·»½»Ò×´´½¨ÓëÇ©Ãû,  ²Î¿¼ cpp-ethereum
+//     ä»¥å¤ªåŠäº¤æ˜“åˆ›å»ºä¸Žç­¾å,  å‚è€ƒ cpp-ethereum
 
 
 
@@ -30,8 +30,8 @@
 #define  KWEI		(1000 * WEI)
 #define  MWEI		(1000 * KWEI)
 #define  GWEI		(1000 * MWEI)
-#define  MICROETHER (1000 * GWEI)				//Î¢ether
-#define  MILLIETHER (1000 * MICROETHER)			//ºÁether
+#define  MICROETHER (1000 * GWEI)				//å¾®ether
+#define  MILLIETHER (1000 * MICROETHER)			//æ¯«ether
 #define  ETHER		(1000 * MILLIETHER)			//ether
 
 #define	 STR_GWEI_0_SUFFIX				("000000000")		//
@@ -46,12 +46,13 @@ namespace eth
 	{
 		None = 0,
 		Mainnet = 1,
-		//EXPANSE = 2,  //ÔÝÊ±Î´Ê¹ÓÃ
+		//EXPANSE = 2,  //æš‚æ—¶æœªä½¿ç”¨
 		Ropsten = 3,
 		Rinkeby = 4,
 		Goerli = 5,
 		Kovan = 42,
-		Geth_Private_Chains = 1337 //gethË½Á´Ä¬ÈÏid
+		EthereumClassic=61, //å¢žåŠ ETCæ”¯æŒ   2020-01-10 
+		Geth_Private_Chains = 1337 //gethç§é“¾é»˜è®¤id
 	};
 
 
@@ -69,14 +70,14 @@ namespace eth
 		}
 
 		ETHChainID			uChainId;				//chainId , 
-		char				*pszNonce;				//nonce , Í¨¹ý½ÚµãµÄ eth.getTransactionCount rpc½Ó¿Ú»ñÈ¡nonce
-		char				*pszValue;				//value, ½ð¶î, µ¥Î»:wei
-		char				*pszGasPrice;			//gasprice,  µ¥Î»:wei
-		char				*pszGasStart;			//gasstart , µ¥Îª:wei
-		unsigned char		*pData;					//data¸½¼ÓÊý¾Ý, ÊÇÊ®Áù½øÖÆ±àÂëµÄ, ´Ë×Ö¶ÎÄ¬ÈÏÎª¿Õ!
-		unsigned int		uDataLen;				//data³¤¶È
-		//std::string		strAddrTo;				//Ä¿µÄµØÖ·    //²»ÒªÊ¹ÓÃ STL
-		char				*pszAddrTo;				//Ä¿µÄµØÖ·
+		char				*pszNonce;				//nonce , é€šè¿‡èŠ‚ç‚¹çš„ eth.getTransactionCount rpcæŽ¥å£èŽ·å–nonce
+		char				*pszValue;				//value, é‡‘é¢, å•ä½:wei
+		char				*pszGasPrice;			//gasprice,  å•ä½:wei
+		char				*pszGasStart;			//gasstart , å•ä¸º:wei
+		unsigned char		*pData;					//dataé™„åŠ æ•°æ®, æ˜¯åå…­è¿›åˆ¶ç¼–ç çš„, æ­¤å­—æ®µé»˜è®¤ä¸ºç©º!
+		unsigned int		uDataLen;				//dataé•¿åº¦
+		//std::string		strAddrTo;				//ç›®çš„åœ°å€    //ä¸è¦ä½¿ç”¨ STL
+		char				*pszAddrTo;				//ç›®çš„åœ°å€
 	}EthTxData;
 
 
@@ -89,9 +90,9 @@ namespace eth
 			ETH_NO_ERROR = 0,
 
 			ETH_ERR_BadRLP = 95,
-			ETH_ERR_ErrChainID = 96, //´íÎóµÄchainID
-			ETH_ERR_SECP256K1_ECDSA_SIGN_RECOVERABLE_faild = 97, //º¯Êýµ÷ÓÃÊ§°Ü
-			ETH_ERR_INVALID_SIG = 99, //ÎÞÐ§Ç©Ãû
+			ETH_ERR_ErrChainID = 96, //é”™è¯¯çš„chainID
+			ETH_ERR_SECP256K1_ECDSA_SIGN_RECOVERABLE_faild = 97, //å‡½æ•°è°ƒç”¨å¤±è´¥
+			ETH_ERR_INVALID_SIG = 99, //æ— æ•ˆç­¾å
 
 		};
 
@@ -110,7 +111,7 @@ namespace eth
 
 
 		
-		//@warning: DLL½Ó¿Ú²»ÒªÊ¹ÓÃ STL, ¼´²»ÒªÓÃ(std::string, std::vector, std::list, ...µÈµÈ)
+		//@warning: DLLæŽ¥å£ä¸è¦ä½¿ç”¨ STL, å³ä¸è¦ç”¨(std::string, std::vector, std::list, ...ç­‰ç­‰)
 		static int Sign(const EthTxData &ethTxData, const char *pszPrivKey, unsigned char *pOutBuf, unsigned int uBufLen,  unsigned int *puOutLen);
 
 
@@ -132,12 +133,12 @@ namespace eth
 	};
 
 
-	//¹¦ÄÜÃèÊö: ½«ether»»ËãÎª wei
-	//×¢Òâ:
-	//dValueµÄ×î´óÖµ(²»»áµ¼ÖÂÕûÐÍÒç³ö)¼ÆËã·½·¨:
+	//åŠŸèƒ½æè¿°: å°†etheræ¢ç®—ä¸º wei
+	//æ³¨æ„:
+	//dValueçš„æœ€å¤§å€¼(ä¸ä¼šå¯¼è‡´æ•´åž‹æº¢å‡º)è®¡ç®—æ–¹æ³•:
 	//>>> 1.0 * (2**64 - 1) / (10**9)
 	//18446744073.709553      
-	//±£ÁôÐ¡Êýµãºó8Î», ¼´ 0.00000001   , Èç¹û³¬³öÔòÉáÈ¥!
+	//ä¿ç•™å°æ•°ç‚¹åŽ8ä½, å³ 0.00000001   , å¦‚æžœè¶…å‡ºåˆ™èˆåŽ»!
 	inline int EtherToWei(double dValue, std::string &strValueWei, PricisionLevel uPrecisionLevel = ETH_LEVEL_GWEI)
 	{
 		if (dValue > UINT_MAX_WITHDRAW_AMOUNT || dValue < FLOAT_MIN_WITHDRAW_AMOUNT)
@@ -153,7 +154,7 @@ namespace eth
 			char buf[100] = { 0 };
 			memset(buf, 0, sizeof(buf));
 			sprintf(buf, "%llu", ullValue);
-			strValueWei = std::string(buf) + STR_GWEI_0_SUFFIX;  //²¹9¸ö0
+			strValueWei = std::string(buf) + STR_GWEI_0_SUFFIX;  //è¡¥9ä¸ª0
 		}
 		break;
 		default:
