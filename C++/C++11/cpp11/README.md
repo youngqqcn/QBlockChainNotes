@@ -168,20 +168,68 @@ vctInts.push_back(std::move( std::string("hello") ));
 
 ```
 
+- 原生字符串支持
 
+  ```c++
+  //std::string  strFilePath1 = "C:\\Program Files (x86)\\Tencent\\QQ\\gf-config.xml"; //ok
+  
+  //std::string  strFilePath1 = R"(D:\gradle-6.0-bin.zip)"; //ok
+  
+  std::string  strFilePath1 = R"(C:\Program Files (x86)\Tencent\QQ\gf-config.xml)"; //ok
+  
+  std::filesystem::path p1( strFilePath1 ); //filesystem是 C++17标准
+  if (filesystem::exists(p1)){
+      std::cout << "exists" << std::endl;
+  }else{
+      std::cout << "not exists" << std::endl;
+  }
+  
+  std::ifstream infstream( strFilePath1, ios::in | ios::binary);
+  if(infstream.is_open())
+  {
+      char buf[1024] { 0 };
+      memset(buf, 0, sizeof(buf));
+  
+      while (!infstream.eof())
+      {
+          infstream.getline(buf, 1024);
+          std::cout << buf << std::endl;
+      }
+  
+      infstream.close();
+  }
+  else
+  {
+      std::cout << "open file failed." << std::endl;
+  }
+  ```
 
-
-- atomic 原子操作
+  
 
 
 - filesystem 文件系统
 
+  
 
-- mutex 互斥量
 
 - chrono  时间
-
 - regex 正则表达式
 
 
+
+以下内容, 移至 [C++11并发编程](./C++11并发编程.md) 中做介绍
+
+- atomic 原子操作
+
+  >  https://en.cppreference.com/w/cpp/atomic
+  >
+  > 关于std::memory_order: https://www.cnblogs.com/lizhanzhe/p/10893016.html
+
+- std::thread
+
+
+- std::mutex 
+- std::future 
+- std::atomic
+- std::async
 
