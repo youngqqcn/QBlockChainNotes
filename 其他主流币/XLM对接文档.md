@@ -10,6 +10,8 @@
 - 测试实验室: https://www.stellar.org/laboratory/#account-creator?network=test
 - PythonSDK: https://github.com/StellarCN/py-stellar-base
 - 其他SDK: https://www.stellar.org/developers/reference/
+- 测试网区块链浏览器: http://testnet.stellarchain.io/
+- 主网区块链浏览器: https://stellarchain.io/
 
 
 
