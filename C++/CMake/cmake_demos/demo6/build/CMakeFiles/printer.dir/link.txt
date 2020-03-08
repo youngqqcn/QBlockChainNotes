@@ -1,0 +1,2 @@
+/usr/bin/ar qc libprinter.a  CMakeFiles/printer.dir/src/printer.cc.o
+/usr/bin/ranlib libprinter.a

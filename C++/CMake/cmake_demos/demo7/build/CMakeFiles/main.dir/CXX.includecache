@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/root/mypro/cpp/cmake_demos/demo6/install/include/printer.h
+iostream
+-
+
+/root/mypro/cpp/cmake_demos/demo7/src/main.cc
+iostream
+-
+printer.h
+/root/mypro/cpp/cmake_demos/demo7/src/printer.h
+

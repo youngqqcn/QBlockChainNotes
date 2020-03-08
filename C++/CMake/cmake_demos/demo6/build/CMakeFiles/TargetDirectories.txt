@@ -1,0 +1,7 @@
+/root/mypro/cpp/cmake_demos/demo6/build/CMakeFiles/install/strip.dir
+/root/mypro/cpp/cmake_demos/demo6/build/CMakeFiles/install/local.dir
+/root/mypro/cpp/cmake_demos/demo6/build/CMakeFiles/edit_cache.dir
+/root/mypro/cpp/cmake_demos/demo6/build/CMakeFiles/printer.dir
+/root/mypro/cpp/cmake_demos/demo6/build/CMakeFiles/rebuild_cache.dir
+/root/mypro/cpp/cmake_demos/demo6/build/CMakeFiles/list_install_components.dir
+/root/mypro/cpp/cmake_demos/demo6/build/CMakeFiles/install.dir

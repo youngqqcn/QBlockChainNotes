@@ -1,0 +1,4 @@
+/root/mypro/cpp/cmake_demos/demo3/build/CMakeFiles/rebuild_cache.dir
+/root/mypro/cpp/cmake_demos/demo3/build/CMakeFiles/printer.dir
+/root/mypro/cpp/cmake_demos/demo3/build/CMakeFiles/edit_cache.dir
+/root/mypro/cpp/cmake_demos/demo3/build/CMakeFiles/printer_static.dir

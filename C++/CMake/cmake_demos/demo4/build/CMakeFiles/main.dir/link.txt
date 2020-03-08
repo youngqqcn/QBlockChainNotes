@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/main.dir/src/main.cc.o  -o main  -Wl,-rpath,/root/mypro/cpp/cmake_demos/demo4/lib ../lib/libprinter.so 

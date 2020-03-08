@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/printer.dir/src/main.cc.o CMakeFiles/printer.dir/src/printer.cc.o  -o printer 

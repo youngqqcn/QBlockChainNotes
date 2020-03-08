@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC   -shared -Wl,-soname,libprinter.so -o ../lib/libprinter.so CMakeFiles/printer.dir/src/printer.cc.o 

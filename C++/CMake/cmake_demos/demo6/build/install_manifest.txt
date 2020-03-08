@@ -1,0 +1,3 @@
+/root/mypro/cpp/cmake_demos/demo6/install/cmake/Findprinter.cmake
+/root/mypro/cpp/cmake_demos/demo6/install/include/printer.h
+/root/mypro/cpp/cmake_demos/demo6/install/lib/libprinter.a
