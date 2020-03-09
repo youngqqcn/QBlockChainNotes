@@ -1,0 +1,10 @@
+cffi==1.13.2
+ecdsa==0.14.1
+gevent==1.4.0
+greenlet==0.4.15
+pycparser==2.19
+python-ripple-lib==1.0.7
+six==1.13.0
+websocket==0.2.1
+websocket-client==0.56.0
+websocket-client-py3==0.14.0
