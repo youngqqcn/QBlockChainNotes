@@ -53,7 +53,7 @@ def main():
 
 
 
-    privkey = "04f73c190f8143c8abe8b3d85e8c4faf1d148c43f261a89793398c370851e48d"
+    privkey = "你的私钥"
 
 
     tron = Tron(full_node=full_node,
@@ -163,18 +163,9 @@ def main():
     pass
 
 
-def SigDemo():
-    # new_txid = 'fa1d4878612ac088055c8292d50ac93880968d7e4b53c8a610dee67d1f310d93'
-    new_txid = '3fb27c01b3d1150cae7486440d89cbcfe593a44262851ff9a372cdda76531aa3'
-    privkey = '04f73c190f8143c8abe8b3d85e8c4faf1d148c43f261a89793398c370851e48d'
-    my_sig = new_ecsign(unhexlify(new_txid), unhexlify(privkey))
-
-    print(type(hexlify(my_sig)))
-    print("我的签名: {}".format(str(hexlify(my_sig), encoding='latin')))
-    pass
 
 if __name__ == '__main__':
 
-    # main()
-    SigDemo()
+    main()
+    
 
