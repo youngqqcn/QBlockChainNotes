@@ -148,7 +148,7 @@
 
 标准地址生成流程
 
-![](./img/standardaddress.jpg)
+![](./img/standardaddr.png)
 
 
 
@@ -162,7 +162,7 @@
 
 子地址生成流程
 
-![](./img/subaddress.jpg)
+![](./img/subaddr.png)
 
 
 
