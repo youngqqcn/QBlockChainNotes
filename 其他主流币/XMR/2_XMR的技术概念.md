@@ -104,10 +104,6 @@
 
   
 
-
-
-
-
 - Private spend key  
 
   > 参考: https://monerodocs.org/cryptography/asymmetric/private-key/#private-spend-key
@@ -134,37 +130,47 @@
 
 ### 地址分类
 
-- Standard  标准地址
+#### Standard  标准地址
 
-  > https://monerodocs.org/public-address/standard-address/
+> https://monerodocs.org/public-address/standard-address/
 
-  - 即默认地址, 有  `public spend key `和 `public veiw key`组成
-  - 一共 69 个字节,  经过特殊的base58编码(**和一般的base58不同**)形成95个字符长度字符串
+- 即默认地址, 有  `public spend key `和 `public veiw key`组成
+- 一共 69 个字节,  经过特殊的base58编码(**和一般的base58不同**)形成95个字符长度字符串
 
-  | Index | Size in bytes | Description                                                  |
-  | :---- | :------------ | :----------------------------------------------------------- |
-  | 0     | 1             | identifies the network and address type; [18](https://github.com/monero-project/monero/blob/793bc973746a10883adb2f89827e223f562b9651/src/cryptonote_config.h#L149) - main chain; [53](https://github.com/monero-project/monero/blob/793bc973746a10883adb2f89827e223f562b9651/src/cryptonote_config.h#L161) - test chain; stagenet是24 |
-  | 1     | 32            | public spend key                                             |
-  | 33    | 32            | public view key                                              |
-  | 65    | 4             | checksum ([Keccak-f[1600\] hash](https://github.com/monero-project/monero/blob/8f1f43163a221153403a46902d026e3b72f1b3e3/src/common/base58.cpp#L261) of the previous 65 bytes, trimmed to first [4](https://github.com/monero-project/monero/blob/8f1f43163a221153403a46902d026e3b72f1b3e3/src/common/base58.cpp#L53) bytes) |
-
-- Subaddress 子地址
-
-  > https://monerodocs.org/public-address/subaddress/
-
-  这里的子地址, 并不是真正意义上的子地址, 
+| Index | Size in bytes | Description                                                  |
+| :---- | :------------ | :----------------------------------------------------------- |
+| 0     | 1             | identifies the network and address type; [18](https://github.com/monero-project/monero/blob/793bc973746a10883adb2f89827e223f562b9651/src/cryptonote_config.h#L149) - main chain; [53](https://github.com/monero-project/monero/blob/793bc973746a10883adb2f89827e223f562b9651/src/cryptonote_config.h#L161) - test chain; stagenet是24 |
+| 1     | 32            | public spend key                                             |
+| 33    | 32            | public view key                                              |
+| 65    | 4             | checksum ([Keccak-f[1600\] hash](https://github.com/monero-project/monero/blob/8f1f43163a221153403a46902d026e3b72f1b3e3/src/common/base58.cpp#L261) of the previous 65 bytes, trimmed to first [4](https://github.com/monero-project/monero/blob/8f1f43163a221153403a46902d026e3b72f1b3e3/src/common/base58.cpp#L53) bytes) |
 
 
 
-- Integrated  集成地址
+标准地址生成流程
 
-  - 地址长度: 106 字符
+![](./img/standardaddress.jpg)
 
-  通过特殊的paymentId, 
 
-  >  注意: 根据最新的 monero 发布版(v0.15.1) ,  已经弃用 paymentid , 所以 不要再使用  interagrated 地址
-  >
-  > 详情: https://lists.getmonero.org/hyperkitty/list/monero-announce@lists.getmonero.org/thread/NQCMZHCW557QG4QX752ZTBETRWLF2P63/
+
+#### Subaddress 子地址
+
+> https://monerodocs.org/public-address/subaddress/
+
+这里的子地址, 并不是真正意义上的子地址, 和BTC的地址概念不同
+
+
+
+子地址生成流程
+
+![](./img/subaddress.jpg)
+
+
+
+#### Integrated  集成地址
+
+- 地址长度: 106 字符
+
+地址和paymentId 组成的地址
 
 
 
