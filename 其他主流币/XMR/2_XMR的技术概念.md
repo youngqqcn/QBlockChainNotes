@@ -152,6 +152,41 @@
 
 
 
+标准地址生成源码
+
+```python
+def public_address(self, net=const.NET_MAIN):
+    """Returns the master :class:`Address <monero.address.Address>` represented by the seed.
+
+    :param net: the network, one of `const.NET_*`; default is `const.NET_MAIN`
+
+    :rtype: :class:`Address <monero.address.Address>`
+    """
+    # backward compatibility
+    _net = net[:-3] if net.endswith('net') else net
+    if _net != net:
+        warnings.warn(
+            "Argument '{:s}' is deprecated and will not be accepted in 0.8, "
+            "use one of monero.const.NET_*".format(net),
+            DeprecationWarning)
+        net = _net
+    if net not in const.NETS:
+        raise ValueError(
+            "Invalid net argument '{:s}'. Must be one of monero.const.NET_*".format(net))
+    netbyte = (18, 53, 24)[const.NETS.index(net)]
+    data = "{:x}{:s}{:s}".format(netbyte, self.public_spend_key(),self.public_view_key())
+    h = keccak_256()
+    h.update(unhexlify(data))
+    checksum = h.hexdigest()
+    return address(base58.encode(data + checksum[0:8]))
+```
+
+
+
+
+
+
+
 #### Subaddress 子地址
 
 > https://monerodocs.org/public-address/subaddress/
@@ -166,11 +201,76 @@
 
 
 
+
+
+Subaddress地址生成源码
+
+```python
+
+def get_address(master_addr, major, minor, seed : Seed):
+    """
+    Calculates sub-address for account index (`major`) and address index within
+    the account (`minor`).
+
+    :rtype: :class:`BaseAddress <monero.address.BaseAddress>`
+    """
+    # ensure indexes are within uint32
+    if major < 0 or major >= 2 ** 32:
+        raise ValueError('major index {} is outside uint32 range'.format(major))
+    if minor < 0 or minor >= 2 ** 32:
+        raise ValueError('minor index {} is outside uint32 range'.format(minor))
+    master_address = master_addr  #self.address()
+    if major == minor == 0:  #如果是  (0, 0) 则直接返回
+        return master_address
+
+
+    priv_view_key =  seed.secret_view_key()
+    master_svk = unhexlify(priv_view_key)
+
+    pub_spend_key = seed.public_spend_key()
+    master_psk = unhexlify( pub_spend_key  )
+
+    # master_svk = unhexlify(self.view_key())
+    # master_psk = unhexlify(self.address().spend_key())
+
+    # m = Hs("SubAddr\0" || master_svk || major || minor)
+    hsdata = b''.join([
+        b'SubAddr\0', master_svk,
+        struct.pack('<I', major), struct.pack('<I', minor)])
+    m = keccak_256(hsdata).digest()
+    
+    # D = master_psk + m * B
+    D = ed25519.edwards_add(
+        ed25519.decodepoint(master_psk),
+        ed25519.scalarmult_B(ed25519.decodeint(m)))
+
+    # C = master_svk * D
+    C = ed25519.scalarmult(D, ed25519.decodeint(master_svk))
+    netbyte = bytearray([const.SUBADDR_NETBYTES[const.NETS.index(master_address.net)]])
+    data = netbyte + ed25519.encodepoint(D) + ed25519.encodepoint(C)
+    checksum = keccak_256(data).digest()[:4]
+    return address.SubAddress(base58.encode(hexlify(data + checksum)))
+```
+
+
+
+
+
+
+
+
+
 #### Integrated  集成地址
 
 - 地址长度: 106 字符
 
 地址和paymentId 组成的地址
+
+
+
+
+
+
 
 
 
