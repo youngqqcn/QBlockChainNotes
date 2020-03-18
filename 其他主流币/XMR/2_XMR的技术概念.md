@@ -254,9 +254,7 @@ def get_address(master_addr, major, minor, seed : Seed):
 
 
 
-
-
-
+> 更多关于子地址: [3_XMR地址生成.md](./3_XMR地址生成.md)
 
 
 
@@ -265,12 +263,6 @@ def get_address(master_addr, major, minor, seed : Seed):
 - 地址长度: 106 字符
 
 地址和paymentId 组成的地址
-
-
-
-
-
-
 
 
 
