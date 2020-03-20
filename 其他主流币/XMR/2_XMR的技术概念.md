@@ -1,6 +1,12 @@
 ## Monero 的技术点
 
-文档: https://monerodocs.org/
+参考文档:
+
+- https://monerodocs.org/
+
+- https://github.com/monerobook/monerobook/blob/master/chapters/5.md
+
+
 
 
 
