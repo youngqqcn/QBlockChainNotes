@@ -1,4 +1,4 @@
-# Menoro(XMR) 门罗币
+# Monero(XMR) 门罗币
 
 - [1_XMR全节点搭建](1_XMR全节点搭建.md)
 - [2_XMR的技术概念](2_XMR的技术概念.md)
