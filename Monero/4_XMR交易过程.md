@@ -4,15 +4,15 @@
 
 ### 参考文档
 
-> - 书: [《精通门罗币 : 私密交易的未来》(Mastering Monero) ](https://github.com/monerobook/monerobook)
-> - 书中的代码示例: [《精通门罗币 : 私密交易的未来》](https://github.com/monerobook/code)
-> - [深入探究门罗币与密码学](https://medium.com/@WooKeyWallet/精通门罗币-第5章-深入探究门罗币与密码学-下篇-3dedd99f75bf)
-> - [门罗币的环签名分析](https://github.com/XChainLab/documentation/blob/master/privacy/门罗币、ZEC和达世币的对比分析之二门罗币的环签名分析.md)
-> - 官方介绍视频
->   - [1.隐匿地址 Stealth Address_Monero官方介绍视频](https://www.youtube.com/watch?v=bWst278J8NA)
->   - [2.环签名 Ring Signature_Monero官方介绍视频](https://www.youtube.com/watch?v=zHN_B_H_fCs)
->   - [3.环机密交易 Ring Confidential Transaction_Monero官方介绍视频](https://www.youtube.com/watch?v=M3AHp9KgTkQ)
-> - 官方的文档, 详细介绍Monero的数学原理: [《Zero to Monero》](https://www.getmonero.org/library/Zero-to-Monero-1-0-0.pdf)
+- 书: [《精通门罗币 : 私密交易的未来》(Mastering Monero) ](https://github.com/monerobook/monerobook)
+- 书中的代码示例: [《精通门罗币 : 私密交易的未来》](https://github.com/monerobook/code)
+- [深入探究门罗币与密码学](https://medium.com/@WooKeyWallet/精通门罗币-第5章-深入探究门罗币与密码学-下篇-3dedd99f75bf)
+- [门罗币的环签名分析](https://github.com/XChainLab/documentation/blob/master/privacy/门罗币、ZEC和达世币的对比分析之二门罗币的环签名分析.md)
+- 官方介绍视频
+  - [1.隐匿地址 Stealth Address_Monero官方介绍视频](https://www.youtube.com/watch?v=bWst278J8NA)
+  - [2.环签名 Ring Signature_Monero官方介绍视频](https://www.youtube.com/watch?v=zHN_B_H_fCs)
+  - [3.环机密交易 Ring Confidential Transaction_Monero官方介绍视频](https://www.youtube.com/watch?v=M3AHp9KgTkQ)
+- 官方的文档, 详细介绍Monero的数学原理: [《Zero to Monero》](https://www.getmonero.org/library/Zero-to-Monero-1-0-0.pdf)
 
 
 
