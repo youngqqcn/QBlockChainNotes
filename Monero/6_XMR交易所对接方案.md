@@ -30,7 +30,7 @@
 monero-wallet-cli --stagenet  --daemon-address monero-stagenet.exan.tech:38081  --trusted-daemon --generate-from-view-key=/root/.bitmonero/stagenet/wallet_files/yqq_incoming_only  --restore-height 536084  
 ```
 
-
+  
 
 ![](./img/generate_incoming_only_wallet.png)
 
