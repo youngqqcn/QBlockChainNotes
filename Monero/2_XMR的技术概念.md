@@ -325,7 +325,7 @@ def get_address(master_addr, major, minor, seed : Seed):
 
 
 
-移至: [4_区块结构和交易结构分析.md](4_区块结构和交易结构分析.md)
+移至: [4_XMR交易过程.md](4_XMR交易过程.md)
 
 
 
