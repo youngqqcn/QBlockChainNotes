@@ -207,6 +207,8 @@ def public_address(self, net=const.NET_MAIN):
 
 
 
+> 问题:  m 虽然是 sub_private_view_key 但是似乎并作为解析output的view key使用
+
 
 
 Subaddress地址生成源码
@@ -257,6 +259,10 @@ def get_address(master_addr, major, minor, seed : Seed):
     checksum = keccak_256(data).digest()[:4]
     return address.SubAddress(base58.encode(hexlify(data + checksum)))
 ```
+
+
+
+
 
 
 
