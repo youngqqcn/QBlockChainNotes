@@ -181,8 +181,6 @@ monero-wallet-cli --stagenet  --daemon-address monero-stagenet.exan.tech:38081  
 
 ## 提币
 
-> 参考:  https://github.com/monero-project/monero/blob/master/tests/functional_tests/cold_signing.py
-
 
 
 ### 获取账户余额
@@ -249,6 +247,58 @@ monero-wallet-cli --stagenet  --daemon-address monero-stagenet.exan.tech:38081  
 
 
 ### 离线签名(冷签名)
+
+> 参考:  https://github.com/monero-project/monero/blob/master/tests/functional_tests/cold_signing.py
+>
+> 源码:  [cold_signing.py](./src/cold_signing.py)
+
+
+
+```python
+def transfer(self):
+    daemon = Daemon()
+
+    print("Creating transaction in hot wallet")
+
+    dst = {'address': '42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm', 'amount': 1000000000000}
+
+    self.hot_wallet.refresh()
+    res = self.hot_wallet.export_outputs()
+    self.cold_wallet.import_outputs(res.outputs_data_hex)
+    res = self.cold_wallet.export_key_images(True)
+    self.hot_wallet.import_key_images(res.signed_key_images, offset = res.offset)
+
+    res = self.hot_wallet.transfer([dst], ring_size = 11, get_tx_key = False)
+    
+    unsigned_txset = res.unsigned_txset
+
+    print('Signing transaction with cold wallet')
+    res = self.cold_wallet.describe_transfer(unsigned_txset = unsigned_txset)
+    
+    res = self.cold_wallet.sign_transfer(unsigned_txset)
+    
+    signed_txset = res.signed_txset
+    
+    txid = res.tx_hash_list[0]
+    
+
+    print('Submitting transaction with hot wallet')
+    res = self.hot_wallet.submit_transfer(signed_txset)
+    
+    res = self.hot_wallet.get_transfers()
+    
+    self.hot_wallet.refresh()
+
+    res = self.hot_wallet.get_transfers()
+   
+    res = self.hot_wallet.get_tx_key(txid) #tx_key 用来是证明交易, 参考RPC接口, get_tx_key 和 check_tx_key
+    
+    res = self.cold_wallet.get_tx_key(txid)
+    
+
+```
+
+
 
 
 
@@ -582,7 +632,7 @@ private view key: 53a60fee1ef4386838cf7d7c5e0b5a252287590fc544a3fda802e92cce3a88
 
 
 
----
+
 
 #### 注意事项
 
