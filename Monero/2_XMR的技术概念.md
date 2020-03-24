@@ -3,8 +3,9 @@
 参考文档:
 
 - https://monerodocs.org/
-
 - https://github.com/monerobook/monerobook/blob/master/chapters/5.md
+- wallet_rpc 文档:  https://web.getmonero.org/resources/developer-guides/wallet-rpc.html
+- daemon_rpc文档: https://web.getmonero.org/resources/developer-guides/daemon-rpc.html
 
 
 
@@ -88,49 +89,49 @@
 
   
 
-
-
 ### 公私钥,地址, 钱包等相关概念
 
 > 可以参考: https://www.monero.how/monero-glossary
 
-- mnemonic seed (助记词) , 即  HD(分层确定性钱包) 中的助记词
+- *mnemonic seed* (助记词) , 即  HD(分层确定性钱包) 中的助记词
 
-- primary address (原始地址),  即索引为` 0 `的子账户
+- *primary address* (原始地址),  即索引为` 0 `的子账户
 
-- Spendable Wallet (可转账钱包)
+- *Spendable Wallet* (可转账钱包)
 
-- View Only Wallet (观察钱包)
+- *View Only Wallet* (观察钱包)
 
-- PaymentID
+- *PaymentID*
 
   >  https://monero.stackexchange.com/a/4343
 
-  paymentid 是交易附加的一段信息
+  payment id 是交易附加的一段信息
 
   
 
-- Private spend key  
+- *Private spend key*
 
   > 参考: https://monerodocs.org/cryptography/asymmetric/private-key/#private-spend-key
 
   **真正的私钥**,  用来花费门罗币的私钥, 即进行交易签名的私钥
 
-- Private view key 
+- *Private view key* 
 
   > 参考: https://monerodocs.org/cryptography/asymmetric/private-key/#private-view-key
 
   用来解密入账交易(incoming),  因为门罗币的交易信息(源地址,目的地址,金额等等)是不透明的.
 
-- Public view key  
+- *Public view key*  
 
   用来识别入账交易( 交易的发送方会使用 Public view key 对交易进行加密 ), 接收方则需用 Private view key 对内容进行解密.
 
-- Public spend key
+- *Public spend key*
 
   用来指定UTXO的接收方, (交易的发送方会制定 UTXO的公钥为 Public Spend Key) ,  接收方花费此笔UTXO 时则需要 使用 Private Spend Key 进行签名
 
+- *Tx_Key*
 
+  用于证明交易  详情可以参考RPC接口 `get_tx_key` 和 `check_tx_key`
 
 
 
@@ -259,10 +260,6 @@ def get_address(master_addr, major, minor, seed : Seed):
     checksum = keccak_256(data).digest()[:4]
     return address.SubAddress(base58.encode(hexlify(data + checksum)))
 ```
-
-
-
-
 
 
 
