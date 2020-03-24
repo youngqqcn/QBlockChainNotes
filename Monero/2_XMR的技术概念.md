@@ -4,8 +4,9 @@
 
 - https://monerodocs.org/
 - https://github.com/monerobook/monerobook/blob/master/chapters/5.md
-- wallet_rpc 文档:  https://web.getmonero.org/resources/developer-guides/wallet-rpc.html
-- daemon_rpc文档: https://web.getmonero.org/resources/developer-guides/daemon-rpc.html
+- wallet_rpc 文档(不是最新):  https://web.getmonero.org/resources/developer-guides/wallet-rpc.html
+- daemon_rpc文档(不是最新): https://web.getmonero.org/resources/developer-guides/daemon-rpc.html
+- 最新版的WalletRPC接口列表:  https://github.com/monero-project/monero/blob/756f06cd839a3260407d28ed6084435b0b8b744c/src/wallet/wallet_rpc_server.h
 
 
 

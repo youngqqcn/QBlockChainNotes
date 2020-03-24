@@ -1,4 +1,4 @@
-# 交易所对接 XMR 
+# 交易所对接 XMR
 
 
 
@@ -251,10 +251,53 @@ monero-wallet-cli --stagenet  --daemon-address monero-stagenet.exan.tech:38081  
 > 参考:  https://github.com/monero-project/monero/blob/master/tests/functional_tests/cold_signing.py
 >
 > 源码:  [cold_signing.py](./src/cold_signing.py)
+>
+> 最新版的WalletRPC接口列表:  https://github.com/monero-project/monero/blob/756f06cd839a3260407d28ed6084435b0b8b744c/src/wallet/wallet_rpc_server.h
 
 
 
 ```python
+def create(self, idx):
+    print('Creating hot and cold wallet')
+
+    #关闭钱包
+    self.hot_wallet = Wallet(idx = 0)
+    # close the wallet if any, will throw if none is loaded
+    try: self.hot_wallet.close_wallet()
+    except: pass
+
+    self.cold_wallet = Wallet(idx = 1)
+    # close the wallet if any, will throw if none is loaded
+    try: self.cold_wallet.close_wallet()
+    except: pass
+
+    seed = 'velvet lymph giddy number token physics poetry unquoted nibs useful sabotage limits benches lifestyle eden nitrogen anvil fewest avoid batch vials washing fences goat unquoted'
+    
+    
+    #调用 RPC接口 restore_deterministic_wallet 临时生成签名钱包
+    res = self.cold_wallet.restore_deterministic_wallet(seed = seed)
+    self.cold_wallet.set_daemon('127.0.0.1:11111', ssl_support = "disabled")
+    spend_key = self.cold_wallet.query_key("spend_key").key
+    view_key = self.cold_wallet.query_key("view_key").key
+    
+    
+    #调用 RPC接口 generate_from_keys 临时生成  view-only(watch-only) 观察钱包
+    res = self.hot_wallet.generate_from_keys(viewkey = view_key, address = '42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm')
+
+    ok = False
+    try: res = self.hot_wallet.query_key("spend_key")
+    except: ok = True
+    assert ok
+    ok = False
+    try: self.hot_wallet.query_key("mnemonic")
+    except: ok = True
+    assert ok
+    assert self.cold_wallet.query_key("view_key").key == view_key
+    assert self.cold_wallet.get_address().address == self.hot_wallet.get_address().address
+
+
+
+
 def transfer(self):
     daemon = Daemon()
 
