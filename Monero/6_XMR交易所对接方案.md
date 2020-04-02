@@ -19,7 +19,15 @@
  **步骤1** :   使用  `monero-wallet-cli`  的以下选项生成 `incoming-only`钱包:
 
 ```
---generate-from-view-key arg   //Generate incoming-only wallet from view key
+--generate-from-view-key arg   
+//Generate incoming-only wallet from view key
+// arg 是新生成的钱包路径
+
+
+--subaddress-lookahead arg   
+//Set subaddress lookahead sizes to <major>:<minor>
+//cli 默认是 "look ahead" 200个subAddress, 如果需要钱包帮忙观察更多的子地址则需要指定此参数   
+// 例如:  --subaddress-lookahead   5:10000   //表示5个子账户 每个账户 "look ahead" 10000个subaddress
 ```
 
 
@@ -27,10 +35,14 @@
 观察钱包生成过程
 
 ```
-monero-wallet-cli --stagenet  --daemon-address monero-stagenet.exan.tech:38081  --trusted-daemon --generate-from-view-key=/root/.bitmonero/stagenet/wallet_files/yqq_incoming_only  --restore-height 536084  
+monero-wallet-cli --stagenet  --daemon-address monero-stagenet.exan.tech:38081  --trusted-daemon --generate-from-view-key=/root/.bitmonero/stagenet/wallet_files/yqq_incoming_only   --subaddress-lookahead  2:50000
 ```
 
   
+
+
+
+
 
 ![](./img/generate_incoming_only_wallet.png)
 
@@ -61,70 +73,66 @@ monero-wallet-cli --stagenet  --daemon-address monero-stagenet.exan.tech:38081  
 
 
 
-- **incoming_transfers**   获取钱包的所有入账交易信息,  (需要先调用  `auto_refresh` 让rpc进程自动扫描, 经过实践, 其实不调用也用 `auto_refresh`也可以, 有入账交易也会扫描到)
+- **get_transfers**
 
-  Return a list of incoming transfers to the wallet.
-
-  Inputs:
-
-  - *transfer_type* - string; "all": all the transfers, "available": only transfers which are not yet spent, OR "unavailable": only transfers which are already spent.
-  - *account_index* - unsigned int; (Optional) Return transfers for this account. (defaults to 0)
-  - *subaddr_indices* - array of unsigned int; (Optional) Return transfers sent to these subaddresses.
-  - *verbose* - boolean; (Optional) Enable verbose output, return key image if true.
-
-  Outputs:
-
-  - transfers\- list of:
-    - *amount* - unsigned int; Amount of this transfer.
-    - *global_index* - unsigned int; Mostly internal use, can be ignored by most users.
-    - *key_image* - string; Key image for the incoming transfer's unspent output (empty unless verbose is true).
-    - *spent* - boolean; Indicates if this transfer has been spent.
-    - *subaddr_index* - unsigned int; Subaddress index for incoming transfer.
-    - *tx_hash* - string; Several incoming transfers may share the same hash if they were in the same transaction.
-    - *tx_size* - unsigned int; Size of transaction in bytes.
+  > https://web.getmonero.org/zh-cn/resources/developer-guides/wallet-rpc.html#get_transfers
+  
+  根据此RPC接口即可获取所有充币交易详情,  根据需要自行添加过滤条件即可
+  
+  ```
+  curl -X POST http://127.0.0.1:18089/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_transfers","params":{"in":true,"account_index":1}}' -H 'Content-Type: application/json'
+  ```
+  
+  如果  result 为空   则为   `"result":{}`
 
 
 
-如果  result 为空   则为   `"result":{}`
+- **incoming_transfers**   
 
-```
-[root@demo xmr]# curl -X POST https://192.168.10.160:38089/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"incoming_transfers","params":{"transfer_type":"all"}}' -H 'Content-Type: application/json' --insecure
+  内部调用了`get_transfers`,  获取钱包的所有入账交易信息, 
 
-
-{
-  "id": "0",
-  "jsonrpc": "2.0",
-  "result": {
-    "transfers": [{
-      "amount": 10000000000000,
-      "block_height": 536084,
-      "frozen": false,
-      "global_index": 2329106,
-      "key_image": "0da9c81fee4bcf650f9a112811e551f8a6062a9fa3b8c9e4d70c568fa3505557",
-      "spent": true,
-      "subaddr_index": {
-        "major": 0,
-        "minor": 0
-      },
-      "tx_hash": "533cdbf4f258840d9178875637aabbd89ba0a273c2edad14eaaee7bd486d98d1",
-      "unlocked": true
-    },{
-      "amount": 10000000000000,
-      "block_height": 538496,
-      "frozen": false,
-      "global_index": 2359202,
-      "key_image": "d0f89cd8c09e16d3a98659949ca7d4c1eca2da25e175fb8f2fae56334ab0b993",
-      "spent": false,
-      "subaddr_index": {
-        "major": 0,
-        "minor": 2
-      },
-      "tx_hash": "920ab12c72c89c5e8e527419ed401e99ce9373db26ccf82bd68caaeac299e312",
-      "unlocked": true
-    }]
+  如果  result 为空   则为   `"result":{}`
+  
+  ```
+  [root@demo xmr]# curl -X POST https://192.168.10.160:38089/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"incoming_transfers","params":{"transfer_type":"all"}}' -H 'Content-Type: application/json' --insecure
+  
+  
+  {
+    "id": "0",
+    "jsonrpc": "2.0",
+    "result": {
+      "transfers": [{
+        "amount": 10000000000000,
+        "block_height": 536084,
+        "frozen": false,
+        "global_index": 2329106,
+        "key_image": "0da9c81fee4bcf650f9a112811e551f8a6062a9fa3b8c9e4d70c568fa3505557",
+        "spent": true,
+        "subaddr_index": {
+          "major": 0,
+          "minor": 0
+        },
+        "tx_hash": "533cdbf4f258840d9178875637aabbd89ba0a273c2edad14eaaee7bd486d98d1",
+        "unlocked": true
+      },{
+        "amount": 10000000000000,
+        "block_height": 538496,
+        "frozen": false,
+        "global_index": 2359202,
+        "key_image": "d0f89cd8c09e16d3a98659949ca7d4c1eca2da25e175fb8f2fae56334ab0b993",
+        "spent": false,
+        "subaddr_index": {
+          "major": 0,
+          "minor": 2
+        },
+        "tx_hash": "920ab12c72c89c5e8e527419ed401e99ce9373db26ccf82bd68caaeac299e312",
+        "unlocked": true
+      }]
+    }
   }
-}
-```
+  ```
+  
+  
 
 
 
