@@ -5,6 +5,7 @@
 - C++服务器开发
 - Muduo
 - TCP/IP
+- Rust
 
 
 
