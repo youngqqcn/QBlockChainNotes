@@ -379,11 +379,18 @@ def transfer(self):
   monero-wallet-rpc --stagenet --daemon-address monero-stagenet.exan.tech:38081 --trusted-daemon --wallet-file=/root/.bitmonero/stagenet/wallet_files/yqq_stagenet --confirm-external-bind --rpc-bind-ip 0.0.0.0 --rpc-bind-port 48089 --password 123456 --disable-rpc-login --detach
   
 
-  #离线模式  如果子地址较多, 需要制定 --subaddress-lookahead , 不然导入 tx_outputs会报错txo不属于当前钱包
+  
+  #######################  离线钱包创建  ###########################
+  #离线模式创建签名包  如果子地址较多, 需要制定 --subaddress-lookahead , 不然导入 tx_outputs会报错txo不属于当前钱包
   monero-wallet-cli --stagenet   --offline  --restore-deterministic-wallet   --subaddress-lookahead  2:50000   --generate-new-wallet=/root/.bitmonero/stagenet/wallet_files/cold_wallet 
   
   #stagenet助记词(仅测试 only test)
   dozen lazy lucky itinerary egotistic inbound eating deity debut knapsack sedan onslaught atrium uphill dwarf furnished ongoing rated exotic sidekick names budget lazy misery inbound
+  ###################################################################
+  
+  #####################  离线 WalletRPC 启动 ##########################
+  monero-wallet-rpc --stagenet --wallet-file=/root/.bitmonero/stagenet/wallet_files/cold_wallet --confirm-external-bind --rpc-bind-ip 0.0.0.0 --rpc-bind-port 48089 --password 123456 --disable-rpc-login --detach --offline
+  ####################################################################
   ```
   
   
