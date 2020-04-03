@@ -35,10 +35,26 @@
 观察钱包生成过程
 
 ```
-monero-wallet-cli --stagenet  --daemon-address monero-stagenet.exan.tech:38081  --trusted-daemon --generate-from-view-key=/root/.bitmonero/stagenet/wallet_files/yqq_incoming_only   --subaddress-lookahead  2:50000
+#使用远程节点
+monero-wallet-cli --stagenet  --daemon-address monero-stagenet.exan.tech:38081  --trusted-daemon --generate-from-view-key=/root/.bitmonero/stagenet/deposit/watch_only_wallet   --subaddress-lookahead  2:50000
+
+
+#使用本地节点
+monero-wallet-cli --stagenet  --daemon-address 127.0.0.1:38081  --trusted-daemon --generate-from-view-key=/root/.bitmonero/stagenet/deposit/watch_only_wallet   --subaddress-lookahead  2:50000
 ```
 
   
+
+
+
+```
+private_view_key:  53a60fee1ef4386838cf7d7c5e0b5a252287590fc544a3fda802e92cce3a880a
+primary_address: 56Trp8Gc9x5M5mLhxMqUaz5AuQpobGfHScyQKGMMmnZFcSFTj6zJFNDUGyDR5SVadjAmxgBp8qv1u2vZsEs8Vo1T4qqrFaa
+
+restore_height : 535000
+```
+
+
 
 
 
@@ -361,8 +377,15 @@ def transfer(self):
 
   ```
   monero-wallet-rpc --stagenet --daemon-address monero-stagenet.exan.tech:38081 --trusted-daemon --wallet-file=/root/.bitmonero/stagenet/wallet_files/yqq_stagenet --confirm-external-bind --rpc-bind-ip 0.0.0.0 --rpc-bind-port 48089 --password 123456 --disable-rpc-login --detach
-  ```
+  
 
+  #离线模式  如果子地址较多, 需要制定 --subaddress-lookahead , 不然导入 tx_outputs会报错txo不属于当前钱包
+  monero-wallet-cli --stagenet   --offline  --restore-deterministic-wallet   --subaddress-lookahead  2:50000   --generate-new-wallet=/root/.bitmonero/stagenet/wallet_files/cold_wallet 
+  
+  #stagenet助记词(仅测试 only test)
+  dozen lazy lucky itinerary egotistic inbound eating deity debut knapsack sedan onslaught atrium uphill dwarf furnished ongoing rated exotic sidekick names budget lazy misery inbound
+  ```
+  
   
 
 #### 步骤1: 热观察钱包, 导出TXO
