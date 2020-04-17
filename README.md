@@ -17,7 +17,7 @@
 
 - [Nodejs笔记](./Nodejs/README.md)
 
-- [Solidity基础](./Solidity/README.md)
+- [Solidity基础](./Solitidy/README.md)
 - [以太坊笔记](./以太坊/README.md)
 
 - [EOS笔记](./EOS/README.md)
