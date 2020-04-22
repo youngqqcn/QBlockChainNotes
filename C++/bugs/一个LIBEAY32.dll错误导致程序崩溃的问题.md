@@ -1,6 +1,6 @@
 错误事件
 
-![](./img/error_event.png)
+![](./img/error_event.jpg)
 
 
 
