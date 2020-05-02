@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>班级信息</title>
+</head>
+<body>
+    <h1>班级信息列表</h1>
+    <ul>
+        {%for grade in grades%}
+            <li>
+             <a href="{{ grade.id }}">{{grade.gname}}</a>
+            </li>
+        {%endfor%}
+    </ul>
+</body>
+</html>

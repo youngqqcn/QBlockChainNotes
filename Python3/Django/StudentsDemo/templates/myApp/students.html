@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生信息</title>
+</head>
+<body>
+    <h1>学生信息列表</h1>
+    <ul>
+        {% for stu in students %}
+        <li >
+            {{ stu.sname }} , {{ stu.scontend }}
+        </li>
+        {% endfor %}
+    </ul>
+
+
+</body>
+</html>
