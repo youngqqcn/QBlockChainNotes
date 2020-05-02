@@ -514,7 +514,7 @@ Django模型
                         filter(键=值).filter(键=值)   且的关系
                     exclude()：过滤掉符合条件的
                     order_by()：排序
-                    values():一条数据就是一个字典，返回一个列表
+                    values():一条数据就是一个字典，返回一个列表 , 例如: [{"id":1, "name":"yqq"}, {"id":2, "name":"good"}]
                     get()
                         返回一个满足条件的对象
                         注意：
@@ -531,7 +531,8 @@ Django模型
                 查询集的缓存
                     概述：
                         每个查询集都包含一个缓存，来最小化对数据库的访问
-                        在新建的查询集中，缓存首次为空，第一次对查询集求值，会发生数据缓存，Django会将查询出来的数据做一个缓存，并返回查询结果。
+                        在新建的查询集中，缓存首次为空，第一次对查询集求值，会发生数据缓存，
+                        Django会将查询出来的数据做一个缓存，并返回查询结果。
                         以后的查询直接使用查询集的缓存
                 字段查询
                     概述
@@ -544,17 +545,24 @@ Django模型
                     比较运算符
                         exact:判断，大小写敏感
                             filter(isDelete=False)
+                        
                         contains：是否包含，大小写敏感
                             studentsList = Students.stuObj2.filter(sname__contains="孙")
+                        
                         startswith,endswith:以value开头或结尾，大小写敏感
                         以上四个在前面加上i，就表示不区分大小写iexact,icontains,istartswith,iendswith
+                        
                         isnull,isnotnull
                             是否为空
                             filter(sname__isnull=False)
+                        
                         in:是否包含在范围内
+                        
                         gt大于,gte大于等于,lt小于,lte小于等于
+                        
                         year,month,day,week_day,hour,minute,second
                             studentsList = Students.stuObj2.filter(lastTime__year=2017)
+                        
                         跨关联查询
                             处理join查询
                                 语法:
