@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{#    这是字符格式输出#}
+    {{ html_rsp }}
+
+{#这是经过html渲染#}
+    {{ html_rsp | safe}}
+
+
+    {% autoescape off %}
+        {{ html_rsp }}
+    {% endautoescape %}
+
+</body>
+</html>

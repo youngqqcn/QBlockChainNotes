@@ -1265,7 +1265,8 @@ def verifycode(request):
     for i in range(0, 4):
         rand_str += str[random.randrange(0, len(str))]
     # 构造字体对象
-    font = ImageFont.truetype(r'C:\Windows\Fonts\AdobeArabic-Bold.otf', 40)
+    font = ImageFont.truetype(r'C:\Windows\Fonts\Arial.ttf', 40)  #注意字体文件的后缀
+    #font = ImageFont.truetype(r'C:\Windows\Fonts\AdobeArabic-Bold.otf', 40)
     # 构造字体颜色
     fontcolor1 = (255, random.randrange(0, 255), random.randrange(0, 255))
     fontcolor2 = (255, random.randrange(0, 255), random.randrange(0, 255))
@@ -1349,7 +1350,8 @@ Django高级扩展
             process_exception(self, request, exception)
                 当视图抛出异常时调用，返回HttpResponse对象
         执行过程：
-            __init__ --> process_request--> url --> process_view --> view --> process_template_response --> template --> process_response -->返回开头部分
+            __init__ --> process_request--> url --> process_view --> view --> process_template_response 
+            --> template --> process_response -->返回开头部分
          执行位置：
         自定义中间件
             在工程目录下的middleware目录下创建myApp
