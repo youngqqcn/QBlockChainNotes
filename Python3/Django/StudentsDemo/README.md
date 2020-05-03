@@ -14,3 +14,8 @@ URL namespace  使用  和 URL 反向解析
 
 关于 CSRF攻击
 - https://blog.csdn.net/xiaoxinshuaiga/article/details/80766369
+
+
+静态文件路径管理:
+- https://docs.djangoproject.com/en/3.0/ref/templates/builtins/#get-static-prefix
+

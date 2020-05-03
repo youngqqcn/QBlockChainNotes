@@ -71,10 +71,15 @@ urlpatterns = [
     #CSRF
     path(r'show_test_csrf_page/', views.show_test_csrf_page, name='show_test_csrf_page'),
     path(r'test_csrf/', views.test_csrf, name='test_csrf'),
-
     #使用图片验证码
-
     path(r'verify_code_image/', views.verify_code_image, name='verify_code_image'), #生成图片
+
+
+    path(r'static_asset_page/', views.static_page, name='static_page'),
+
+    path(r'upload_file_page/', views.upload_file_page, name='upload_file_page'),
+    path(r'upload_file/', views.upload_file, name='upload_file')
+
 
 ]
 
