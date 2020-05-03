@@ -8,8 +8,9 @@ from django.urls import re_path
 # https://docs.djangoproject.com/en/3.0/intro/tutorial03/#namespacing-url-names
 
 
+app_name = 'this_is_app_name'
 urlpatterns = [
-    path(r'', views.index),
+    # path(r'', views.index),
     # path(r'^(\d+)/$', views.detail)
     path(r'page/<int:num>/', views.detail, name='detail'),
     path(r'grades/all', views.grades_details, name='grades_details'),
@@ -50,4 +51,14 @@ urlpatterns = [
     path(r'user_login/', views.user_login, name='login'),
     path(r'user_logout/', views.user_logout, name='user_logout'),
 
+
+    ############模板
+    path(r'student_counter/', views.students_counter, name="students_counter"),
+
+
+    #URL 反向解析 测试
+    path(r'reverse_url_page/', views.show_reverse_url_page),
+    path(r'reverse_url_test/<int:num>', views.reverse_url_test, name="reverse_url_test_x"),
+
 ]
+

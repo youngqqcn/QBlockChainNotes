@@ -21,6 +21,11 @@ from django.urls import re_path  #正则
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'', include('myApp.urls') )
+
+
+    #namespace 有何用??
+    # https://docs.djangoproject.com/en/3.0/topics/http/urls/#url-namespaces
+    # path(r'myApp', include('myApp.urls', namespace='myApp'), name='this_is_patter_name')
+    path(r'', include('myApp.urls', namespace='myApp'), name='this_is_patter_name')
     # re_path(r'^good/', include("myApp.urls"))
 ]

@@ -1028,13 +1028,29 @@ Django模型
             value设置为None代表设置永不过期，不推荐
 
        使用 Redis保存session：
-            在setting.py中添加
-                SESSION_ENGINE = "redis_sessions.session"
-                SESSION_REDIS_HOST = ''
-                SESSION_REDIS_PORT = ''
-                SESSION_REDIS_DB =  0
-                SESSION_REDIS_PASSWORD = ''
-                SESSION_REDIS_PREFIX = 'student_demo_session'
+            0) 有Redis环境
+            1) 安装依赖: pip install django-redis-sessions 
+            2) 在setting.py中添加
+               
+                #设置session的存储位置为redis
+                SESSION_ENGINE = 'redis_sessions.session'
+                #下面是一个字典
+                SESSION_REDIS = {
+                    #设置redis服务器ip
+                    'host': f"{os.getenv('ALIYUN_IP')}",
+                    #设置redis端口
+                    'port': 56379,
+                    #指定我想要的redis数据库编号
+                    'db': 0,
+                     #填写我的redis密码
+                    'password': f"{os.getenv('ALIYUN_SQL_PWD')}",
+                     #指定我想要的前缀
+                    'prefix': 'studentdemo_session',
+                     #设置连接超时时间
+                    'socket_timeout': 10,
+                    # 'expire'
+                }
+
 
 
 =======================
@@ -1113,7 +1129,7 @@ Django模型
                 作用：加载模板并以标签内的参数渲染
                 格式：{% include '模板目录' 参数1 参数2 %}
             url
-                作用：反射解析
+                作用：反向解析
                 格式：{% url 'namespace: name' p1 p2 %}
             csrf_token
                 作用：用于跨站请求伪造保护
@@ -1124,7 +1140,7 @@ Django模型
                 作用：用于HTML转义
         过滤器
             语法 {{ var|过滤器 }}
-            作用：在变量被显示前修改它，只是加一个效果，对变量不会造成影响
+            作用：在变量被显示前修改它，只是加一个效果，对变量不会造成影响,  注意 | 两边不能有空格!!!
             示例：
                 lower
                 upper
@@ -1148,7 +1164,7 @@ Django模型
                     被注释的内容
                 {% endcomment %}
 
-    反射解析
+    反向解析
         示例：
             project/project/urls.py
             url(r'^', include('myApp.urls', namespace='app')),
@@ -1156,6 +1172,18 @@ Django模型
             url(r'^good/(\d+)$', views.good, name="good")
             templates/good.html
             <a href={% url 'app:good' 1 %}>链接</a>
+
+
+        根据测试结果:
+            Reverse for 'reverse_url_test_x' not found.
+             'reverse_url_test_x' is not a valid view function or pattern name.
+        
+
+        可知:  {% url 'app_name:view_func_name或pattern_name' %} 标签中的 标签可以是   视图函数名  
+               也可以是  patter name (即 path(name='xxx'))
+
+
+
 
     模板继承
         作用：模板继承可以减少页面的重复定义，实现页面的重用

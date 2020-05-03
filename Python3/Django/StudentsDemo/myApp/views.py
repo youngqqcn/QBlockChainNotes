@@ -290,3 +290,27 @@ def user_logout(request):
     logout(request)  #推荐
 
     return HttpResponseRedirect('/mainpage/')
+
+
+def students_counter(request):
+
+    stus = Students.stu_all.all()
+
+    strtmp = "this is test string"
+
+    return render(request=request, template_name="myApp/students_counter.html"
+           ,context={
+            "students" : stus,
+            "strtmp" : strtmp
+        })
+
+
+
+def show_reverse_url_page(request):
+    return  render(request=request,
+                   template_name="myApp/reverse_mapping_url.html",
+                   )
+
+def reverse_url_test(request, num : int):
+
+    return HttpResponse(content=f"test successed!  num is {num}")
