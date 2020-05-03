@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生</title>
+</head>
+<body>
+
+    <h1>学生信息列表</h1>
+    <ul>
+        {% for stu in students %}
+
+            {% comment %}注意 | 两边不能有空格{% endcomment %}
+            {% if forloop.counter|divisibleby:2 %}
+                <li style="color: chocolate">
+                {{ forloop.counter }} -- {{ stu.sname }} , {{ stu.scontend }}
+                </li>
+            {% else  %}
+                <li style="color: royalblue ">
+                    {{ forloop.counter }} -- {{ stu.sname }} , {{ stu.scontend }}
+                </li>
+            {% endif %}
+
+        {% empty %}
+            <li>学生列表为空</li>
+        {% endfor %}
+    </ul>
+{#    过滤器#}
+    <h1> {{ strtmp }}</h1>
+    <h1> {{ strtmp | upper }}</h1>
+
+    <h1>{{ no_exist | default:"不存在的变量" }}</h1>
+
+    <!--  -->
+
+</body>
+</html>

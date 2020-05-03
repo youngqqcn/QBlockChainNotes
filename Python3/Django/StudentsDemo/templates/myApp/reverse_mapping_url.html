@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试反向解析URL的使用</title>
+</head>
+<body>
+
+    <li>
+        <a href="/reverse_url_test">硬编码URL</a>
+    </li>
+    <li>
+
+        <a href="{%   url 'myApp:reverse_url_test_x' 10 %}">反向解析url</a>
+    </li>
+    <li>
+        <a href="{%   url 'this_is_app_name:reverse_url_test_x' 9 %}">反向解析url</a>
+    </li>
+
+
+{#    <li>#}
+{#        'this_is_patter_name' is not a registered namespace    #}
+{#            由此可知   开头必须是 namespace 或  app_name  #}
+{#        <a href="{%   url 'this_is_patter_name:reverse_url_test_x' %}">反向解析url</a>#}
+{#    </li>#}
+</body>
+</html>
