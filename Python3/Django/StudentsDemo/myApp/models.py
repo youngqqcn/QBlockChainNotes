@@ -64,3 +64,8 @@ class Students(models.Model):
                   sgrade=grade, is_delete=is_delete)
         return stu
 
+
+
+from tinymce.models import HTMLField
+class MCE_Text(models.Model):
+    str = HTMLField()

@@ -1,4 +1,8 @@
 #pymysql
 mysqlclient
-django-redis-sessions
-pillow
+django-redis-sessions  #管理session
+pillow  #生成图片验证码
+django-tinymce  #富文本
+celery
+celery-with-redis
+django-celery

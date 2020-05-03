@@ -1327,7 +1327,7 @@ Django高级扩展
     静态文件
         css,js,图片,json文件,字体文件等
         配置settings.py
-            STATIC_URL = '/static'
+            STATIC_URL = '/static/'
             STATICFILES_DIRS = [
                 os.path.join(BASE_DIR, 'static')
             ]
@@ -1575,7 +1575,7 @@ upfile.html中<body>里的内容
                 工人worker
                     负责执行对列中的任务
                 代理broker
-                    负责高度，在部署环境中使用redis
+                    负责任务调度，在部署环境中使用redis
             安装：
                 pip install celery
                 pip install celery-with-redis

@@ -73,3 +73,6 @@ class StudentAdmin(admin.ModelAdmin):
 
 # admin.site.register(Students, StudentAdmin)
 # admin.site.register(Grades, GradesAdmin)
+
+from .models import MCE_Text
+admin.site.register(MCE_Text)

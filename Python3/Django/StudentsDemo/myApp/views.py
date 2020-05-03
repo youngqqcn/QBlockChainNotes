@@ -443,3 +443,62 @@ def upload_file(request):
             outfile.write(block)
 
     return HttpResponse("uploaded success!")
+
+
+from django.core.paginator import Paginator
+def  student_paginator(request, page_index : int):
+
+    students = Students.stu_all.all()
+
+    paginator = Paginator( object_list=students, per_page=2 )
+
+    one_page_stus = paginator.get_page(number= page_index )
+
+    return render(request=request,
+                  template_name="myApp/student_paginator.html",
+                  context={
+                      "students" : one_page_stus
+                  })
+
+
+def test_ajax(request):
+
+    all_stus = Students.stu_all.all()
+    stus_list =  all_stus.values()
+    print(stus_list)
+    # print(type(stus_list))
+    retdata = [ item for item in stus_list ]
+
+
+    return JsonResponse({"data": retdata})
+    # return JsonResponse({'name' : 'yqq'})
+
+def show_test_ajax_page(request):
+    return render(request=request,
+                  template_name="myApp/test_ajax.html",
+         )
+
+
+
+def test_mctext(request):
+
+    return render(request=request,
+                  template_name='myApp/test_tinymce.html')
+
+
+
+#
+# # from .task import test_celery_task
+# # from .task import
+# # import myApp.task
+# # from myApp import task
+# from .task import TestCeleryTask
+# def test_celery(request):
+#
+#     # test_celery_task()
+#     # res = task.test_celery_task.delay(1, 3)
+#     # TestCeleryTask.apply_async(args=('gooood',  ))
+#     # print(f'result {res}')
+#
+#     return render(request=request,
+#                   template_name='myApp/test_celery.html')
