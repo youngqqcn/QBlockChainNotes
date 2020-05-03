@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>base</title>
+
+    <style>
+        #header{
+            width:100%;
+            height: 100px;
+            background-color: royalblue;
+        }
+        #footer{
+            width:100%;
+            height: 100px;
+            background-color: chartreuse;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="header">header</div>
+
+    {% block mainpge %}
+    {% endblock mainpge  %}
+
+    {% block detail %}
+    {% endblock detail %}
+
+    <div id="footer">footer</div>
+
+</body>
+</html>

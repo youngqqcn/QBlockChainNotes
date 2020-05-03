@@ -1,3 +1,4 @@
 #pymysql
 mysqlclient
 django-redis-sessions
+pillow

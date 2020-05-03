@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试 CSRF 中间件</title>
+</head>
+<body>
+    <form action="/test_csrf/" method="post">
+        {% csrf_token %}
+
+        用户名: <input type="text" name="username" />
+        <hr/>
+        密码:  <input type="password" name="passwd" />
+        <hr/>
+        <img src="/verify_code_image/" name="验证码">
+        验证码: <input type="text"  name="verifycode"/>
+        <hr/>
+        <input  type="submit"  value="登录"  />
+        <hr>
+    </form>
+
+</body>
+</html>

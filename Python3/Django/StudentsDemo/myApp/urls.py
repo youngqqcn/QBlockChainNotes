@@ -60,5 +60,21 @@ urlpatterns = [
     path(r'reverse_url_page/', views.show_reverse_url_page),
     path(r'reverse_url_test/<int:num>', views.reverse_url_test, name="reverse_url_test_x"),
 
+
+    #模板继承
+    path(r'template_externs/', views.template_externs, name='template_externs'),
+
+    #HTML转义
+    path(r'html_code/', views.html_code, name='html_code'),
+
+
+    #CSRF
+    path(r'show_test_csrf_page/', views.show_test_csrf_page, name='show_test_csrf_page'),
+    path(r'test_csrf/', views.test_csrf, name='test_csrf'),
+
+    #使用图片验证码
+
+    path(r'verify_code_image/', views.verify_code_image, name='verify_code_image'), #生成图片
+
 ]
 
