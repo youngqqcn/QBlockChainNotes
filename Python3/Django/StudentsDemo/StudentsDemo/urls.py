@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path
 
 from django.urls import include
+from django.urls import re_path  #正则
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'', include('myApp.urls') )
+    # re_path(r'^good/', include("myApp.urls"))
 ]
