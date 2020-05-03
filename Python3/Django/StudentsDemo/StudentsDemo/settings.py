@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myApp', #在此加入自己的项目
+    "tinymce",
+    "djcelery",
 ]
 
 
@@ -162,7 +164,21 @@ SESSION_REDIS = {
 }
 
 
+#设置文件上传保存目录
 MEDIA_ROOT = os.path.join(BASE_DIR, r'static\upload_file')
 
 
 
+
+TINY_DEFAULT_CONFIG = {
+    'theme':'advanced',
+    'width':700,
+    'height':500,
+}
+
+
+import djcelery
+djcelery.setup_loader() #初始化
+BROKER_URL = f'redis://:{os.getenv("ALIYUN_IP")}:56379/1'
+CELERY_RESULT_BACKEND = f'redis://:{os.getenv("ALIYUN_IP")}:56379/2'
+CELERY_IMPORTS=('myApp.task')

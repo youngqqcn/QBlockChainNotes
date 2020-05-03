@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分页</title>
+</head>
+<body>
+
+    <ul>
+        {% for stu in students %}
+            <li> {{ stu.sname }} --- {{ stu.sage }} -- {{ stu.scontend }} </li>
+        {% endfor %}
+    </ul>
+
+
+    {% for page_index in students.paginator.page_range %}
+        <a href="/student_paginator/{{ page_index }}">{{ page_index }} </a>
+        ,
+    {% endfor %}
+
+
+</body>
+</html>

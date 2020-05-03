@@ -78,7 +78,21 @@ urlpatterns = [
     path(r'static_asset_page/', views.static_page, name='static_page'),
 
     path(r'upload_file_page/', views.upload_file_page, name='upload_file_page'),
-    path(r'upload_file/', views.upload_file, name='upload_file')
+    path(r'upload_file/', views.upload_file, name='upload_file'),
+
+    #分页
+    path(r'student_paginator/<int:page_index>', views.student_paginator, name='student_paginator'),
+
+    #ajax
+    path(r'show_test_ajax_page/', views.show_test_ajax_page, name='show_test_ajax_page'),
+    path(r'test_ajax/', views.test_ajax, name='test_ajax'),
+
+
+    #测试富文本
+    path(r'test_mcetext/', views.test_mctext, name='test_mctext'),
+
+    #测试celery
+    # path(r'test_celery/', views.test_celery, name='test_celery')
 
 
 ]
