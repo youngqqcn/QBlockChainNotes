@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'myApp', #在此加入自己的项目
 ]
 
+
+# from mymiddleware.mymiddleware import MyMiddle
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -50,6 +53,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    #注册自定义的中间件
+    "mymiddleware.mymiddleware.MyMiddle",
 ]
 
 ROOT_URLCONF = 'StudentsDemo.urls'
@@ -129,7 +135,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+#
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 
 
@@ -151,4 +160,9 @@ SESSION_REDIS = {
     'socket_timeout': 10,
     # 'expire'
 }
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, r'static\upload_file')
+
+
 

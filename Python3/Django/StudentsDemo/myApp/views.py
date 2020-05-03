@@ -411,3 +411,35 @@ def test_csrf(request):
             'password' : password,
         }
     ))
+
+
+
+def static_page(request):
+
+    return render(request=request,
+                  template_name="myApp/my_static.html")
+
+
+
+def upload_file_page(request):
+    return render(request=request,
+                  template_name="myApp/upload_file.html")
+
+
+import os
+from django.conf import settings
+
+def upload_file(request):
+
+    if request.method != 'POST':
+        return HttpResponse('failed!')
+
+    # file = request.FILES["file"]
+    file = request.FILES.get("file")
+    file_path = os.path.join( settings.MEDIA_ROOT, file.name)
+
+    with open(file_path, 'wb') as outfile:
+        for block in file.chunks():  #
+            outfile.write(block)
+
+    return HttpResponse("uploaded success!")
