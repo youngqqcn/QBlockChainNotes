@@ -1,6 +1,7 @@
 
 from django.urls import path
 from . import views
+from django.urls import re_path
 
 
 # Django 3.0 中不再使用正则表达式, 获取模板中的变量
@@ -22,4 +23,31 @@ urlpatterns = [
     path(r'grades/seach_relate', views.search_relate, name='search_relate'),
     path(r'grades/girlmorethanboy', views.search_student_by_F, name='search_student_by_F'),
     path(r'students/older_student', views.search_student_by_Q, name='search_student_by_Q'),
+
+
+    # re_path(r'good/test_re_path', views.test_re_path),
+    path(r'request_props/', views.request_props, name='request_props'),
+
+    path(r'get1', views.get_url_parameters),
+    path(r'get2',  views.get_url_parameters2),
+
+    path(r'showregister/', views.show_register, name='show_register'),
+    path(r'register/', views.register, name='register'),  #POST请求
+
+    path(r'showresponse/', views.show_response, name='show_response'),
+
+
+
+    path(r'customcookie/', views.set_custom_cookies, name='set_custom_cookie'),
+
+
+    path(r'test_redirect/', views.test_redirect, name='test_redirect'),
+
+    path(r'jsonresponse/', views.json_response, name='json_response'),
+
+    path(r'mainpage/', views.show_main_page, name='show_main_page'),
+    path(r'show_login/', views.show_login_page, name='show_login_page'),
+    path(r'user_login/', views.user_login, name='login'),
+    path(r'user_logout/', views.user_logout, name='user_logout'),
+
 ]

@@ -271,7 +271,7 @@ Admin站点管理：
             urlpatterns = [
                 url(r'^$', views.index),
             ]
-注意: 在Django 3.0 中不再使用正则表达式匹配 url
+注意: 在Django 3.0 中正则表达式匹配 使用  re_path
 https://docs.djangoproject.com/en/3.0/intro/tutorial03/#namespacing-url-names			
 
 
@@ -1023,10 +1023,18 @@ Django模型
             set_expiry(value)
             request.session.set_expiry(10)  设置为10秒后过期
             如果不设置，2个星期后过期
+            value 可以设置为时间对象(指定时间过期)
             value设置为0代表关闭浏览器时过期
             value设置为None代表设置永不过期，不推荐
 
-Redis使用：略
+       使用 Redis保存session：
+            在setting.py中添加
+                SESSION_ENGINE = "redis_sessions.session"
+                SESSION_REDIS_HOST = ''
+                SESSION_REDIS_PORT = ''
+                SESSION_REDIS_DB =  0
+                SESSION_REDIS_PASSWORD = ''
+                SESSION_REDIS_PREFIX = 'student_demo_session'
 
 
 =======================

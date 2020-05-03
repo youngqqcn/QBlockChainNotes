@@ -143,3 +143,150 @@ def search_student_by_Q(request):
               context={
                   "students": students
               })
+
+
+def  test_re_path(request):
+    return HttpResponse("ok")
+
+
+import json
+
+def request_props(request):
+    rsp = {
+        'path': request.path,
+        'method': request.method,
+        'encoding': request.encoding,
+        'GET' : request.GET,
+        'POST' : request.POST,
+        'FILES' : request.FILES,
+        'COOKIES' : request.COOKIES,
+        'session' : request.session.is_empty(),
+        'is_ajax' : request.is_ajax()
+    }
+
+    return HttpResponse( json.dumps(rsp) )
+
+
+def  get_url_parameters(request):
+
+    rsp = request.GET
+    return HttpResponse( json.dumps(rsp) )
+
+
+
+def  get_url_parameters2(request):
+
+    #  http://127.0.0.1:8000/get2?a=999,444&b=222&c=ccccc
+    a = request.GET.getlist('a')
+    print(type(a))
+    return HttpResponse( json.dumps(a) )
+
+
+def show_register(request):
+    return render(request=request, template_name="myApp/register.html")
+
+def register(request):
+
+    name = request.POST.get("name")
+    hobby = request.POST.get("hobby")
+    gender = request.POST.get("gender")
+
+    rsp = {
+        "name" : name,
+        "hobby" : hobby,
+        "gender" : gender,
+    }
+
+    return  HttpResponse(json.dumps(rsp))
+
+
+def show_response(request):
+
+    # rsp = HttpResponse(content='xxxxxx')
+    # rsp.write()
+    # rsp.set_cookie()
+    # rsp.get()
+    # rsp.getvalue()
+    # rsp.close()
+    # rsp.serialize()
+    # rsp.delete_cookie()
+    # rsp.set_signed_cookie()
+    return HttpResponse('')
+
+
+# 设置了cookie 之后, 以后的每次请求都会带上  cookie
+def set_custom_cookies(request):
+    rsp = HttpResponse()
+    rsp.set_cookie("MYCOOKIE", "THIS IS MY COOIKES")
+    return rsp
+
+
+from django.http import HttpResponseRedirect
+
+def test_redirect(request):
+
+    # 重定向到 子路径下的 request_props
+    # return HttpResponseRedirect(redirect_to='request_props/')
+
+    #重定向到根路径下的
+    return HttpResponseRedirect(redirect_to='/request_props/')
+
+
+from django.http import JsonResponse
+def json_response(request):
+
+
+    data = {
+        'name' : 'yqq',
+        'age' : 10,
+        'hobby' : 'music'
+    }
+
+    return  JsonResponse(data=data)
+
+
+# path(r'mainpage/', views.show_main_page, name='show_main_page'),
+#     path(r'user_login/', views.user_login, name='login')
+
+def show_main_page(request):
+
+    #为什么默认值没有生效????
+    username = request.session.get('username', default="游客")
+
+    if username is None: username = "游客"
+    return  render(request=request,
+                   template_name="myApp/mainpage.html",
+                   context={
+                       'username' : username
+                   })
+
+def show_login_page(request):
+    return render(request=request,
+                  template_name="myApp/login.html")
+
+
+
+#在django_session 表中  的 session_data有 username, base64编码
+
+def user_login(request):
+
+    username = request.POST.get('username')
+    request.session['username'] =username
+
+    request.session.set_expiry(value=1000) #10s过期
+
+
+    return  HttpResponseRedirect('/mainpage/')
+    pass
+
+
+from django.contrib.auth import login, logout
+def user_logout(request):
+    # request.session.delete('username')  #行不通
+    # logout(request)
+
+    # request.session.clear()  #ok
+    # request.session.flush() #ok
+    logout(request)  #推荐
+
+    return HttpResponseRedirect('/mainpage/')

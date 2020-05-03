@@ -46,7 +46,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',  #POST请求会被报 403错误
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -128,3 +128,27 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+
+
+
+#设置session的存储位置为redis
+SESSION_ENGINE = 'redis_sessions.session'
+#下面是一个字典
+SESSION_REDIS = {
+    #设置redis服务器ip
+    'host': f"{os.getenv('ALIYUN_IP')}",
+    #设置redis端口
+    'port': 56379,
+    #指定我想要的redis数据库编号
+    'db': 0,
+     #填写我的redis密码
+    'password': f"{os.getenv('ALIYUN_SQL_PWD')}",
+     #指定我想要的前缀
+    'prefix': 'studentdemo_session',
+     #设置超时时间
+    'socket_timeout': 10,
+    # 'expire'
+}
+
