@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1a3ad9e-922d-4be5-b879-241169836627" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/StudentsDemo/celery.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myApp/task.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/myApp/student_paginator.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/myApp/test_ajax.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/myApp/test_celery.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/myApp/test_tinymce.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../C++/C++11/cpp11/CPP11Concurency/CPP11Concurency.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../../../C++/C++11/cpp11/CPP11Concurency/CPP11Concurency.vcxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../C++/C++11/cpp11/CPP11Concurency/CPP11Concurency.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/../../../C++/C++11/cpp11/CPP11Concurency/CPP11Concurency.vcxproj.filters" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../C++/C++11/cpp11/VariadicTemplates/VariadicTemplates.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../C++/C++11/cpp11/VariadicTemplates/VariadicTemplates.cpp" afterDir="false" />
@@ -20,16 +14,7 @@
       <change beforePath="$PROJECT_DIR$/../../../Go语言/Web开发/LearnBeego/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Go语言/Web开发/LearnBeego/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Go语言/Web开发/LearnBeego/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Go语言/Web开发/LearnBeego/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Nodejs/Day1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Nodejs/Day1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../README.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudentsDemo/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudentsDemo/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudentsDemo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudentsDemo/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myApp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/myApp/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/myApp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myApp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myApp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/myApp/js/myApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/myApp/js/myApp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../以太坊/img/gethmist1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../以太坊/img/转账.jpg" beforeDir="false" />
     </list>
@@ -47,7 +32,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/StudentsDemo/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="3420">
               <caret line="180" selection-start-line="180" selection-end-line="180" />
             </state>
           </provider>
@@ -56,7 +41,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myApp/task.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
+            <state relative-caret-position="190">
               <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
               <folding>
                 <element signature="e#1#29#0" expanded="true" />
@@ -77,8 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/StudentsDemo/celery.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+            <state relative-caret-position="209">
+              <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -89,8 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myApp/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="82" column="6" selection-start-line="82" selection-start-column="6" selection-end-line="82" selection-end-column="6" />
+            <state relative-caret-position="682">
+              <caret line="92" selection-start-line="92" selection-end-line="92" />
               <folding>
                 <element signature="e#1#29#0" expanded="true" />
               </folding>
@@ -101,8 +86,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myApp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="494" column="17" selection-start-line="494" selection-start-column="17" selection-end-line="494" selection-end-column="17" />
+            <state relative-caret-position="9272">
+              <caret line="493" column="15" selection-start-line="493" selection-start-column="15" selection-end-line="493" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -125,7 +110,7 @@
         <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="133">
-              <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -200,9 +185,9 @@
   <component name="MacroExpansionManager">
     <option name="directoryName" value="KkCokikv" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1" />
-    <option name="y" value="1225" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="296" />
+    <option name="y" value="1113" />
     <option name="width" value="1226" />
     <option name="height" value="1035" />
   </component>
@@ -344,23 +329,24 @@
       <workItem from="1588307278503" duration="2576000" />
       <workItem from="1588315933928" duration="13924000" />
       <workItem from="1588381729082" duration="23891000" />
-      <workItem from="1588469846451" duration="35708000" />
+      <workItem from="1588469846451" duration="36266000" />
+      <workItem from="1588561846362" duration="63000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76099000" />
+    <option name="totallyTimeSpent" value="76720000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="923" y="1083" width="1144" height="1035" extended-state="0" />
+    <frame x="-8" y="1072" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22232473" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13059701" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3264642" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.17203107" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.30299667" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39868566" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -679,7 +665,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/myApp/js/tiny_mce.js">
+    <entry file="file://$PROJECT_DIR$/static/myApp/js/tiny_mce.js" />
+    <entry file="file://$PROJECT_DIR$/StudentsDemo/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3420">
+          <caret line="180" selection-start-line="180" selection-end-line="180" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myApp/task.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+          <folding>
+            <element signature="e#1#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudentsDemo/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudentsDemo/celery.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myApp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9272">
+          <caret line="493" column="15" selection-start-line="493" selection-start-column="15" selection-end-line="493" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/python3_7_4/Lib/site-packages/celery/task/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/myApp/test_celery.html">
@@ -692,24 +720,7 @@
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudentsDemo/celery.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudentsDemo/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -720,37 +731,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StudentsDemo/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="180" selection-start-line="180" selection-end-line="180" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/python3_7_4/Lib/site-packages/celery/task/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myApp/task.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-          <folding>
-            <element signature="e#1#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myApp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="494" column="17" selection-start-line="494" selection-start-column="17" selection-end-line="494" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myApp/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="82" column="6" selection-start-line="82" selection-start-column="6" selection-end-line="82" selection-end-column="6" />
+        <state relative-caret-position="682">
+          <caret line="92" selection-start-line="92" selection-end-line="92" />
           <folding>
             <element signature="e#1#29#0" expanded="true" />
           </folding>
