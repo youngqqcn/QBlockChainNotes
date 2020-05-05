@@ -12,6 +12,7 @@ from . import views
 app_name = 'app'
 urlpatterns = [
     path(r'', views.index, name='index'),
+    path(r'booklist/', views.HelloListView.as_view(), name='booklist')
 
 ]
 
