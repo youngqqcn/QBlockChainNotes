@@ -12,6 +12,9 @@ https://www.bilibili.com/video/av17879644/?p=1
 创建名为project的项目命令  django-admin startproject project
             注：所有路径不要有中文
             切换到目录cd C:\Users\admin\Desktop\DjangoProject\project
+        
+        python manage.py  startapp myapp
+
 目录层级说明：manage.py  一个命令行工具，可以让我们用多种方式对Django项目进行交互
              __init__.py 一个空文件，它告诉Python这个目录应该被看做一个包
              settings.py 项目的配置文件（主要处理文件）
