@@ -1,3 +1,9 @@
+
+
+
+
+
+
 django simpleui demo.
 ---
 
@@ -19,6 +25,8 @@ sh ./bootstrap.sh
 
 # 手动步骤
 
+> <https://github.com/newpanjing/simpleui/blob/master/QUICK.md>
+
 ## 第一步
 下载源码到本地
 ```shell
@@ -35,6 +43,14 @@ pip install -r requirements.txt
 ## 第三步
 ```shell
 python manage.py runserver 8000 
+
+#如果在服务器部署, 需要将静态资源复制到项目目录下
+#https://github.com/newpanjing/simpleui/blob/master/QUICK.md#%E5%85%8B%E9%9A%86%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E5%88%B0%E6%A0%B9%E7%9B%AE%E5%BD%95
+python manage.py collectstatic
+
+
+# 如果在 CentOS 上部署,  会遇到 sqlite3版本过低,
+# 方案) 升级 sqilte3即可
 ```
 
 ## 第四步
@@ -45,6 +61,18 @@ python manage.py runserver 8000
 在用户名和密码的框框输入
 + 用户名：simpleui
 + 密码：demo123456
+
+
+
+
+
+## nginx + uwsgi 部署
+
+[nginx+uwsgi部署.md](./nginx+uwsgi部署.md)
+
+
+
+
 
 
 ## PS
