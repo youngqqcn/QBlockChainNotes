@@ -261,7 +261,7 @@ restore_height : 535000
         "num_unspent_outputs": 1,
         "unlocked_balance": 10000000000000
       }],
-      "unlocked_balance": 79876397210000   //未解锁的(如果是view-only wallet 一直是unlocked状态)
+      "unlocked_balance": 79876397210000   //已解锁的(如果是view-only wallet 一直是锁定状态)
     }
   }
   ```
