@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="6be816de-0186-4283-9e4b-fd10df88d6ea" name="192.168.10.174" url="http://192.168.10.174">
+        <fileTransfer host="192.168.10.174" port="22" rootFolder="/root/Server/Scanner" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

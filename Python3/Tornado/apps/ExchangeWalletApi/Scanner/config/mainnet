@@ -1,0 +1,167 @@
+#coding:utf8
+
+import os
+
+#############  ETH  #####################
+#ETH_N_DEFAULT_START_HEIGHT = 4263637     #默认起始扫描区块高度
+#ETH_N_DEFAULT_START_HEIGHT =7784578  #默认起始扫描区块高度
+#ETH_N_DEFAULT_START_HEIGHT =342393 #默认起始扫描区块高度
+ETH_N_BLOCK_TO_WAIT_CONFIRM = 12         #区块确认数至少12个
+ETH_NODE_RPC_HOST = "192.168.0.90"     #
+#ETH_NODE_RPC_HOST = "api.etherscan.io"  #备用方案
+ETH_NODE_RPC_PORT = 8545                 #如果是备用方案,使用8545即可
+##########################################
+
+
+########### ERC20 Contract #################
+
+ERC20_CONTRACTS_LIST = [
+    "0xb618a25e74d77a51d4b71ec1dff80c6686be9d0a", #BJC main
+    "0xe4189a5d4174ac6177b406aae8c79228a4ebe02f", #BEI main
+    "0x4b351C83c121CBbF337dBd52B104b014E4999237", #SPQQ main
+    "0x6dece8681928fb7feccf4c36c1f66852bf53285f", #ECNY main
+    "0x514910771af9ca656af840dff83e8264ecf986ca", #LINK main
+    "0x05f4a42e251f2d52b8ed15e9fedaacfcef1fad27", #ZIL main
+    "0xbf2179859fc6d5bee9bf9158632dc51678a4100e", #ELF main
+    "0x0f8c45b896784a1e408526b9300519ef8660209c", #XMX main
+    "0xf7920b0768ecb20a123fac32311d07d193381d6f", #TNB main
+
+    "0xdAC17F958D2ee523a2206206994597C13D831ec7",  # ERC20-USDT  main
+    "0xd26114cd6EE289AccF82350c8d8487fedB8A0C07",  # OMG main
+    "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",  # MKR main
+    "0xa4e8c3ec456107ea67d3075bf9e3df3a75823db0",  # LOOM main
+    "0xb63b606ac810a52cca15e44bb630fd42d8d1d83d",  # MCO main
+    "0x41e5560054824ea6b0732e656e3ad64e20e94e45",  # CVC main
+    "0x1985365e9f78359a9B6AD760e32412f4a445E862",  # REP main
+    "0xEa11755Ae41D889CeEc39A63E6FF75a02Bc1C00d",  # CTXC main
+    "0xb98d4c97425d9908e66e53a6fdf673acca0be986",  # ABT main
+    "0xd4fa1460f537bb9085d22c7bccb5dd450ef28e3a",  # PPT main
+    "0xd0352a019e9ab9d757776f532377aaebd36fd541",  # FSN main
+    "0x8f8221afbb33998d8584a2b05749ba73c37a938a",  # REQ main
+    "0x08f5a9235b08173b7569f83645d2c7fb55e8ccd8",  # TNT main
+
+    "0xcde4b9531eea02e1a5a4cd596790661c1c181ca7",  # LILY main
+    "0xd8e97cc29552cee2bca5bd7f9e979c48ae6076d6",  # EUTD main
+
+    "0xf6da9A11C213c6039b8d56f3a3eba8A692D6afdc",  # KTV main
+    "0x38362bbc51086eb738123602059983201ef55631", #AJC  main
+]
+
+##########################################
+
+
+############ USDP #########################
+USDP_NODE_RPC_HOST = "47.112.29.194" #深圳
+USDP_NODE_RPC_PORT = 1317
+USDP_N_BLOCK_TO_WAIT_CONFIRM = 0    
+##########################################
+
+############ HTDF #########################
+
+#新加坡      161.117.89.200        node01.orientwalt.cn
+#深圳        39.108.219.50         node02.orientwalt.cn
+#杭州        47.99.243.179         node03.orientwalt.cn
+#青岛        118.190.58.66         node04.orientwalt.cn
+#北京        112.126.96.205        node05.orientwalt.cn
+#张家口      47.92.96.189          node06.orientwalt.cn
+#孟买        149.129.173.40        node07.orientwalt.cn
+
+
+HTDF_NODE_RPC_HOST = "39.108.219.50" 
+HTDF_NODE_RPC_PORT = 1317
+HTDF_N_BLOCK_TO_WAIT_CONFIRM = 0
+
+
+HRC20_CONTRACT_MAP = {
+    #例如: "contract_addr" : { "decimal": 精度, "symbol":"AJC"  }
+    "htdf1vek5hjdqhcgj8ljqewgcex8y9eg9agwa3f69ez" : { "decimal": 18, "symbol":"HFH"  },
+    "htdf1j8apljndmma2vjxvqtz4rd6dk3fe0yuyyakhun" : { "decimal": 18, "symbol":"BWC"  },
+
+    #2020-06-08 新增
+    "htdf1war5w36s3ym6qv2vnfd7k803wu3lkuwksh8md8":{ "decimal": 18, "symbol":"HET"  },
+    "htdf14mc59zt5r2v0u40vdjec64323ypp08lslqc9uv":{ "decimal": 18, "symbol":"USDP"  },
+    "htdf1rcl9x2akjuy3tyqyxwk7sataldzmxy6jm06hq4":{ "decimal": 18, "symbol":"BEI"  },
+    "htdf1lsj9xuxyczru272je6wjd9aeg8vkg23qae5ug2":{ "decimal": 18, "symbol":"AQC"  },
+    "htdf1f23nuwptf7rqns3f73lu9xpseql0je8twn2zuk":{ "decimal": 18, "symbol":"SJC"  },
+
+     #2020-07-17 新增
+    "htdf1w43aazq9sjlcrwj4y7nnsck7na5zljzu4x5nrq" : { "decimal": 18, "symbol":"BTU"  },
+    "htdf18y0ks24fat9unc4ezf83zvqu470dtrsvldyev7" : { "decimal": 18, "symbol":"SVU"  },
+    "htdf15xsj43lssr26kw0pxn9qrl3yau2n5wu4dhk5rp" : { "decimal": 18, "symbol":"BKL"  },
+
+    #2020-08-03 新增
+    "htdf1u9cwqeq4tcnar8y8xk8udn5mll3dt5t8xlxqt0" : { "decimal": 18, "symbol":"JXC"  },
+
+    #2020-08-04 新增
+    "htdf18xq0p7h8rwxykfyrfytylhmrtusmzfwst4s6jx" : { "decimal": 18, "symbol":"AGG"  },
+    "htdf16kz9ts938wramc4gtn8fz8stnha6nm64w5tra8" : { "decimal": 18, "symbol":"HHG"  },
+
+    # 2020-08-20 新增
+	"htdf1le2awsf84s37ar4fx9wc8ruwsljgrrzz8agzsn" : {"decimal":18, "symbol":"HTD"},
+	"htdf1ehhd5qugg7y02rdnvlxcy92qg02m6dqhttauvh" : {"decimal":18, "symbol":"KML"},
+	"htdf1ldkdf84lr0qeydcp6la90hvcww5hx0z4u5zvja" : {"decimal":18, "symbol":"MSL"},
+	"htdf10yxugqes29eahqk227zv0uayt0qedvzaxl24jy" : {"decimal":18, "symbol":"DFQ"},
+	"htdf1kg362pxynmkvvr5cutwf5ksp5qh7lhpzrxesp9" : {"decimal":18, "symbol":"TTB"},
+
+
+}
+##########################################
+
+##############HET#########################
+HET_NODE_RPC_HOST = '47.106.8.67' 
+HET_NODE_RPC_PORT = 1317
+HET_N_BLOCK_TO_WAIT_CONFIRM = 0     
+##########################################
+
+
+
+
+#######################################
+# XRP  mainnet
+RIPPLE_RPC_HOST = 'https://data.ripple.com'
+########################################
+
+######### EOS ##########################
+# EOS   mainnet
+EOS_ENABLE_SPEEDUP_PLUGIN = False      #开启扫描加速, 但是,每天最多100次请求
+EOS_RPC_HOST = 'https://node1.zbeos.com'   #耗时 400 ms
+#EOS_RPC_HOST = 'https://api.eosnewyork.io'   #耗时 400 ms
+#备用1: https://open-api.eos.blockdog.com  #国内服务商   blockdog
+#备用2: https://eos.greymass.com:443    #耗时  650ms
+#备用3: https://node2.eosphere.io 或 https://node1.eosphere.io     #耗时1500 ms
+#########################################
+
+
+
+#############  ETC  #####################
+ETC_N_BLOCK_TO_WAIT_CONFIRM = 12         #区块确认数至少12个
+ETC_NODE_RPC_HOST = "192.168.0.95"      #这是内网的ip地址, 注意确认!
+ETC_NODE_RPC_PORT = 8545
+##########################################
+
+
+
+########## XLM ################
+XLM_RPC_HOST = "https://horizon.stellar.org"   #mainnet
+
+############################
+
+
+#########  XMR #################
+XMR_PRIV_VIEW_KEY = 'f1072fc56c3aae67191f6735532ec74810d624940f7d411f656b27da325d7301'
+XMR_MASTER_ADDR = '42b6NpwkcBzg1XzUBAULoCKFpBaDFYH8vNBp7bTfSN5ETwBtjta5DzLWTosFLMq7XEUJqZjMiycXB2h5KGZKJxae1WAipiN'
+
+XMR_RPC_HTTPS_ENABLE = True
+XMR_WALLET_RPC_HOST = ''#填写门罗节点的IP地址, 还要创建观察钱包
+XMR_WALLET_RPC_PORT = 18089
+###################################
+
+
+
+############# MYSQL #####################
+SQL_IP_ADDR, SQL_PORT = 'rm-wz94rwt5647he671g.mysql.rds.aliyuncs.com',3306
+SQL_USRNAME = 'walter'
+SQL_PASSWD = os.environ.get('SQL_PWD')
+DBNAME =  'walter'
+
+#############################################

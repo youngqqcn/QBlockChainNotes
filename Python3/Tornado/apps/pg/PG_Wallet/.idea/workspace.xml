@@ -1,0 +1,942 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="06f3e13e-dc2a-4372-8db8-8db4231eecd5" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_for_test_my_bip44_wrapper_TestMyBIP44Wrapper_test_gen_bip44_subaddr_from_privkey_path.coverage" NAME="Unittests for test_my_bip44_wrapper.TestMyBIP44Wrapper.test_gen_bip44_subaddr_from_privkey_path Coverage Results" MODIFIED="1588919066156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_in_test_my_bip44_wrapper_py.coverage" NAME="Unittests in test_my_bip44_wrapper.py Coverage Results" MODIFIED="1594274838432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$config.coverage" NAME="config Coverage Results" MODIFIED="1590742596867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/config" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_for_test_my_bip44_wrapper_TestMyBIP44Wrapper_test_gen_bip44_subaddr_from_mnemonic_BTC.coverage" NAME="Unittests for test_my_bip44_wrapper.TestMyBIP44Wrapper.test_gen_bip44_subaddr_from_mnemonic_BTC Coverage Results" MODIFIED="1594274859136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$htdf_addr_gen.coverage" NAME="htdf_addr_gen Coverage Results" MODIFIED="1588843318922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/lib/addr_gen" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_for_test_walle_api_TestWalletAPI_test_queryaddress.coverage" NAME="Unittests for test_walle_api.TestWalletAPI.test_queryaddress Coverage Results" MODIFIED="1591585547300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$btc_addr_gen.coverage" NAME="btc_addr_gen Coverage Results" MODIFIED="1594274559333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/lib/addr_gen" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_for_test_model_TestModels_test_create_all_table.coverage" NAME="Unittests for test_model.TestModels.test_create_all_table Coverage Results" MODIFIED="1590060375259" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/model" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_for_test_model_TestModels_test_insert_address.coverage" NAME="Unittests for test_model.TestModels.test_insert_address Coverage Results" MODIFIED="1588928272984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/api/handlers" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_for_test_walle_api_TestWalletAPI_test_generateaddress.coverage" NAME="Unittests for test_walle_api.TestWalletAPI.test_generateaddress Coverage Results" MODIFIED="1597400594744" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_for_test_bip44_addr_gen_TestBIP44AddrGen.coverage" NAME="Unittests for test_bip44_addr_gen.TestBIP44AddrGen Coverage Results" MODIFIED="1588846704364" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_for_test_addr_gen_TestAddressGenerateFunctions.coverage" NAME="Unittests for test_addr_gen.TestAddressGenerateFunctions Coverage Results" MODIFIED="1588844515800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_for_test_my_bip44_wrapper_TestMyBIP44Wrapper_test_gen_bip44_subaddr_from_seed.coverage" NAME="Unittests for test_my_bip44_wrapper.TestMyBIP44Wrapper.test_gen_bip44_subaddr_from_seed Coverage Results" MODIFIED="1588919895861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_in_test_addr_gen_py.coverage" NAME="Unittests in test_addr_gen.py Coverage Results" MODIFIED="1588845121122" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$eth_addr_gen.coverage" NAME="eth_addr_gen Coverage Results" MODIFIED="1588843112151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/lib/addr_gen" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_for_test_my_bip44_wrapper_TestMyBIP44Wrapper_test_gen_bip44_subaddr_from_mnemonic_HTDF.coverage" NAME="Unittests for test_my_bip44_wrapper.TestMyBIP44Wrapper.test_gen_bip44_subaddr_from_mnemonic_HTDF Coverage Results" MODIFIED="1590112373236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_for_test_addr_gen_TestAddressGenerateFunctions_test_htdf_addr_gen_func.coverage" NAME="Unittests for test_addr_gen.TestAddressGenerateFunctions.test_htdf_addr_gen_func Coverage Results" MODIFIED="1588844907365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_for_test_my_bip44_wrapper_TestMyBIP44Wrapper_test_gen_bip44_subaddr_from_mnenoic_path.coverage" NAME="Unittests for test_my_bip44_wrapper.TestMyBIP44Wrapper.test_gen_bip44_subaddr_from_mnenoic_path Coverage Results" MODIFIED="1588909733319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_for_test_bip44_addr_gen_TestBIP44AddrGen_test_htdf_sub_account_addr_gen.coverage" NAME="Unittests for test_bip44_addr_gen.TestBIP44AddrGen.test_htdf_sub_account_addr_gen Coverage Results" MODIFIED="1589524815926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_for_test_addr_gen_TestAddressGenerateFunctions_test_eth_addr_gen_func.coverage" NAME="Unittests for test_addr_gen.TestAddressGenerateFunctions.test_eth_addr_gen_func Coverage Results" MODIFIED="1588845113347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_for_test_bip44_addr_gen_TestBIP44AddrGen_test_eth_sub_account_addr_gen.coverage" NAME="Unittests for test_bip44_addr_gen.TestBIP44AddrGen.test_eth_sub_account_addr_gen Coverage Results" MODIFIED="1588908657319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_for_test_model_TestModels_test_query_address.coverage" NAME="Unittests for test_model.TestModels.test_query_address Coverage Results" MODIFIED="1588929548934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/api/handlers" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_for_test_walle_api_TestWalletAPI_test_queryaddaddressorder.coverage" NAME="Unittests for test_walle_api.TestWalletAPI.test_queryaddaddressorder Coverage Results" MODIFIED="1591255705167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_in_test_bip44_addr_gen_py.coverage" NAME="Unittests in test_bip44_addr_gen.py Coverage Results" MODIFIED="1589524796004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$myencrpt.coverage" NAME="myencrpt Coverage Results" MODIFIED="1591353439065" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$address_generator.coverage" NAME="address_generator Coverage Results" MODIFIED="1590117022514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/address_generator" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$address_handler.coverage" NAME="address_handler Coverage Results" MODIFIED="1589449846927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/api/handlers" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$test_xor_encrpt.coverage" NAME="test_xor_encrpt Coverage Results" MODIFIED="1590739787210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$wallet_api.coverage" NAME="wallet_api Coverage Results" MODIFIED="1594281385725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/api" />
+    <SUITE FILE_PATH="coverage/PG_Wallet$Unittests_for_test_my_bip44_wrapper_TestMyBIP44Wrapper_test_gen_bip44_subaddr_from_mnemonic.coverage" NAME="Unittests for test_my_bip44_wrapper.TestMyBIP44Wrapper.test_gen_bip44_subaddr_from_mnemonic Coverage Results" MODIFIED="1588919323473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-660479040">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="15" />
+          <entry key="project.open.time.0" value="6" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.18" value="2" />
+          <entry key="project.open.time.19" value="1" />
+          <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.opened" value="19" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="Makefile" value="4" />
+          <entry key="dat" value="1" />
+          <entry key="json" value="2" />
+          <entry key="md" value="5" />
+          <entry key="my_words" value="1" />
+          <entry key="py" value="200" />
+          <entry key="txt" value="10" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JSON" value="2" />
+          <entry key="Makefile" value="4" />
+          <entry key="Markdown" value="5" />
+          <entry key="PLAIN_TEXT" value="12" />
+          <entry key="Python" value="200" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="Makefile" value="369" />
+          <entry key="Python Console" value="755" />
+          <entry key="dat" value="4" />
+          <entry key="dummy" value="32" />
+          <entry key="json" value="5" />
+          <entry key="md" value="64" />
+          <entry key="my_words" value="1" />
+          <entry key="py" value="53905" />
+          <entry key="txt" value="40" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JSON" value="5" />
+          <entry key="Makefile" value="369" />
+          <entry key="Markdown" value="64" />
+          <entry key="PLAIN_TEXT" value="77" />
+          <entry key="Python" value="54660" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/api/wallet_api.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-230">
+              <caret line="85" selection-start-line="85" selection-end-line="85" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/test_walle_api.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="770">
+              <caret line="91" column="31" selection-start-line="91" selection-start-column="31" selection-end-line="91" selection-end-column="31" />
+              <folding>
+                <element signature="e#72#83#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/api/handlers/handler_base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="158" column="63" selection-start-line="158" selection-start-column="63" selection-end-line="158" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/api/handlers/address_handler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="244" selection-start-line="244" selection-end-line="244" />
+              <folding>
+                <element signature="e#67#78#0" expanded="true" />
+                <marker date="1597285231680" expanded="true" signature="4457:4464" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>max</find>
+      <find>host</find>
+      <find>expire_on_commit</find>
+      <find>project_id</find>
+      <find>pg_withdraw</find>
+      <find>project_</find>
+      <find>mne</find>
+      <find>ref_project</find>
+      <find>MySqlSessionClass</find>
+      <find>@param</find>
+      <find>pg_database</find>
+      <find>g_MNEMONIC</find>
+      <find>ERC20_USDT</find>
+      <find>制定</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>pg_database</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/lib/addr_gen/eth_addr_gen.py" />
+        <option value="$PROJECT_DIR$/src/lib/addr_gen/htdf_addr_gen.py" />
+        <option value="$PROJECT_DIR$/src/test/test_addr_gen.py" />
+        <option value="$PROJECT_DIR$/src/__init__.py" />
+        <option value="$PROJECT_DIR$/src/lib/eth_wallet/wallet.py" />
+        <option value="$PROJECT_DIR$/src/lib/my_bip44/utils.py" />
+        <option value="$PROJECT_DIR$/src/lib/my_bip44/README.md" />
+        <option value="$PROJECT_DIR$/src/api/handlers/test_model.py" />
+        <option value="$PROJECT_DIR$/src/api/handlers/model.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/src/model/test_model.py" />
+        <option value="$PROJECT_DIR$/src/config/conf/dev_conf.py" />
+        <option value="$PROJECT_DIR$/src/config/conf/sit_conf.py" />
+        <option value="$PROJECT_DIR$/apidoc.json" />
+        <option value="$PROJECT_DIR$/src/test/test_bip44_addr_gen.py" />
+        <option value="$PROJECT_DIR$/src/model/model.py" />
+        <option value="$PROJECT_DIR$/src/lib/log.py" />
+        <option value="$PROJECT_DIR$/src/test/my_words" />
+        <option value="$PROJECT_DIR$/src/test/test_xor_encrpt.py" />
+        <option value="$PROJECT_DIR$/src/test/my_words.dat" />
+        <option value="$PROJECT_DIR$/src/test/words.txt" />
+        <option value="$PROJECT_DIR$/Makefile" />
+        <option value="$PROJECT_DIR$/src/api/wallet_api.py" />
+        <option value="$PROJECT_DIR$/src/config/config.py" />
+        <option value="$PROJECT_DIR$/src/test/myencrpt.py" />
+        <option value="$PROJECT_DIR$/src/lib/my_bip44/wrapper.py" />
+        <option value="$PROJECT_DIR$/src/lib/addr_gen/btc_addr_gen.py" />
+        <option value="$PROJECT_DIR$/src/test/test_my_bip44_wrapper.py" />
+        <option value="$PROJECT_DIR$/src/address_generator/address_generator.py" />
+        <option value="$PROJECT_DIR$/src/config/constant.py" />
+        <option value="$PROJECT_DIR$/src/api/handlers/address_handler.py" />
+        <option value="$PROJECT_DIR$/src/api/handlers/handler_base.py" />
+        <option value="$PROJECT_DIR$/src/test/test_walle_api.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="489" />
+    <option name="y" value="26" />
+    <option name="width" value="1276" />
+    <option name="height" value="1009" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="PG_Wallet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PG_Wallet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PG_Wallet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PG_Wallet" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PG_Wallet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PG_Wallet" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PG_Wallet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PG_Wallet" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="handlers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PG_Wallet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PG_Wallet" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PG_Wallet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PG_Wallet" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PG_Wallet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PG_Wallet" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PG_Wallet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PG_Wallet" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/venv" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="PG_Wallet" is-module-sdk="true">
+        <envs>
+          <env key="GOOD_BOY" value="hsdf" />
+        </envs>
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="PG_Wallet" />
+        <option name="myEnvs">
+          <map>
+            <entry key="GOOD_BOY" value="hsdf" />
+          </map>
+        </option>
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\WorkProjects\Src_PayGateway_Python\10-DEV\PG_Wallet\src\model" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WorkProjects\Src_PayGateway_Python\10-DEV\PG_Wallet\src\lib\addr_gen" />
+      <recent name="D:\WorkProjects\Src_PayGateway_Python\10-DEV\PG_Wallet\src\lib" />
+      <recent name="D:\WorkProjects\Src_PayGateway_Python\10-DEV\PG_Wallet\src\config" />
+      <recent name="D:\WorkProjects\Src_PayGateway_Python\10-DEV\PG_Wallet\src\config\conf" />
+      <recent name="D:\WorkProjects\Src_PayGateway_Python\10-DEV\PG_Wallet\src\lib\my_bip44" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python tests.Unittests for test_walle_api.TestWalletAPI.test_generateaddress">
+    <configuration name="btc_addr_gen" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="PG_Wallet" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/lib/addr_gen" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/lib/addr_gen/btc_addr_gen.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="wallet_api" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="PG_Wallet" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/api" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/api/wallet_api.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for test_my_bip44_wrapper.TestMyBIP44Wrapper.test_gen_bip44_subaddr_from_mnemonic_BTC" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="PG_Wallet" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_my_bip44_wrapper.TestMyBIP44Wrapper.test_gen_bip44_subaddr_from_mnemonic_BTC&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for test_walle_api.TestWalletAPI.test_generateaddress" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="PG_Wallet" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_walle_api.TestWalletAPI.test_generateaddress&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in test_my_bip44_wrapper.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="PG_Wallet" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/src/test/test_my_bip44_wrapper.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.btc_addr_gen" />
+      <item itemvalue="Python tests.Unittests for test_my_bip44_wrapper.TestMyBIP44Wrapper.test_gen_bip44_subaddr_from_mnemonic_BTC" />
+      <item itemvalue="Python tests.Unittests in test_my_bip44_wrapper.py" />
+      <item itemvalue="Python tests.Unittests for test_walle_api.TestWalletAPI.test_generateaddress" />
+      <item itemvalue="Python.wallet_api" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Unittests for test_walle_api.TestWalletAPI.test_generateaddress" />
+        <item itemvalue="Python.wallet_api" />
+        <item itemvalue="Python tests.Unittests for test_my_bip44_wrapper.TestMyBIP44Wrapper.test_gen_bip44_subaddr_from_mnemonic_BTC" />
+        <item itemvalue="Python tests.Unittests in test_my_bip44_wrapper.py" />
+        <item itemvalue="Python.btc_addr_gen" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="06f3e13e-dc2a-4372-8db8-8db4231eecd5" name="Default Changelist" comment="" />
+      <created>1588837441642</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588837441642</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="Unittests_for_test_walle_api_TestWalletAPI_test_generateaddress - 2020.07.09 at 15h 02m 56s.xml">
+      <configuration name="Unittests for test_walle_api.TestWalletAPI.test_generateaddress" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_walle_api_TestWalletAPI_test_generateaddress - 2020.07.09 at 15h 03m 22s.xml">
+      <configuration name="Unittests for test_walle_api.TestWalletAPI.test_generateaddress" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_walle_api_TestWalletAPI_test_generateaddress - 2020.07.09 at 15h 49m 55s.xml">
+      <configuration name="Unittests for test_walle_api.TestWalletAPI.test_generateaddress" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_walle_api_TestWalletAPI_test_generateaddress - 2020.07.09 at 15h 50m 58s.xml">
+      <configuration name="Unittests for test_walle_api.TestWalletAPI.test_generateaddress" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_walle_api_TestWalletAPI_test_generateaddress - 2020.07.09 at 15h 53m 01s.xml">
+      <configuration name="Unittests for test_walle_api.TestWalletAPI.test_generateaddress" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_walle_api_TestWalletAPI_test_generateaddress - 2020.07.09 at 15h 54m 20s.xml">
+      <configuration name="Unittests for test_walle_api.TestWalletAPI.test_generateaddress" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_walle_api_TestWalletAPI_test_generateaddress - 2020.07.09 at 15h 54m 30s.xml">
+      <configuration name="Unittests for test_walle_api.TestWalletAPI.test_generateaddress" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_walle_api_TestWalletAPI_test_generateaddress - 2020.07.09 at 15h 57m 24s.xml">
+      <configuration name="Unittests for test_walle_api.TestWalletAPI.test_generateaddress" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_walle_api_TestWalletAPI_test_generateaddress - 2020.07.09 at 15h 57m 33s.xml">
+      <configuration name="Unittests for test_walle_api.TestWalletAPI.test_generateaddress" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_walle_api_TestWalletAPI_test_generateaddress - 2020.08.15 at 19h 07m 17s.xml">
+      <configuration name="Unittests for test_walle_api.TestWalletAPI.test_generateaddress" configurationId="tests" />
+    </history-entry>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
+    <layout>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4986631" visible="true" weight="0.20095949" />
+      <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.24973205" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Python Console" order="4" weight="0.2636656" />
+      <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="6" />
+      <window_info anchor="bottom" id="Find" order="7" weight="0.47052518" />
+      <window_info anchor="bottom" id="Run" order="8" weight="0.35155413" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.15005359" />
+      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="12" />
+      <window_info anchor="bottom" id="File Transfer" order="13" weight="0.120042875" />
+      <window_info anchor="right" id="SciView" order="0" />
+      <window_info anchor="right" id="Database" order="1" />
+      <window_info anchor="right" id="Cargo" order="2" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="3" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="4" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
+      <window_info anchor="right" id="Structure" order="6" sideWeight="0.5013369" side_tool="true" visible="true" weight="0.04317697" />
+      <window_info anchor="right" id="make" order="7" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/lib/addr_gen/htdf_addr_gen.py</url>
+          <line>162</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/lib/addr_gen/htdf_addr_gen.py</url>
+          <line>236</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/test/test_addr_gen.py</url>
+          <line>61</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/model/test_model.py</url>
+          <line>100</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/address_generator/address_generator.py</url>
+          <line>88</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/address_generator/address_generator.py</url>
+          <line>44</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/test/test_bip44_addr_gen.py</url>
+          <line>116</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/api/handlers/address_handler.py</url>
+          <line>311</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/test/myencrpt.py</url>
+          <line>41</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/test/myencrpt.py</url>
+          <line>101</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/test/test_walle_api.py</url>
+          <line>116</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/api/handlers/address_handler.py</url>
+          <line>383</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/lib/addr_gen/btc_addr_gen.py</url>
+          <line>148</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/lib/addr_gen/btc_addr_gen.py</url>
+          <line>74</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/lib/addr_gen/btc_addr_gen.py</url>
+          <line>263</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/api/handlers/address_handler.py</url>
+          <line>124</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/api/handlers/address_handler.py</url>
+          <line>153</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/api/handlers/address_handler.py</url>
+          <line>127</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/test/test_walle_api.py</url>
+          <line>80</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>hexlify(payload)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>len(s)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>len(pubKey)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>hexlify( s )</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>hexlify(s)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>hex(s)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>len(b)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/lib/my_bip44/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="400">
+            <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/requests/exceptions.py" />
+    <entry file="file://D:/python37_x64/Lib/logging/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="186" column="4" selection-start-line="186" selection-start-column="4" selection-end-line="186" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/python37_x64/Lib/string.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/sqlalchemy/sql/functions.py" />
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/sqlalchemy/engine/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/sqlalchemy/sql/sqltypes.py" />
+    <entry file="file://$PROJECT_DIR$/src/lib/base_handler.py" />
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/tornado/netutil.py" />
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/sqlalchemy/orm/session.py" />
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/tornado/routing.py" />
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/tornado/http1connection.py" />
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/tornado/web.py" />
+    <entry file="file://D:/python37_x64/Lib/asyncio/events.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/python37_x64/Lib/asyncio/base_events.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="1770" selection-start-line="1770" selection-end-line="1770" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/redis/client.py" />
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pika/adapters/blocking_connection.py" />
+    <entry file="file://$PROJECT_DIR$/src/model/test_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="80" column="38" lean-forward="true" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pymysql/connections.py" />
+    <entry file="file://$PROJECT_DIR$/src/config/conf/sit_conf.py" />
+    <entry file="file://$PROJECT_DIR$/apidoc.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/conf/dev_conf.py" />
+    <entry file="file://$PROJECT_DIR$/src/lib/eth_wallet/wallet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="87" column="28" lean-forward="true" selection-start-line="87" selection-start-column="28" selection-end-line="87" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/requests/structures.py" />
+    <entry file="file://$PROJECT_DIR$/src/test/解密_加密_my_words.dat" />
+    <entry file="file://$PROJECT_DIR$/src/lib/myencrpt.py" />
+    <entry file="file://$PROJECT_DIR$/src/lib/pg_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/my_words.dat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/words.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="69" selection-start-column="69" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/log.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="31" column="51" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://D:/venv/Lib/site-packages/sqlalchemy/sql/functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="605" selection-start-line="605" selection-end-line="605" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/myencrpt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1472">
+          <caret line="94" column="39" selection-start-line="94" selection-start-column="39" selection-end-line="94" selection-end-column="39" />
+          <folding>
+            <element signature="e#69#78#0" expanded="true" />
+            <marker date="1591353696491" expanded="true" signature="677:678" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/485026630/binascii.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1664">
+          <caret line="104" column="53" selection-start-line="104" selection-start-column="53" selection-end-line="104" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/addr_gen/htdf_addr_gen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="241" lean-forward="true" selection-start-line="241" selection-end-line="241" />
+          <folding>
+            <element signature="e#80#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/test_bip44_addr_gen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/my_bip44/wrapper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="104" column="59" selection-start-line="104" selection-start-column="59" selection-end-line="104" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/address_generator/address_generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-541">
+          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+          <folding>
+            <element signature="e#72#83#0" expanded="true" />
+            <element signature="e#4697#7204#0" />
+            <marker date="1594275867743" expanded="true" signature="7847:7850" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1488">
+          <caret line="117" column="19" selection-start-line="117" selection-start-column="19" selection-end-line="117" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/python37_x64/Lib/unittest/case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="627" selection-start-line="627" selection-end-line="627" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/test_addr_gen.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="45" column="22" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/test_my_bip44_wrapper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="851">
+          <caret line="96" column="54" selection-start-line="96" selection-start-column="54" selection-end-line="96" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="851">
+          <caret line="87" column="17" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="17" />
+          <folding>
+            <element signature="e#72#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/constant.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+          <folding>
+            <marker date="1597030241600" expanded="true" signature="2606:2611" ph="..." />
+            <marker date="1597030241600" expanded="true" signature="2714:2788" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/addr_gen/btc_addr_gen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-80">
+          <caret line="181" lean-forward="true" selection-start-line="181" selection-end-line="181" />
+          <folding>
+            <element signature="e#144#158#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/handlers/address_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="244" selection-start-line="244" selection-end-line="244" />
+          <folding>
+            <element signature="e#67#78#0" expanded="true" />
+            <marker date="1597285231680" expanded="true" signature="4457:4464" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/test_walle_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="770">
+          <caret line="91" column="31" selection-start-line="91" selection-start-column="31" selection-end-line="91" selection-end-column="31" />
+          <folding>
+            <element signature="e#72#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/wallet_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-230">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/handlers/handler_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="158" column="63" selection-start-line="158" selection-start-column="63" selection-end-line="158" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

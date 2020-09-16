@@ -1,0 +1,7 @@
+pymysql
+ethereum
+requests
+python-dateutil
+stellar-sdk==2.1.0
+tronapi
+monero==0.7.1

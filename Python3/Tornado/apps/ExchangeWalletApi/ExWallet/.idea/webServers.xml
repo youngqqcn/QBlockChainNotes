@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="fd07c6c0-f8ac-4388-9976-dcf229852b2e" name="192.168.10.174(ExWallet)" url="http://192.168.10.174">
+        <fileTransfer host="192.168.10.174" port="22" rootFolder="/root/Server/ExWallet" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,10 @@
+{
+  "name": "PG_Gateway",
+  "version": "0.0.1",
+  "description": "支付网关 API 文档",
+  "title": "支付网关API文档",
+  "header": {
+    "title": "公共参数说明",
+    "filename": "header.md"
+  }
+}

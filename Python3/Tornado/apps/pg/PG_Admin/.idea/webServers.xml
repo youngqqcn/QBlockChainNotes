@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="adbb813a-8a30-40e3-a49a-b4a0eca3c784" name="192.168.10.174" url="http://192.168.10.174">
+        <fileTransfer host="192.168.10.174" port="22" rootFolder="/data/PaymentGateway" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

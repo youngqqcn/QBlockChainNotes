@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>修改密码</title>
+    <style>
+
+body{
+   font-size: 100%;
+   background:#304156;
+   font-family: 'Roboto', sans-serif;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+}
+/*--elemt style strat here--*/
+.elelment h2 {
+    font-size: 2.5em;
+    color: #fff;
+    text-align: center;
+    margin-top:2em;
+    font-weight: 700;
+}
+.element-main {
+    width:30%;
+    background: #fff;
+    margin:0 auto 0;
+    border-radius: 5px;
+    padding:1.8em 1.9em;
+}
+.element-main h1 {
+    text-align: center;
+    color:#0086E5;
+    font-weight: 700;
+}
+.element-main p {
+    font-size: 1em;
+    color: #696969;
+    line-height: 1.5em;
+    margin: 1.5em 0em;
+    text-align:center;
+}
+.element-main input[type="text"] {
+    font-size: 1em;
+    color: #A29E9E;
+    padding: 1em 0.5em;
+    display: block;
+    width: 95%;
+    outline: none;
+    margin-bottom: 1em;
+    border: 1px solid #B9B9B9;
+}
+
+.element-main input[type="password"] {
+    font-size: 1em;
+    color: #A29E9E;
+    padding: 1em 0.5em;
+    display: block;
+    width: 95%;
+    outline: none;
+    margin-bottom: 1em;
+    border: 1px solid #B9B9B9;
+}
+.element-main input[type="submit"] {
+    font-size: 1em;
+    color: #fff;
+    background:#0086E5;
+    width: 50%;
+    padding: 0.8em 0em;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border-bottom: 3px solid #045B99;
+    display: block;
+    margin: 1.5em auto 0;
+}
+.element-main input[type="submit"]:hover{
+    background:#1D1C1C;
+    border-bottom: 3px solid #2F2F2F;
+    transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+}
+/*---copyrights--*/
+.copy-right {
+    margin: 9em 0em 2em 0em;
+}
+.copy-right p {
+    text-align: center;
+    font-size:1em;
+    color:#fff;
+    line-height: 1.5em;
+
+}
+.copy-right p a{
+  color:#fff;
+}
+.copy-right p a:hover{
+	 color:#000;
+	 transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+}
+/*--element end here--*/
+/*--media quiries start here--*/
+@media(max-width:1440px){
+
+}
+@media(max-width:1366px){
+
+}
+@media(max-width:1280px){
+.elelment h2 {
+    margin-top: 1em;
+}
+.copy-right {
+    margin: 6em 0em 2em 0em;
+}
+.element-main {
+    width: 30%;
+}
+}
+@media(max-width:1024px){
+.element-main {
+    width: 37%;
+}
+}
+@media(max-width:768px){
+.element-main {
+    width: 49%;
+}
+.elelment h2 {
+    font-size: 2em;
+}
+.element-main {
+    width: 60%;
+}
+.element-main h1 {
+    font-size: 2em;
+}
+}
+@media(max-width:640px){
+
+}
+@media(max-width:480px){
+.element-main {
+    width: 80%;
+    padding: 3em 1.5em;
+}
+.copy-right {
+    margin: 5em 0em 2em 0em;
+}
+.copy-right p {
+    font-size: 0.9em;
+}
+}
+@media(max-width:320px){
+.elelment h2 {
+    font-size: 1.5em;
+}
+.element-main h1 {
+    font-size: 1.5em;
+}
+.element-main {
+    width: 80%;
+    margin: 2em auto 0em;
+    padding: 1.5em 1.5em;
+}
+.element-main p {
+    font-size: 0.9em;
+}
+.element-main input[type="submit"] {
+    font-size:0.9em;
+    width: 75%;
+}
+.element-main input[type="text"] {
+    font-size: 0.9em;
+    padding: 0.8em 0.5em;
+}
+.element-main input[type="password"] {
+    font-size: 0.9em;
+    padding: 0.8em 0.5em;
+}
+.copy-right {
+    margin: 3em 0em 2em 0em;
+}
+.copy-right p {
+    font-size: 0.85em;
+	padding:0 4px;
+}
+}
+
+    </style>
+
+<!-- Custom Theme files -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<!--google fonts-->
+
+</head>
+<body>
+<!--element start here-->
+<div class="elelment">
+	<div class="element-main">
+		<h1>重置密码</h1>
+		<form action="/admin/resetpasswd/" method="post">
+            {% csrf_token %}
+            管理员账号:
+            <input type="text" name="superusername" />
+            管理员密码:
+            <input type="password" name="superpassword"  />
+            项目方ID:
+            <input type="text" name="pro_id" />
+            手机号:
+            <input type="text" name="username" />         密码: &nbsp*密码长度为8-16位,只能由数字和字母组成
+
+            <input type="password" name="password"  />          密码确认:
+            <input type="password" name="password_two" />
+            谷歌验证码:
+            <input type="text" name="code" />
+			<input type="submit" value="提交" />
+		</form>
+	</div>
+</div>
+
+<!--element end here-->
+</body>
+</html>

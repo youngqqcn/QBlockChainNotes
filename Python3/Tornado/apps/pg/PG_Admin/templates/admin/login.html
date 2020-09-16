@@ -1,0 +1,42 @@
+{% extends 'admin/login.html' %}
+<!--
+    重写页面文档
+    https://github.com/newpanjing/simpleui/blob/master/QUICK.md#%E9%87%8D%E5%86%99%E9%A1%B5%E9%9D%A2
+-->
+{% block head %}
+{#重写head block 可以添加自己的一些头部元素，例如seo信息等#}
+
+    <meta name="keywords" content="simpleui,django">
+    <meta name="description" content="simpleui是一个django admin theme 主题 。基于element-ui+vue开发的主题，重写和优化90%以上的页面。 ">
+{% endblock %}
+
+
+{% block header %}
+    <div class="header">{{ site_header }}</div>
+     <el-alert>
+{#        title="成功提示的文案"#}
+{#        type="success"#}
+{#        :show-icon="false">#}
+{#        <div slot="title">#}
+{#            <div>欢迎使用simpleui demo</div>#}
+{#        <div>账号：yijiayi，密码：yijiayi</div>#}
+{#        <div>源码地址：#}
+{#             <el-link type="primary" @click="window.open('https://github.com/newpanjing/simpleui_demo')">https://github.com/newpanjing/simpleui_demo</el-link>#}
+{#        </div>#}
+{#        </div>#}
+      </el-alert>
+{% endblock %}
+
+
+{% block particles %}
+    {{ block.super }}
+    <!-- 重写login页面的block 添加自己的脚本 -->
+    <script type="text/javascript">
+        window.addEventListener('load', function () {
+            if(loginApp){
+                loginApp.username = '';
+                loginApp.password = '';
+            }
+        });
+    </script>
+{% endblock %}

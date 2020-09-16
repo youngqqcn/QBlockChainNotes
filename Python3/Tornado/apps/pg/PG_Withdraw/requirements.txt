@@ -1,0 +1,22 @@
+tornado
+pymysql
+SQLAlchemy
+schema
+pika
+requests
+coincurve
+pytest
+web3==5.9.0
+
+
+
+ecdsa
+pysha3  #而不是sha3
+mnemonic
+
+
+
+ed25519
+
+
+python-bitcoinlib

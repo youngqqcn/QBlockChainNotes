@@ -1,0 +1,16 @@
+tornado
+pymysql
+SQLAlchemy
+schema
+pika
+requests
+coincurve
+pytest
+
+ecdsa
+pysha3  #而不是sha3
+mnemonic
+
+redis
+
+ed25519

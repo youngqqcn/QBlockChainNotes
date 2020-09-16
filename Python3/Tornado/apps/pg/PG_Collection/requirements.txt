@@ -1,0 +1,14 @@
+pymysql
+SQLAlchemy
+requests
+eth_utils
+web3==5.9.0
+coincurve
+ecdsa
+pysha3  #而不是sha3
+mnemonic
+
+tornado
+schema
+redis
+ed25519

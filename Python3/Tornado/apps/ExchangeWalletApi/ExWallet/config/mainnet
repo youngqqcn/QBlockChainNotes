@@ -1,0 +1,208 @@
+#coding:utf8
+#!/usr/bin/python
+import os
+
+#####################################################################################################
+# MySQL Info ########################################################################################
+#####################################################################################################
+
+#SQL_IP_ADDR, SQL_PORT = '127.0.0.1',3306
+#SQL_USRNAME = 'root'
+SQL_IP_ADDR, SQL_PORT = 'rm-wz94rwt5647he671g.mysql.rds.aliyuncs.com',3306
+SQL_USRNAME = 'walter'
+SQL_PASSWD = os.environ.get('SQL_PWD')
+DBNAME =  'walter'
+
+#####################################################################################################
+# Http Connection Info###############################################################################
+#####################################################################################################
+
+WALLET_API_PORT=9000
+
+#####################################################################################################
+# RPC Info###########################################################################################
+#####################################################################################################
+# Bitcoin Family
+### BTC
+BTC_IP_ADDR =  '192.168.0.89'
+BTC_RPC_USERNAME = 'btc'
+BTC_RPC_PASSWD = 'btc2018'
+BTC_RPC_PORT = 8332
+BTC_RPC_URL = "http://%s:%s@%s:%d" % (BTC_RPC_USERNAME, BTC_RPC_PASSWD,BTC_IP_ADDR,BTC_RPC_PORT)
+
+### USDT(OMNI)
+OMNI_IP_ADDR =  '192.168.0.91'
+OMNI_RPC_USERNAME = 'btc'
+OMNI_RPC_PASSWD = 'btc2018'
+OMNI_RPC_PORT = 8332
+OMNI_RPC_URL = "http://%s:%s@%s:%d" % (OMNI_RPC_USERNAME, OMNI_RPC_PASSWD,OMNI_IP_ADDR,OMNI_RPC_PORT)
+
+# Ethereum Family
+### ETH
+ETH_IP_ADDR = '192.168.0.90'
+ETH_RPC_PORT = 8545
+
+#### ETC mainnet
+ETC_IP_ADDR = '192.168.0.95'   #这是内网的ETC全节点的ip地址, 注意确认!
+ETC_RPC_PORT = 8545
+
+
+
+########## BlackList #############################
+URL_BLACK_LIST = 'http://www-system.htdfscan.com/api/monitor'
+USER_HASH = '1d5a75d5e6b342e0cdecd78421de81ec'
+WHITE_LIST = [
+    "htdf1jrh6kxrcr0fd8gfgdwna8yyr9tkt99ggmz9ja2",
+    "htdf1nclhq92gfnk9zqxgp5jpsqxx8vfdqexwz4sd2k",
+    "htdf1dt8n3u88yjmmqd8fwy0g7e0qqt4636qvf7a7x0",
+    "htdf1c0njnzd93lh3zkt3qq28wftuyg3vqrsktj7eqc",
+    "htdf1l5l3hyx8pa3nu63nf7p95ehags4znrl6axsdwq",
+    "htdf1zdwtxkrdymfj68h57rtqkv5qjdzpcw969peusp",
+]
+###################################################
+
+
+
+
+########### ERC20 Contract #################
+
+
+ERC20_CONTRACTS_MAP = {
+    "BJC" : "0xb618a25e74d77a51d4b71ec1dff80c6686be9d0a",  # BJC main
+    "BEI" : "0xe4189a5d4174ac6177b406aae8c79228a4ebe02f",  # BEI main
+    "SPQQ": "0x4b351C83c121CBbF337dBd52B104b014E4999237",  # SPQQ main
+    "ECNY": "0x6dece8681928fb7feccf4c36c1f66852bf53285f",  # ECNY main
+    "LINK": "0x514910771af9ca656af840dff83e8264ecf986ca",  # LINK main
+    "ZIL" : "0x05f4a42e251f2d52b8ed15e9fedaacfcef1fad27",  # ZIL main
+    "ELF" : "0xbf2179859fc6d5bee9bf9158632dc51678a4100e",  # ELF main
+    "XMX" : "0x0f8c45b896784a1e408526b9300519ef8660209c",  # XMX main
+    "TNB" : "0xf7920b0768ecb20a123fac32311d07d193381d6f",  # TNB main
+
+    "USDT": "0xdAC17F958D2ee523a2206206994597C13D831ec7",  # ERC20-USDT  main
+    "OMG" : "0xd26114cd6EE289AccF82350c8d8487fedB8A0C07",  # OMG main
+    "MKR" : "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",  # MKR main
+    "LOOM": "0xa4e8c3ec456107ea67d3075bf9e3df3a75823db0",  # LOOM main
+    "MCO" : "0xb63b606ac810a52cca15e44bb630fd42d8d1d83d",  # MCO main
+    "CVC" : "0x41e5560054824ea6b0732e656e3ad64e20e94e45",  # CVC main
+    "REP" : "0x1985365e9f78359a9B6AD760e32412f4a445E862",  # REP main
+    "CTXC": "0xEa11755Ae41D889CeEc39A63E6FF75a02Bc1C00d",  # CTXC main
+    "ABT" : "0xb98d4c97425d9908e66e53a6fdf673acca0be986",  # ABT main
+    "PPT" : "0xd4fa1460f537bb9085d22c7bccb5dd450ef28e3a",  # PPT main
+    "FSN" : "0xd0352a019e9ab9d757776f532377aaebd36fd541",  # FSN main
+    "REQ" : "0x8f8221afbb33998d8584a2b05749ba73c37a938a",  # REQ main
+    "TNT" : "0x08f5a9235b08173b7569f83645d2c7fb55e8ccd8",  # TNT main
+
+    "LILY": "0xcde4b9531eea02e1a5a4cd596790661c1c181ca7",  # LILY main
+    "EUTD": "0xd8e97cc29552cee2bca5bd7f9e979c48ae6076d6",  # EUTD main
+
+    "KTV": "0xf6da9A11C213c6039b8d56f3a3eba8A692D6afdc",  # KTV main
+    "AJC": "0x38362bbc51086eb738123602059983201ef55631",  # AJC main
+
+}
+ERC20_CONTRACTS_LIST = ERC20_CONTRACTS_MAP.values()
+
+##########################################
+
+#USDP
+USDP_IP_ADDR = '39.106.83.97'
+USDP_RPC_PORT = 1317
+
+
+#HTDF
+HTDF_IP_ADDR = '47.103.72.135'
+HTDF_RPC_PORT = 1317
+
+HRC20_CONTRACT_MAP = {
+    #例如: "contract_addr" : { "decimal": 精度, "symbol":"AJC"  }
+    "htdf1vek5hjdqhcgj8ljqewgcex8y9eg9agwa3f69ez":{"decimal":18, "symbol":"HFH"},
+    "htdf1j8apljndmma2vjxvqtz4rd6dk3fe0yuyyakhun":{"decimal":18, "symbol":"BWC"},
+
+    #2020-06-08 新增
+    "htdf1war5w36s3ym6qv2vnfd7k803wu3lkuwksh8md8":{ "decimal": 18, "symbol":"HET"  },
+    "htdf14mc59zt5r2v0u40vdjec64323ypp08lslqc9uv":{ "decimal": 18, "symbol":"USDP"  },
+    "htdf1rcl9x2akjuy3tyqyxwk7sataldzmxy6jm06hq4":{ "decimal": 18, "symbol":"BEI"  },
+    "htdf1lsj9xuxyczru272je6wjd9aeg8vkg23qae5ug2":{ "decimal": 18, "symbol":"AQC"  },
+    "htdf1f23nuwptf7rqns3f73lu9xpseql0je8twn2zuk":{ "decimal": 18, "symbol":"SJC"  },
+
+    #2020-07-17 新增
+    "htdf1w43aazq9sjlcrwj4y7nnsck7na5zljzu4x5nrq" : { "decimal": 18, "symbol":"BTU"  },
+    "htdf18y0ks24fat9unc4ezf83zvqu470dtrsvldyev7" : { "decimal": 18, "symbol":"SVU"  },
+    "htdf15xsj43lssr26kw0pxn9qrl3yau2n5wu4dhk5rp" : { "decimal": 18, "symbol":"BKL"  },
+
+    #2020-08-03 新增
+    "htdf1u9cwqeq4tcnar8y8xk8udn5mll3dt5t8xlxqt0" : { "decimal": 18, "symbol":"JXC"  },
+
+    #2020-08-04 新增
+    "htdf18xq0p7h8rwxykfyrfytylhmrtusmzfwst4s6jx" : { "decimal": 18, "symbol":"AGG"  },
+    "htdf16kz9ts938wramc4gtn8fz8stnha6nm64w5tra8" : { "decimal": 18, "symbol":"HHG"  },
+
+    # 2020-08-20 新增
+	"htdf1le2awsf84s37ar4fx9wc8ruwsljgrrzz8agzsn" : {"decimal":18, "symbol":"HTD"},
+	"htdf1ehhd5qugg7y02rdnvlxcy92qg02m6dqhttauvh" : {"decimal":18, "symbol":"KML"},
+	"htdf1ldkdf84lr0qeydcp6la90hvcww5hx0z4u5zvja" : {"decimal":18, "symbol":"MSL"},
+	"htdf10yxugqes29eahqk227zv0uayt0qedvzaxl24jy" : {"decimal":18, "symbol":"DFQ"},
+	"htdf1kg362pxynmkvvr5cutwf5ksp5qh7lhpzrxesp9" : {"decimal":18, "symbol":"TTB"},
+
+}
+
+#HET  
+HET_IP_ADDR = '47.106.8.67'
+HET_RPC_PORT = 1317
+
+#XRP mainnet
+# https://s1.ripple.com:51234
+XRP_RIPPLED_PUBLIC_API_URL = 's1.ripple.com'
+XRP_RIPPLED_PUBLIC_API_PORT = 51234
+
+
+
+######### EOS ##########################
+# EOS   mainnet
+EOS_PUBLIC_API_URL = 'https://api.eosnewyork.io'   #耗时 400 ms
+#备用1: https://open-api.eos.blockdog.com  #国内服务商   blockdog
+#备用2: https://eos.greymass.com:443    #耗时  650ms
+#备用3: https://node2.eosphere.io 或 https://node1.eosphere.io     #耗时1500 ms
+#########################################
+
+
+
+########## XLM ################
+XLM_RPC_HOST = "https://horizon.stellar.org"   #mainnet
+
+############################
+
+
+
+#########  XMR #################
+#XMR_PRIV_VIEW_KEY = '53a60fee1ef4386838cf7d7c5e0b5a252287590fc544a3fda802e92cce3a880a'
+#XMR_MASTER_ADDR = '56Trp8Gc9x5M5mLhxMqUaz5AuQpobGfHScyQKGMMmnZFcSFTj6zJFNDUGyDR5SVadjAmxgBp8qv1u2vZsEs8Vo1T4qqrFaa'
+#XMR_RPC_HTTPS_ENABLE = True
+#XMR_WALLET_RPC_HOST = '192.168.10.160'
+#XMR_WALLET_RPC_PORT =  38089
+###################################
+
+
+
+HTTP_TIMEOUT_SECS = 20
+
+#####################################################################################################
+# Ethereum###########################################################################################
+#####################################################################################################
+BLOCK_TAG_EARLIEST = 'earliest'
+BLOCK_TAG_LATEST   = 'latest'
+BLOCK_TAG_PENDING  = 'pending'
+BLOCK_TAGS = (
+    BLOCK_TAG_EARLIEST,
+    BLOCK_TAG_LATEST,
+    BLOCK_TAG_PENDING,
+)
+ETH_BLK_BUFFER_SIZE = 30
+#####################################################################################################
+# OMNI ##############################################################################################
+#####################################################################################################
+OMNI_PROPERTY_ID = 31 # Test: 2, Tether: 31
+OMNI_TRANSACTION_FEE = '0.00006'# 0.00000257
+OMNI_TRANSACTION_RECIPIENT_GAIN = 0.00000546
+
+if __name__ == "__main__":
+    pass

@@ -1,0 +1,22 @@
+django==3.0.5
+django-import-export
+django-simpleui
+Pillow
+docutils
+django-mdeditor
+markdown
+Pygments
+pika
+
+
+ed25519==1.5
+
+requests
+coincurve
+
+redis
+ecdsa
+pysha3  #而不是sha3
+mnemonic
+
+
