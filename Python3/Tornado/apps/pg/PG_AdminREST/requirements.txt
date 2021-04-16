@@ -5,7 +5,7 @@ requests==2.23.0
 django-redis==4.12.1
 redis==3.5.3
 mnemonic==0.19
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 django-cors-headers==3.4.0
 drfdocs==0.0.11
