@@ -12,7 +12,7 @@ drfdocs==0.0.11
 mysqlclient==1.4.6
 django-filter==2.3.0
 ed25519==1.5
-cryptography==3.2
+cryptography==3.3.2
 coreapi==2.3.3
 
 
