@@ -1,6 +1,6 @@
 const HDWalletProvider = require('truffle-hdwallet-provider');
 const mnemonic = "mother citizen apart father resemble coral section pony floor brother fuel lottery";
-const provider = new HDWalletProvider(mnemonic, "https://rinkeby.infura.io/v3/db5a95cd5605439b8983f00bc6433878");
+const provider = new HDWalletProvider(mnemonic, "https://rinkeby.infura.io/v3/8a264f274fd94de48eb290d35db030ab");
 const Web3 = require('web3');
 const web3 = new Web3(provider);
 const {interface, bytecode} = require('./compile');

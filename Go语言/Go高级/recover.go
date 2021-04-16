@@ -95,11 +95,11 @@ package main
 // 	fmt.Println("d")
 // }
 
-func main() {
-	// 无法捕获异常
-	defer recover()
-	panic(1)
-}
+// func main() {
+// 	// 无法捕获异常
+// 	defer recover()
+// 	panic(1)
+// }
 
 func myfunc() {
 	recover()
