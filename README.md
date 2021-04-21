@@ -12,6 +12,8 @@
 - Bitcoin 核心源码
   - 源码: https://github.com/youngqqcn/bitcoin.git
   - 参考: 
+- Menero核心源码
+- 翻译https://github.com/monerobook/monerobook
 - Solidity智能合约开发高级(HTDF2.0)
 - 研究预言机技术(HTDF2.0), 包括chainlink,oraclize. (可选)结合DeFi
 - 研究最新版Subtrate和CosmosSDK在构建区块链和跨链方面技术特点与差异(包括,irishub)
@@ -22,7 +24,6 @@
 - 微服务架构和高性能高并发技术(gin, grpc, beego, go-zero, tars, 仍选一种即可)
 - 熟悉IPFS核心技术, 研读核心源码
 - 了解Filecoin核心技术, (可选)研读核心源码
-- (可选,2022)Menero核心源码
 - (可选,2022)零知识证明技术
 
 其他:
