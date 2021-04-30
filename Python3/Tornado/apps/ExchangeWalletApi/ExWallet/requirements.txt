@@ -18,7 +18,7 @@ PyMySQL==0.9.3
 requests==2.22.0
 toolz==0.10.0
 tornado==6.0.3
-urllib3==1.25.6
+urllib3==1.25.8
 libeospy==2.0.1
 stellar-sdk==2.1.0
 monero==0.7.1
