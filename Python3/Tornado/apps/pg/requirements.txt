@@ -73,7 +73,7 @@ tablib==2.0.0
 toolz==0.10.0
 tornado==6.0.4
 typing-extensions==3.7.4.2
-urllib3==1.25.9
+urllib3==1.26.5
 varint==1.0.2
 wcwidth==0.1.9
 web3==5.9.0
