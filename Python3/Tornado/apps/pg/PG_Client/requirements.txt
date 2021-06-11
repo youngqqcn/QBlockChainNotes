@@ -52,5 +52,5 @@ uritemplate==3.0.1
 urllib3==1.25.9
 varint==1.0.2
 web3==5.9.0
-websockets==8.1
+websockets==9.1
 zipp==3.1.0
