@@ -11,7 +11,7 @@ contextlib2==0.6.0.post1
 cytoolz==0.10.1
 defusedxml==0.6.0
 diff-match-patch==20181111
-Django==3.0.14
+Django==3.1.13
 django-import-export==2.1.0
 django-mdeditor==0.1.18
 django-simpleui==4.0.2
