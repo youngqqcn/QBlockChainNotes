@@ -38,7 +38,7 @@ netaddr==0.7.20
 parsimonious==0.8.1
 protobuf==3.12.2
 pycryptodome==3.9.8
-PyJWT==1.7.1
+PyJWT==2.4.0
 pyrsistent==0.16.0
 pytz==2020.1
 redis==3.5.3
