@@ -20,7 +20,7 @@ ecdsa==0.15
 ed25519==1.5
 et-xmlfile==1.0.1
 eth-abi==2.1.1
-eth-account==0.5.2
+eth-account==0.5.9
 eth-bloom==1.0.3
 eth-hash==0.2.0
 eth-keyfile==0.5.1
