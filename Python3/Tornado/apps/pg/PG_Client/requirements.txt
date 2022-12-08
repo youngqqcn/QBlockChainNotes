@@ -2,7 +2,7 @@ asgiref==3.2.9
 attrs==19.3.0
 base58==2.0.1
 bitarray==1.2.2
-certifi==2020.4.5.2
+certifi==2022.12.7
 chardet==3.0.4
 coreapi==2.3.3
 coreschema==0.0.4
