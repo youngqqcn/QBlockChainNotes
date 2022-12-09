@@ -2,7 +2,7 @@
   "name": "SendMoney",
   "version": "1.0.0",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "ganache-cli": "^6.1.6",
     "mocha": "^5.2.0",
     "solc": "^0.4.25",
