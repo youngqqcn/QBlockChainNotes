@@ -8,7 +8,7 @@ coincurve==13.0.0
 cytoolz==0.10.1
 ecdsa==0.15
 eth-abi==2.1.1
-eth-account==0.4.0
+eth-account==0.5.9
 eth-hash==0.2.0
 eth-keyfile==0.5.1
 eth-keys==0.2.4
