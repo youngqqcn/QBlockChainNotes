@@ -11,25 +11,28 @@
 - [Fansland音乐节NFT, BSC链, Solidity](https://github.com/fansland-io/fansland-contract/)
 
 # 2023
-- [比特币铭文/BRC20](https://github.com/youngqqcn/ord-brc20)
-- [【比特币铭文Launchpad项目源码】](https://github.com/youngqqcn/ordinals-launchpad)
+- [比特币铭文/BRC20, Golang](https://github.com/youngqqcn/ord-brc20)
+- [【比特币铭文Launchpad项目源码】, Golang](https://github.com/youngqqcn/ordinals-launchpad)
   - [比特币充值业务逻辑](https://github.com/firstsatoshi/website/blob/master/tasks/deposit/btc_deposit.go)
   - [铭文铭刻业务逻辑](https://github.com/firstsatoshi/website/blob/master/tasks/inscribe/btc_inscribe.go)
-- [【币安合约批量下单工具源码】, 基于PyQT界面库](https://github.com/youngqqcn/binance-future-batch-tool/tree/master)
-- [【USDT/USDC支付网关源码】，支持8条主流链上的USDT/USDC支付/提币/归集](https://github.com/youngqqcn/upgw)
+- [【币安合约批量下单工具源码】, 基于PyQT, Python](https://github.com/youngqqcn/binance-future-batch-tool/tree/master)
+- [【USDT/USDC支付网关源码】，支持8条主流链上的USDT/USDC支付/提币/归集, Golang](https://github.com/youngqqcn/upgw)
   - 因涉及敏感数据，暂不开源, 如需商务合作，请联系我 youngqqcn@gmail.com
 
 # 2022
 
-- [深入分析一个黑客攻击事件](https://github.com/youngqqcn/bnbchain-20221007-analyze/)
-- [heco链性能压测](https://github.com/youngqqcn/heco-tps-test)
-- [深入分析optimism攻击事件](https://github.com/youngqqcn/optimism-attack-analysis)
-- [矿机掉线，微信推送通知](https://github.com/youngqqcn/mywxpusher)
+- [深入分析一个黑客攻击事件, Solidity + JS + Golang](https://github.com/youngqqcn/bnbchain-20221007-analyze/)
+- [heco链性能压测, Golang](https://github.com/youngqqcn/heco-tps-test)
+- [深入分析optimism攻击事件, Solidity + JS](https://github.com/youngqqcn/optimism-attack-analysis)
+- [鱼池(f2pool)矿机掉线，微信推送通知, 基于wxpusher, Python](https://github.com/youngqqcn/mywxpusher)
+- [深入分析NFT, Solidity + JS](https://github.com/youngqqcn/mynft)
+- [鱼池(f2pool)矿机状态监听语音播报工具, 基于MFC, C++](https://github.com/youngqqcn/xgp)
+  
 # 2021
-- [做市机器人，价格跟随BTC](https://github.com/youngqqcn/FollowBTC/)
+- [做市机器人，价格跟随BTC, Python](https://github.com/youngqqcn/FollowBTC/)
 
 # 2018-2020
-- [交易所钱包](https://github.com/youngqqcn/ExchangeWallet)
+- [交易所钱包, C++, Python](https://github.com/youngqqcn/ExchangeWallet)
 
 # 2018-2021
 
