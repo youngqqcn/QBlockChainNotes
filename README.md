@@ -22,7 +22,9 @@
 # 2022
 
 - [深入分析一个黑客攻击事件](https://github.com/youngqqcn/bnbchain-20221007-analyze/)
-
+- [heco链性能压测](https://github.com/youngqqcn/heco-tps-test)
+- [深入分析optimism攻击事件](https://github.com/youngqqcn/optimism-attack-analysis)
+- [矿机掉线，微信推送通知](https://github.com/youngqqcn/mywxpusher)
 # 2021
 - [做市机器人，价格跟随BTC](https://github.com/youngqqcn/FollowBTC/)
 
