@@ -19,6 +19,10 @@
 - [【USDT/USDC支付网关源码】，支持8条主流链上的USDT/USDC支付/提币/归集](https://github.com/youngqqcn/upgw)
   - 因涉及敏感数据，暂不开源, 如需商务合作，请联系我 youngqqcn@gmail.com
 
+# 2022
+
+- [深入分析一个黑客攻击事件](https://github.com/youngqqcn/bnbchain-20221007-analyze/)
+
 # 2021
 - [做市机器人，价格跟随BTC](https://github.com/youngqqcn/FollowBTC/)
 
