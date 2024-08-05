@@ -12,11 +12,11 @@
 
 # 2023
 - [比特币铭文/BRC20](https://github.com/youngqqcn/ord-brc20)
-- [比特币铭文Launchpad项目](https://github.com/youngqqcn/ordinals-launchpad)
+- [【比特币铭文Launchpad项目源码】](https://github.com/youngqqcn/ordinals-launchpad)
   - [比特币充值业务逻辑](https://github.com/firstsatoshi/website/blob/master/tasks/deposit/btc_deposit.go)
   - [铭文铭刻业务逻辑](https://github.com/firstsatoshi/website/blob/master/tasks/inscribe/btc_inscribe.go)
-- [币安合约批量下单工具, 基于PyQT界面库](https://github.com/youngqqcn/binance-future-batch-tool/tree/master)
-- [【USDT/USDC支付网关】，支持8条主流链上的USDT/USDC支付/提币/归集](https://github.com/youngqqcn/upgw)
+- [【币安合约批量下单工具源码】, 基于PyQT界面库](https://github.com/youngqqcn/binance-future-batch-tool/tree/master)
+- [【USDT/USDC支付网关源码】，支持8条主流链上的USDT/USDC支付/提币/归集](https://github.com/youngqqcn/upgw)
   - 因涉及敏感数据，暂不开源, 如需商务合作，请联系我 youngqqcn@gmail.com
 
 # 2021
