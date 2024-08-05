@@ -8,14 +8,7 @@
     - [Solana交易和指令](https://youngqqcn.github.io/2024/07/09/technology/blockchain/solana/2_Solana%E4%BA%A4%E6%98%93%E5%92%8C%E6%8C%87%E4%BB%A4/)
     - [Solana程序](https://youngqqcn.github.io/2024/07/09/technology/blockchain/solana/4_Solana%E7%A8%8B%E5%BA%8F/)
 
-- 高性能公链研究：
-  - StarkNet
-  - Aptos
-  - Sui
-- Rust实战
-- Move语言实战（基于Aptos或Sui）
-- Solidity+JavaScript+React
-
+- [Fansland音乐节NFT, BSC链, Solidity](https://github.com/fansland-io/fansland-contract/)
 
 # 2023
 - [比特币铭文/BRC20](https://github.com/youngqqcn/ord-brc20)
