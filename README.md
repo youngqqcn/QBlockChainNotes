@@ -17,6 +17,18 @@
 - Solidity+JavaScript+React
 
 
+# 2023
+- [比特币铭文/BRC20](https://github.com/youngqqcn/ord-brc20)
+- [比特币铭文Launchpad项目代码开源](https://github.com/firstsatoshi/website)
+  - [比特币充值业务逻辑](https://github.com/firstsatoshi/website/blob/master/tasks/deposit/btc_deposit.go)
+  - [铭文铭刻业务逻辑](https://github.com/firstsatoshi/website/blob/master/tasks/inscribe/btc_inscribe.go)
+- [币安合约批量下单工具, 基于PyQT界面库](https://github.com/youngqqcn/binance-future-batch-tool/tree/master)
+
+# 2021
+- [做市机器人，价格跟随BTC](https://github.com/youngqqcn/FollowBTC/)
+
+# 2018-2020
+- [交易所钱包](https://github.com/youngqqcn/ExchangeWallet)
 
 # 2018-2021
 
