@@ -20,7 +20,7 @@
   - 因涉及敏感数据，暂不开源, 如需商务合作，请联系我 youngqqcn@gmail.com
 
 # 2022 项目&学习笔记
-
+- [奇异链-开源联盟链](https://github.com/qiyichain/peculiar)
 - [深入分析一个黑客攻击事件, Solidity + JS + Golang](https://github.com/youngqqcn/bnbchain-20221007-analyze/)
 - [heco链性能压测, Golang](https://github.com/youngqqcn/heco-tps-test)
 - [深入分析optimism攻击事件, Solidity + JS](https://github.com/youngqqcn/optimism-attack-analysis)
