@@ -1,6 +1,6 @@
 # 2024 项目&学习笔记
 
-- Solana
+- Solana合约开发
   - [Solana程序开发教程](https://github.com/youngqqcn/solana-course-source)
   - [Solana学习相关笔记](https://youngqqcn.github.io/tags/Solana/page/2/)
     - [Solana开发学习资源](https://youngqqcn.github.io/2024/07/08/technology/blockchain/solana/0_Solana%E5%BC%80%E5%8F%91%E8%B5%84%E6%BA%90/)
@@ -10,7 +10,7 @@
 
 - [Fansland音乐节NFT, BSC链, Solidity](https://github.com/fansland-io/fansland-contract/)
 
-# 2023 项目&学习笔记
+# 2023 项目开发&学习笔记
 - [比特币铭文/BRC20, Golang](https://github.com/youngqqcn/ord-brc20)
 - [【比特币铭文Launchpad项目源码】, Golang](https://github.com/youngqqcn/ordinals-launchpad)
   - [比特币充值业务逻辑](https://github.com/firstsatoshi/website/blob/master/tasks/deposit/btc_deposit.go)
@@ -19,8 +19,14 @@
 - [【USDT/USDC支付网关源码】，支持8条主流链上的USDT/USDC支付/提币/归集, Golang](https://github.com/youngqqcn/upgw)
   - 因涉及敏感数据，暂不开源, 如需商务合作，请联系我 youngqqcn@gmail.com
 
-# 2022 项目&学习笔记
-- [奇异链-开源联盟链](https://github.com/qiyichain/peculiar)
+# 2022 项目开发&学习笔记
+- [奇异链-开放联盟链](https://github.com/qiyichain)
+  - [奇异链-底层链源码](https://github.com/qiyichain/peculiar)   
+  - [奇异链-区块浏览器](https://github.com/qiyichain/blockscout)
+  - [奇异链-系统合约](https://github.com/qiyichain/peculiar-contracts)
+  - [奇异链-QNS域名合约](https://github.com/qiyichain/qns-contracts)
+  - [奇异链-NFT合约](https://github.com/qiyichain/standard-contracts)
+  - [奇异链-Java-NFT-SDK](https://github.com/qiyichain/qiyichain-java-sdk)
 - [深入分析一个黑客攻击事件, Solidity + JS + Golang](https://github.com/youngqqcn/bnbchain-20221007-analyze/)
 - [heco链性能压测, Golang](https://github.com/youngqqcn/heco-tps-test)
 - [深入分析optimism攻击事件, Solidity + JS](https://github.com/youngqqcn/optimism-attack-analysis)
@@ -28,7 +34,7 @@
 - [深入分析NFT, Solidity + JS](https://github.com/youngqqcn/mynft)
 - [鱼池(f2pool)矿机状态监听语音播报工具, 基于MFC, C++](https://github.com/youngqqcn/xgp)
   
-# 2018-2021 项目&学习笔记
+# 2018-2021 项目开发&学习笔记
 - [做市机器人，价格跟随BTC, Python](https://github.com/youngqqcn/FollowBTC/)
 - [链上赌博合约源码](https://github.com/youngqqcn/dicegame)
   - [链上赌博合约源码](https://github.com/youngqqcn/dicegame-1)
