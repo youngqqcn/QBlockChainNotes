@@ -41,6 +41,8 @@
 - [链上赌博自动下注机器人, Python + Soldity](https://github.com/youngqqcn/htdfdice-robot)
 - [交易所钱包, C++, Python](https://github.com/youngqqcn/ExchangeWallet)
 - [htdf公链开发文档](https://github.com/youngqqcn/htdfdocs)
+- [Tendermint/Cosmos-SDK学习笔记](https://github.com/youngqqcn/BlockchainNotesV2)
+-   [Tendermint源码分析](https://github.com/wupeaking/tendermint_code_analysis/tree/master)
 
 # 2018-2021 其他学习笔记
 
