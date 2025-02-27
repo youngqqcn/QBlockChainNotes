@@ -1,5 +1,45 @@
+# 2025 项目&学习笔记
+
+
+- AI VTuber直播(暂不开源): https://github.com/youngqqcn/ai-vtuber-system
+  - 直播: OBS, streamlabs
+  - 支持的平台:  Twitch, Youtube
+  - 虚拟主播： VTube Studio
+  - AI模型：Deepseek
+  - 语音合成： Evelentlabs
+  - 服务器: 境外Windows(需要GPU)
+
+
+- Meme操盘做市全家桶工具(暂不开源): https://github.com/youngqqcn/meme_maker_tools
+
+    |序号 | 工具  | 当前进度 | 开发语言 |
+    |--|---|--------| -- |
+    |01|批量生成地址工具|100%| Python |
+    |02|交易所批量提币工具(Gate.io) | 100% | TypeScript |
+    |03|创建Token工具 | 100% | TypeScript |
+    |04|Raydium建池子+捆绑买入| 100%| TypeScript |
+    |05|Token批量转账工具| 100% | TypeScript|
+    |06|SOL批量转账工具 |100%| TypeScript|
+    |07|OpenBook Market创建工具|100%| TypeScript|
+    |08|Raydium批量交易(拉升) |  100% | TypeScript|
+    |09|Raydium批量交易(下跌) |  100% | TypeScript|
+    |10|Raydium批量交易(刷量) |  100% | TypeScript|
+    |11|批量关闭账户回收租金| 100%| TypeScript|
+    |12|销毁token| 100%| TypeScript|
+    |13|Token持仓分析 | 100% | TypeScript|
+    |14|Raydium新池子狙击工具 | 100% | TypeScript|
+    |15|换手(刷数据)| 100% | TypeScript|
+
+
+
+
 # 2024 项目&学习笔记
 
+- TG自动聊天bot(暂不开源)：https://github.com/youngqqcn/mau_chat_tg_bot
+- Telegram Bot(暂不开源): https://github.com/youngqqcn/humancoin_chat
+- 内盘池子迁移到Raydium工具(暂不开源)：https://github.com/youngqqcn/migrate_pool_to_raydium
+- 内盘交易机器人(暂不开源)：https://github.com/youngqqcn/fanslandai_bot
+- FanslandAI(暂不开源): https://github.com/youngqqcn/fansland_ai
 - Solana合约开发
   - [Solana程序开发教程](https://github.com/youngqqcn/solana-course-source)
   - [Solana学习相关笔记](https://youngqqcn.github.io/tags/Solana/page/2/)
@@ -21,7 +61,7 @@
 
 # 2022 项目开发&学习笔记
 - [奇异链-开放联盟链](https://github.com/qiyichain)
-  - [奇异链-底层链源码](https://github.com/qiyichain/peculiar)   
+  - [奇异链-底层链源码](https://github.com/qiyichain/peculiar)
   - [奇异链-区块浏览器](https://github.com/qiyichain/blockscout)
   - [奇异链-系统合约](https://github.com/qiyichain/peculiar-contracts)
   - [奇异链-QNS域名合约](https://github.com/qiyichain/qns-contracts)
@@ -33,7 +73,7 @@
 - [鱼池(f2pool)矿机掉线，微信推送通知, 基于wxpusher, Python](https://github.com/youngqqcn/mywxpusher)
 - [深入分析NFT, Solidity + JS](https://github.com/youngqqcn/mynft)
 - [鱼池(f2pool)矿机状态监听语音播报工具, 基于MFC, C++](https://github.com/youngqqcn/xgp)
-  
+
 # 2018-2021 项目开发&学习笔记
 - [做市机器人，价格跟随BTC, Python](https://github.com/youngqqcn/FollowBTC/)
 - [链上赌博合约源码](https://github.com/youngqqcn/dicegame)
