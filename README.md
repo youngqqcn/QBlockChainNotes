@@ -47,6 +47,7 @@
     - [Solana账户模型](https://youngqqcn.github.io/2024/07/09/technology/blockchain/solana/1_Solana%E8%B4%A6%E6%88%B7%E6%A8%A1%E5%9E%8B/)
     - [Solana交易和指令](https://youngqqcn.github.io/2024/07/09/technology/blockchain/solana/2_Solana%E4%BA%A4%E6%98%93%E5%92%8C%E6%8C%87%E4%BB%A4/)
     - [Solana程序](https://youngqqcn.github.io/2024/07/09/technology/blockchain/solana/4_Solana%E7%A8%8B%E5%BA%8F/)
+- LLM大模型流式聊天： https://github.com/youngqqcn/aichat
 
 - [Fansland音乐节NFT, BSC链, Solidity](https://github.com/fansland-io/fansland-contract/)
 
