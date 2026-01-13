@@ -13,7 +13,7 @@
   - 服务器: 境外Windows(需要GPU)
 
 
-- 🔥Meme操盘做市全家桶工具(暂不开源): https://github.com/youngqqcn/meme_maker_tools
+- 🔥Meme操盘做市全家桶工具(已开源): https://github.com/youngqqcn/meme_maker_tools
 
     |序号 | 工具  | 当前进度 | 开发语言 |
     |--|---|--------| -- |
@@ -32,6 +32,8 @@
     |13|Token持仓分析 | 100% | TypeScript|
     |14|Raydium新池子狙击工具 | 100% | TypeScript|
     |15|换手(刷数据)| 100% | TypeScript|
+    |16|[回收资金](./src/spl_token_transfer_close/) | 100% | TypeScript|
+
 
 
 # 2024 项目&学习笔记
